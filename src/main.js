@@ -1,5 +1,6 @@
 import './style.css';
 import { initStory } from './storytelling/scrollStory.js';
+import {initCharts} from './charts/charts.js';
 
 async function start() {
 
@@ -10,6 +11,7 @@ async function start() {
         await response.text();
 
     initStory(csv);
+    initCharts();
 }
 
 start();

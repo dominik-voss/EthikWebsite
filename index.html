@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Defense & Ethik</title>
     <link rel="stylesheet" href="/src/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
@@ -183,6 +184,56 @@
 
     </section>
 
+
+    <!-- Charts Section -->
+    <section id="charts-section">
+
+        <div class="charts-container">
+
+            <h2 class="charts-headline">Meinungen der Befragten</h2>
+
+            <p class="charts-intro">
+                Neben der Sektorentscheidung wurden die Teilnehmenden zu weiteren
+                Einstellungen rund um Ethik, Gehalt und Karriere befragt.
+            </p>
+
+            <div class="charts-grid">
+
+                <div class="chart-card">
+                    <h3>Ist Ethik ein wichtiges Kriterium bei der Arbeitgeberwahl?</h3>
+                    <div class="chart-wrap">
+                        <canvas id="chart-ethik"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Ist das Gehalt das ausschlaggebende Kriterium?</h3>
+                    <div class="chart-wrap">
+                        <canvas id="chart-gehalt"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Würde man für 20 % mehr Gehalt den Sektor wechseln?</h3>
+                    <div class="chart-wrap">
+                        <canvas id="chart-wechseln"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card chart-card--wide">
+                    <h3>Sektorpräferenz nach Studiengang (in %)</h3>
+                    <div class="chart-wrap">
+                        <canvas id="chart-studiengang"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
     <script type="module" src="/src/main.js"></script>
 
     <script>
@@ -190,7 +241,6 @@
             const toggle = document.getElementById('theme-toggle');
             const html   = document.documentElement;
 
-            // System-Präferenz als Standard
             if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 html.setAttribute('data-theme', 'dark');
                 toggle.textContent = '☀️';

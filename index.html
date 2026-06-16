@@ -58,15 +58,32 @@
             </div>
 
 
-            <div
-                class="sector university phase-hidden"
-                id="university-box">
-
-                <h2>Hochschulen</h2>
+            <!-- Hochschulkasten + Mehrheitsbox nebeneinander -->
+            <div class="university-row">
 
                 <div
-                    id="student-grid"
-                    class="student-grid">
+                    class="sector university phase-hidden"
+                    id="university-box">
+
+                    <h2>Hochschulen</h2>
+
+                    <div
+                        id="student-grid"
+                        class="student-grid">
+                    </div>
+
+                </div>
+
+                <!-- Mehrheitstext -->
+                <div
+                    class="majority-box phase-hidden"
+                    id="majority-box">
+
+                    <p>
+                        Die Mehrheit der Studierenden entschied sich für den
+                        <strong id="majority-sector-label"></strong>.
+                    </p>
+
                 </div>
 
             </div>
@@ -82,12 +99,24 @@
 
                     <div class="sector-header">
                         <h2>Militärsektor</h2>
+                        <button
+                            class="info-btn"
+                            id="military-info-btn"
+                            aria-label="Info zum Militärsektor">
+                            ℹ
+                        </button>
                         <select id="military-filter" class="studiengang-filter">
                             <option value="alle">Alle Studiengänge</option>
                             <option value="Informatik">Informatik</option>
                             <option value="BWL">BWL</option>
                             <option value="Maschinenbau">Maschinenbau</option>
                         </select>
+                    </div>
+
+                    <div
+                        class="info-tooltip"
+                        id="military-info-tooltip">
+                        Unternehmen im Militärsektor entwickeln Technologien für Streitkräfte – darunter Waffensysteme, Kommunikation und Cybersicherheit. Sie arbeiten eng mit staatlichen Institutionen zusammen und unterliegen strengen Exportkontrollen. Karrieren hier bieten oft überdurchschnittliche Gehälter, sind jedoch ethisch vieldiskutiert.
                     </div>
 
                     <div class="sector-grid"></div>
@@ -106,12 +135,24 @@
 
                     <div class="sector-header">
                         <h2>Ziviler Sektor</h2>
+                        <button
+                            class="info-btn"
+                            id="civil-info-btn"
+                            aria-label="Info zum Zivilen Sektor">
+                            ℹ
+                        </button>
                         <select id="civil-filter" class="studiengang-filter">
                             <option value="alle">Alle Studiengänge</option>
                             <option value="Informatik">Informatik</option>
                             <option value="BWL">BWL</option>
                             <option value="Maschinenbau">Maschinenbau</option>
                         </select>
+                    </div>
+
+                    <div
+                        class="info-tooltip"
+                        id="civil-info-tooltip">
+                        Der zivile Sektor umfasst alle nicht-militärischen Branchen – von Technologie und Gesundheit bis hin zu Energie und Bildung. Unternehmen hier orientieren sich an gesellschaftlichem Nutzen und marktwirtschaftlichen Zielen. Die Gehälter sind meist etwas niedriger, dafür gelten die Tätigkeiten als ethisch weniger konfliktbehaftet.
                     </div>
 
                     <div class="sector-grid"></div>
@@ -124,6 +165,7 @@
                 </div>
 
             </div>
+
             <div id="student-overlay"></div>
 
         </div>

@@ -6,6 +6,13 @@ let avatarNode    = null;
 let militaryFilter = 'alle';
 let civilFilter    = 'alle';
 
+const TOOLTIP_OFFSET    = 140;
+let militaryTooltipOpen = false;
+let civilTooltipOpen    = false;
+
+// Aktueller Scroll-Fortschritt (Modulvariable)
+let currentProgress = 0;
+
 export function initStory(csv) {
 
     allStudentsData = parseCSV(csv);
@@ -20,6 +27,8 @@ export function initStory(csv) {
 
     fillAvatarFacts(studentsData);
 
+    fillMajorityBox(studentsData);
+
     requestAnimationFrame(() => {
         calculateTargets();
         positionAllAtStart();
@@ -28,6 +37,8 @@ export function initStory(csv) {
     setupScrollStory();
 
     setupFilters();
+
+    setupInfoButtons();
 
     window.addEventListener('resize', () => {
         calculateTargets();
@@ -62,6 +73,115 @@ function parseCSV(csv) {
 
 
 /* -------------------------
+   Info-Buttons
+------------------------- */
+
+function setupInfoButtons() {
+
+    const milBtn     = document.getElementById('military-info-btn');
+    const milTooltip = document.getElementById('military-info-tooltip');
+    const civBtn     = document.getElementById('civil-info-btn');
+    const civTooltip = document.getElementById('civil-info-tooltip');
+
+    if (!milBtn || !milTooltip || !civBtn || !civTooltip) return;
+
+    milBtn.addEventListener('click', (e) => {
+
+        e.stopPropagation();
+
+        const opening = !milTooltip.classList.contains('visible');
+
+        milTooltip.classList.remove('visible');
+        civTooltip.classList.remove('visible');
+        milBtn.classList.remove('active');
+        civBtn.classList.remove('active');
+        militaryTooltipOpen = false;
+        civilTooltipOpen    = false;
+
+        if (opening) {
+            milTooltip.classList.add('visible');
+            milBtn.classList.add('active');
+            militaryTooltipOpen = true;
+        }
+
+        refreshIconPositions();
+    });
+
+    civBtn.addEventListener('click', (e) => {
+
+        e.stopPropagation();
+
+        const opening = !civTooltip.classList.contains('visible');
+
+        milTooltip.classList.remove('visible');
+        civTooltip.classList.remove('visible');
+        milBtn.classList.remove('active');
+        civBtn.classList.remove('active');
+        militaryTooltipOpen = false;
+        civilTooltipOpen    = false;
+
+        if (opening) {
+            civTooltip.classList.add('visible');
+            civBtn.classList.add('active');
+            civilTooltipOpen = true;
+        }
+
+        refreshIconPositions();
+    });
+
+    document.addEventListener('click', () => {
+
+        const anyOpen = militaryTooltipOpen || civilTooltipOpen;
+
+        milTooltip.classList.remove('visible');
+        civTooltip.classList.remove('visible');
+        milBtn.classList.remove('active');
+        civBtn.classList.remove('active');
+        militaryTooltipOpen = false;
+        civilTooltipOpen    = false;
+
+        if (anyOpen) refreshIconPositions();
+    });
+}
+
+
+/* Icons nach Tooltip-Toggle neu positionieren */
+
+function refreshIconPositions() {
+
+    // Icons bereits eingeordnet?
+    const iconsSettled = currentProgress >= P_ICONS_END;
+
+    calculateTargets();
+
+    if (iconsSettled) {
+
+        // Direkt mit Transition auf neue endX/endY setzen
+        studentNodes.forEach(icon => {
+
+            const endX = Number(icon.dataset.endX);
+            const endY = Number(icon.dataset.endY);
+
+            icon.style.transition = 'transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)';
+            icon.style.transform  = `translate(${endX}px, ${endY}px)`;
+        });
+
+        // Transition danach entfernen damit Scroll-Loop wieder übernimmt
+        setTimeout(() => {
+            studentNodes.forEach(icon => {
+                icon.style.transition = '';
+            });
+        }, 420);
+
+    } else {
+
+        // Icons noch in Bewegung: normales Update
+        updateStudentPositions(currentProgress);
+    }
+}
+
+
+/* -------------------------
    Dropdown-Filter
 ------------------------- */
 
@@ -90,18 +210,15 @@ function applyFilter() {
 
     studentNodes.forEach(icon => {
 
-        const sg     = icon.dataset.studiengang;
-        const target = icon.dataset.target;
-
+        const sg          = icon.dataset.studiengang;
+        const target      = icon.dataset.target;
         const filterValue = target === 'militaer' ? militaryFilter : civilFilter;
-
-        const match = filterValue === 'alle' || sg === filterValue;
+        const match       = filterValue === 'alle' || sg === filterValue;
 
         icon.dataset.filtered = match ? 'show' : 'hide';
         icon.classList.toggle('filtered-out', !match);
     });
 
-    // Militärsektor
     const milBase = militaryFilter === 'alle'
         ? students.length
         : students.filter(d => d.studiengang === militaryFilter).length;
@@ -113,7 +230,6 @@ function applyFilter() {
 
     const milPct = milBase > 0 ? Math.round(milCount / milBase * 100) : 0;
 
-    // Zivilsektor
     const civBase = civilFilter === 'alle'
         ? students.length
         : students.filter(d => d.studiengang === civilFilter).length;
@@ -254,6 +370,22 @@ function fillAvatarFacts(data) {
 
 
 /* -------------------------
+   Mehrheitstext befüllen
+------------------------- */
+
+function fillMajorityBox(data) {
+
+    const students = data.filter(d => d.status === 'student');
+    const military = students.filter(d => d.entscheidung === 'militaer').length;
+    const civil    = students.filter(d => d.entscheidung === 'zivil').length;
+
+    const label = military >= civil ? 'Militärsektor' : 'Zivilen Sektor';
+
+    document.getElementById('majority-sector-label').textContent = label;
+}
+
+
+/* -------------------------
    Prozentzahlen (Initial)
 ------------------------- */
 
@@ -279,21 +411,17 @@ function updatePercentages(data) {
 
 function calculateTargets() {
 
-    const overlayRect =
-        document.getElementById('student-overlay').getBoundingClientRect();
-
-    const universityRect =
-        document.getElementById('university-box').getBoundingClientRect();
-
-    const militaryRect =
-        document.getElementById('military-sector').getBoundingClientRect();
-
-    const civilRect =
-        document.getElementById('civil-sector').getBoundingClientRect();
+    const overlayRect    = document.getElementById('student-overlay').getBoundingClientRect();
+    const universityRect = document.getElementById('university-box').getBoundingClientRect();
+    const militaryRect   = document.getElementById('military-sector').getBoundingClientRect();
+    const civilRect      = document.getElementById('civil-sector').getBoundingClientRect();
 
     const ICON_SIZE = 24;
     const GAP       = 4;
     const PADDING   = 15;
+
+    const milOffset = militaryTooltipOpen ? TOOLTIP_OFFSET : 0;
+    const civOffset = civilTooltipOpen    ? TOOLTIP_OFFSET : 0;
 
     const militaryCols = Math.max(
         1,
@@ -334,7 +462,7 @@ function calculateTargets() {
                 (militaryRect.left - overlayRect.left) + PADDING + col * (ICON_SIZE + GAP);
 
             icon.dataset.endY =
-                (militaryRect.top - overlayRect.top) + 70 + row * (ICON_SIZE + GAP);
+                (militaryRect.top - overlayRect.top) + 70 + milOffset + row * (ICON_SIZE + GAP);
 
             militaryCount++;
 
@@ -347,7 +475,7 @@ function calculateTargets() {
                 (civilRect.left - overlayRect.left) + PADDING + col * (ICON_SIZE + GAP);
 
             icon.dataset.endY =
-                (civilRect.top - overlayRect.top) + 80 + row * (ICON_SIZE + GAP);
+                (civilRect.top - overlayRect.top) + 80 + civOffset + row * (ICON_SIZE + GAP);
 
             civilCount++;
         }
@@ -357,15 +485,14 @@ function calculateTargets() {
     const civilRows    = Math.ceil(civilCount    / civilCols);
 
     document.getElementById('military-sector').style.minHeight =
-        `${150 + militaryRows * (ICON_SIZE + GAP)}px`;
+        `${150 + milOffset + militaryRows * (ICON_SIZE + GAP)}px`;
 
     document.getElementById('civil-sector').style.minHeight =
-        `${150 + civilRows * (ICON_SIZE + GAP)}px`;
+        `${150 + civOffset + civilRows * (ICON_SIZE + GAP)}px`;
 
     if (avatarNode) {
 
-        const stageRect =
-            document.getElementById('avatar-stage').getBoundingClientRect();
+        const stageRect = document.getElementById('avatar-stage').getBoundingClientRect();
 
         avatarNode.dataset.introX =
             (stageRect.left - overlayRect.left) + 40;
@@ -414,6 +541,9 @@ const P_ICONS_START   = 0.56;
 const P_ICONS_END     = 0.88;
 const P_PERCENT       = 0.90;
 
+const P_MAJORITY_IN   = 0.50;
+const P_MAJORITY_OUT  = 0.88;
+
 
 function updatePan(progress) {
 
@@ -425,17 +555,13 @@ function updatePan(progress) {
 
     } else if (progress >= P_PAN_END) {
 
-        const universityRect =
-            document.getElementById('university-box').getBoundingClientRect();
+        const universityRect = document.getElementById('university-box').getBoundingClientRect();
+        const sectorsRect    = document.getElementById('sector-row').getBoundingClientRect();
 
-        const sectorsRect =
-            document.getElementById('sector-row').getBoundingClientRect();
-
-        const totalHeight  = sectorsRect.bottom - universityRect.top;
-        const viewportH    = window.innerHeight;
-        const needed       = totalHeight - viewportH + 120;
-
-        const maxShift     = Math.max(0, needed);
+        const totalHeight = sectorsRect.bottom - universityRect.top;
+        const viewportH   = window.innerHeight;
+        const needed      = totalHeight - viewportH + 120;
+        const maxShift    = Math.max(0, needed);
 
         sticky.style.transform = `translateY(-${maxShift}px)`;
 
@@ -443,17 +569,13 @@ function updatePan(progress) {
 
         const t = (progress - P_PAN_START) / (P_PAN_END - P_PAN_START);
 
-        const universityRect =
-            document.getElementById('university-box').getBoundingClientRect();
+        const universityRect = document.getElementById('university-box').getBoundingClientRect();
+        const sectorsRect    = document.getElementById('sector-row').getBoundingClientRect();
 
-        const sectorsRect =
-            document.getElementById('sector-row').getBoundingClientRect();
-
-        const totalHeight  = sectorsRect.bottom - universityRect.top;
-        const viewportH    = window.innerHeight;
-        const needed       = totalHeight - viewportH + 120;
-
-        const maxShift     = Math.max(0, needed);
+        const totalHeight = sectorsRect.bottom - universityRect.top;
+        const viewportH   = window.innerHeight;
+        const needed      = totalHeight - viewportH + 120;
+        const maxShift    = Math.max(0, needed);
 
         sticky.style.transform = `translateY(-${maxShift * t}px)`;
     }
@@ -466,12 +588,12 @@ function updateStudentPositions(progress) {
 
         if (icon === avatarNode) {
 
-            const introX  = Number(icon.dataset.introX  || icon.dataset.startX);
-            const introY  = Number(icon.dataset.introY  || icon.dataset.startY);
-            const startX  = Number(icon.dataset.startX);
-            const startY  = Number(icon.dataset.startY);
-            const endX    = Number(icon.dataset.endX);
-            const endY    = Number(icon.dataset.endY);
+            const introX = Number(icon.dataset.introX  || icon.dataset.startX);
+            const introY = Number(icon.dataset.introY  || icon.dataset.startY);
+            const startX = Number(icon.dataset.startX);
+            const startY = Number(icon.dataset.startY);
+            const endX   = Number(icon.dataset.endX);
+            const endY   = Number(icon.dataset.endY);
 
             let x, y;
 
@@ -533,10 +655,11 @@ function setupScrollStory() {
     const avatarStage = document.getElementById('avatar-stage');
     const university  = document.getElementById('university-box');
     const sectors     = document.getElementById('sector-row');
+    const majorityBox = document.getElementById('majority-box');
 
     window.addEventListener('scroll', () => {
 
-        const progress = Math.min(
+        currentProgress = Math.min(
             Math.max(
                 -scene.getBoundingClientRect().top /
                 (scene.offsetHeight - window.innerHeight),
@@ -545,34 +668,39 @@ function setupScrollStory() {
             1
         );
 
-        intro.classList.toggle('phase-visible', progress > P_INTRO);
+        intro.classList.toggle('phase-visible', currentProgress > P_INTRO);
 
-        avatarStage.classList.toggle('phase-visible', progress > P_AVATAR);
+        avatarStage.classList.toggle('phase-visible', currentProgress > P_AVATAR);
 
         studentNodes.forEach(icon => {
             if (icon === avatarNode) {
-                icon.classList.toggle('visible', progress > P_AVATAR);
+                icon.classList.toggle('visible', currentProgress > P_AVATAR);
             } else {
-                icon.classList.toggle('visible', progress > P_UNIVERSITY);
+                icon.classList.toggle('visible', currentProgress > P_UNIVERSITY);
             }
         });
 
-        avatarStage.classList.toggle('phase-hidden-out', progress > P_UNIVERSITY);
+        avatarStage.classList.toggle('phase-hidden-out', currentProgress > P_UNIVERSITY);
 
-        university.classList.toggle('phase-visible', progress > P_UNIVERSITY);
+        university.classList.toggle('phase-visible', currentProgress > P_UNIVERSITY);
 
-        sectors.classList.toggle('phase-visible', progress > P_SECTORS);
+        sectors.classList.toggle('phase-visible', currentProgress > P_SECTORS);
 
-        updatePan(progress);
+        const majorityVisible =
+            currentProgress > P_MAJORITY_IN && currentProgress < P_MAJORITY_OUT;
+
+        majorityBox.classList.toggle('phase-visible', majorityVisible);
+
+        updatePan(currentProgress);
 
         calculateTargets();
 
-        updateStudentPositions(progress);
+        updateStudentPositions(currentProgress);
 
         document.getElementById('military-percent')
-            .classList.toggle('visible', progress > P_PERCENT);
+            .classList.toggle('visible', currentProgress > P_PERCENT);
 
         document.getElementById('civil-percent')
-            .classList.toggle('visible', progress > P_PERCENT);
+            .classList.toggle('visible', currentProgress > P_PERCENT);
     });
 }

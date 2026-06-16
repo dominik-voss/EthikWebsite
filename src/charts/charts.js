@@ -10,7 +10,6 @@ data
 }=config;
 
 
-
 Highcharts.chart(container, {
 
 

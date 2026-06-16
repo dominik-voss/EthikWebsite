@@ -12,5 +12,4 @@ box.innerHTML=text;
 
 return box;
 
-
 }

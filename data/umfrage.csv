@@ -18,4 +18,4 @@ id,status,geschlecht,nationalitaet,entscheidung
 17,student,maennlich,deutsch,militaer
 18,student,weiblich,deutsch,zivil
 19,student,maennlich,international,militaer
-20,student,weiblich,deutsch,militaer
+20,arbeitslos,weiblich,deutsch,militaer

@@ -321,12 +321,67 @@ function positionAllAtStart() {
 const P_INTRO         = 0.05;   // Intro-Box einblenden
 const P_AVATAR        = 0.15;   // Avatar-Stage einblenden
 const P_UNIVERSITY    = 0.30;   // Hochschulkasten + alle Icons
-const P_AVATAR_MOVE   = 0.25;   // Avatar wandert in Hochschulkasten (leicht vor University)
+const P_AVATAR_MOVE   = 0.25;   // Avatar wandert in Hochschulkasten
 const P_AVATAR_ARRIVE = 0.33;   // Avatar ist angekommen
 const P_SECTORS       = 0.42;   // Sektoren einblenden
-const P_ICONS_START   = 0.52;   // Alle Icons beginnen zu wandern
+const P_PAN_START     = 0.44;   // Kamera beginnt nach oben zu schieben
+const P_PAN_END       = 0.54;   // Kamera steht: Hochschule & Sektoren gleichzeitig sichtbar
+const P_ICONS_START   = 0.56;   // Alle Icons beginnen zu wandern
 const P_ICONS_END     = 0.88;   // Alle Icons angekommen
 const P_PERCENT       = 0.90;   // Prozentzahlen
+
+/* -------------------------
+   Kamera-Pan
+------------------------- */
+
+// Schiebt .story-sticky nach oben, damit Hochschulkasten und Sektoren
+// gleichzeitig im Bild sind, bevor die Icons zu wandern beginnen.
+function updatePan(progress) {
+
+    const sticky = document.querySelector('.story-sticky');
+
+    if (progress <= P_PAN_START) {
+
+        sticky.style.transform = '';
+
+    } else if (progress >= P_PAN_END) {
+
+        // Pan-Offset einfrieren: Abstand zwischen Hochschulkasten-Oberkante
+        // und Sektoren-Unterkante soll vollständig sichtbar sein
+        const universityRect =
+            document.getElementById('university-box').getBoundingClientRect();
+
+        const sectorsRect =
+            document.getElementById('sector-row').getBoundingClientRect();
+
+        const totalHeight  = sectorsRect.bottom - universityRect.top;
+        const viewportH    = window.innerHeight;
+        const needed       = totalHeight - viewportH + 120; // 120px Puffer
+
+        const maxShift     = Math.max(0, needed);
+
+        sticky.style.transform = `translateY(-${maxShift}px)`;
+
+    } else {
+
+        const t = (progress - P_PAN_START) / (P_PAN_END - P_PAN_START);
+
+        const universityRect =
+            document.getElementById('university-box').getBoundingClientRect();
+
+        const sectorsRect =
+            document.getElementById('sector-row').getBoundingClientRect();
+
+        const totalHeight  = sectorsRect.bottom - universityRect.top;
+        const viewportH    = window.innerHeight;
+        const needed       = totalHeight - viewportH + 120;
+
+        const maxShift     = Math.max(0, needed);
+
+        sticky.style.transform = `translateY(-${maxShift * t}px)`;
+    }
+}
+
 
 function updateStudentPositions(progress) {
 
@@ -442,6 +497,9 @@ function setupScrollStory() {
         university.classList.toggle('phase-visible', progress > P_UNIVERSITY);
 
         sectors.classList.toggle('phase-visible', progress > P_SECTORS);
+
+        // Kamera-Pan anwenden
+        updatePan(progress);
 
         // Zielpositionen neu berechnen (sticky-Elemente verschieben sich)
         calculateTargets();

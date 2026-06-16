@@ -1,10 +1,18 @@
+let allStudentsData = [];
 let studentsData = [];
 let studentNodes  = [];
-let avatarNode    = null;   // Das gelbe Icon (separater Verweis)
+let avatarNode    = null;
+
+let militaryFilter = 'alle';
+let civilFilter    = 'alle';
 
 export function initStory(csv) {
 
-    studentsData = parseCSV(csv);
+    allStudentsData = parseCSV(csv);
+    studentsData    = allStudentsData;
+
+    const countEl = document.getElementById('intro-total-count');
+    if (countEl) countEl.textContent = allStudentsData.length;
 
     createStudents(studentsData);
 
@@ -18,6 +26,8 @@ export function initStory(csv) {
     });
 
     setupScrollStory();
+
+    setupFilters();
 
     window.addEventListener('resize', () => {
         calculateTargets();
@@ -48,6 +58,78 @@ function parseCSV(csv) {
 
         return obj;
     });
+}
+
+
+/* -------------------------
+   Dropdown-Filter
+------------------------- */
+
+function setupFilters() {
+
+    const milSelect = document.getElementById('military-filter');
+    const civSelect = document.getElementById('civil-filter');
+
+    if (!milSelect || !civSelect) return;
+
+    milSelect.addEventListener('change', () => {
+        militaryFilter = milSelect.value;
+        applyFilter();
+    });
+
+    civSelect.addEventListener('change', () => {
+        civilFilter = civSelect.value;
+        applyFilter();
+    });
+}
+
+
+function applyFilter() {
+
+    const students = allStudentsData.filter(d => d.status === 'student');
+
+    studentNodes.forEach(icon => {
+
+        const sg     = icon.dataset.studiengang;
+        const target = icon.dataset.target;
+
+        const filterValue = target === 'militaer' ? militaryFilter : civilFilter;
+
+        const match = filterValue === 'alle' || sg === filterValue;
+
+        icon.dataset.filtered = match ? 'show' : 'hide';
+        icon.classList.toggle('filtered-out', !match);
+    });
+
+    // Militärsektor
+    const milBase = militaryFilter === 'alle'
+        ? students.length
+        : students.filter(d => d.studiengang === militaryFilter).length;
+
+    const milCount = students.filter(d =>
+        d.entscheidung === 'militaer' &&
+        (militaryFilter === 'alle' || d.studiengang === militaryFilter)
+    ).length;
+
+    const milPct = milBase > 0 ? Math.round(milCount / milBase * 100) : 0;
+
+    // Zivilsektor
+    const civBase = civilFilter === 'alle'
+        ? students.length
+        : students.filter(d => d.studiengang === civilFilter).length;
+
+    const civCount = students.filter(d =>
+        d.entscheidung === 'zivil' &&
+        (civilFilter === 'alle' || d.studiengang === civilFilter)
+    ).length;
+
+    const civPct = civBase > 0 ? Math.round(civCount / civBase * 100) : 0;
+
+    document.getElementById('military-percent').textContent =
+        milPct + '% (' + milCount + ')';
+
+    document.getElementById('civil-percent').textContent =
+        civPct + '% (' + civCount + ')';
 }
 
 
@@ -112,10 +194,12 @@ function createStudents(data) {
 
         const icon = document.createElement('div');
 
-        icon.className      = 'student-icon';
-        icon.textContent    = '👤';
-        icon.dataset.target = student.entscheidung;
-        icon.dataset.index  = index;
+        icon.className           = 'student-icon';
+        icon.textContent         = '👤';
+        icon.dataset.target      = student.entscheidung;
+        icon.dataset.index       = index;
+        icon.dataset.studiengang = student.studiengang || '';
+        icon.dataset.filtered    = 'show';
 
         if (index === avatarIndex) {
             icon.classList.add('student-icon--avatar');
@@ -140,6 +224,9 @@ function fillAvatarFacts(data) {
     const modusStatus        = calcModus(students.map(s => s.status));
     const modusGeschlecht    = calcModus(students.map(s => s.geschlecht));
     const modusNationalitaet = calcModus(students.map(s => s.nationalitaet));
+    const modusStudiengang   = calcModus(
+        students.filter(s => s.studiengang).map(s => s.studiengang)
+    );
 
     const labels = {
         student:       'Student',
@@ -160,11 +247,14 @@ function fillAvatarFacts(data) {
 
     document.getElementById('avatar-fact-nationalitaet').textContent =
         `Nationalität: ${fmt(modusNationalitaet)}`;
+
+    document.getElementById('avatar-fact-studiengang').textContent =
+        `Studiengang: ${modusStudiengang}`;
 }
 
 
 /* -------------------------
-   Prozentzahlen
+   Prozentzahlen (Initial)
 ------------------------- */
 
 function updatePercentages(data) {
@@ -176,10 +266,10 @@ function updatePercentages(data) {
     const civil    = students.filter(d => d.entscheidung === 'zivil').length;
 
     document.getElementById('military-percent').textContent =
-        Math.round(military / total * 100) + '%';
+        Math.round(military / total * 100) + '% (' + military + ')';
 
     document.getElementById('civil-percent').textContent =
-        Math.round(civil / total * 100) + '%';
+        Math.round(civil / total * 100) + '% (' + civil + ')';
 }
 
 
@@ -263,7 +353,6 @@ function calculateTargets() {
         }
     });
 
-    // Mindesthoehen der Sektorkarten setzen
     const militaryRows = Math.ceil(militaryCount / militaryCols);
     const civilRows    = Math.ceil(civilCount    / civilCols);
 
@@ -273,13 +362,11 @@ function calculateTargets() {
     document.getElementById('civil-sector').style.minHeight =
         `${150 + civilRows * (ICON_SIZE + GAP)}px`;
 
-    // Startposition des Avatars: zentriert auf die Avatar-Stage
     if (avatarNode) {
 
         const stageRect =
             document.getElementById('avatar-stage').getBoundingClientRect();
 
-        // Mitte der Stage, leicht links von der Mitte (wo das Icon-Kreis-Element ist)
         avatarNode.dataset.introX =
             (stageRect.left - overlayRect.left) + 40;
 
@@ -297,8 +384,6 @@ function positionAllAtStart() {
 
     studentNodes.forEach(icon => {
 
-        // Avatar startet an seiner Intro-Position (auf der Stage),
-        // alle anderen an ihrer Hochschul-Startposition
         if (icon === avatarNode && icon.dataset.introX) {
 
             icon.style.transform =
@@ -317,25 +402,19 @@ function positionAllAtStart() {
    Scrollanimation
 ------------------------- */
 
-// Phasen-Schwellen
-const P_INTRO         = 0.05;   // Intro-Box einblenden
-const P_AVATAR        = 0.15;   // Avatar-Stage einblenden
-const P_UNIVERSITY    = 0.30;   // Hochschulkasten + alle Icons
-const P_AVATAR_MOVE   = 0.25;   // Avatar wandert in Hochschulkasten
-const P_AVATAR_ARRIVE = 0.33;   // Avatar ist angekommen
-const P_SECTORS       = 0.42;   // Sektoren einblenden
-const P_PAN_START     = 0.44;   // Kamera beginnt nach oben zu schieben
-const P_PAN_END       = 0.54;   // Kamera steht: Hochschule & Sektoren gleichzeitig sichtbar
-const P_ICONS_START   = 0.56;   // Alle Icons beginnen zu wandern
-const P_ICONS_END     = 0.88;   // Alle Icons angekommen
-const P_PERCENT       = 0.90;   // Prozentzahlen
+const P_INTRO         = 0.05;
+const P_AVATAR        = 0.15;
+const P_UNIVERSITY    = 0.30;
+const P_AVATAR_MOVE   = 0.25;
+const P_AVATAR_ARRIVE = 0.33;
+const P_SECTORS       = 0.42;
+const P_PAN_START     = 0.44;
+const P_PAN_END       = 0.54;
+const P_ICONS_START   = 0.56;
+const P_ICONS_END     = 0.88;
+const P_PERCENT       = 0.90;
 
-/* -------------------------
-   Kamera-Pan
-------------------------- */
 
-// Schiebt .story-sticky nach oben, damit Hochschulkasten und Sektoren
-// gleichzeitig im Bild sind, bevor die Icons zu wandern beginnen.
 function updatePan(progress) {
 
     const sticky = document.querySelector('.story-sticky');
@@ -346,8 +425,6 @@ function updatePan(progress) {
 
     } else if (progress >= P_PAN_END) {
 
-        // Pan-Offset einfrieren: Abstand zwischen Hochschulkasten-Oberkante
-        // und Sektoren-Unterkante soll vollständig sichtbar sein
         const universityRect =
             document.getElementById('university-box').getBoundingClientRect();
 
@@ -356,7 +433,7 @@ function updatePan(progress) {
 
         const totalHeight  = sectorsRect.bottom - universityRect.top;
         const viewportH    = window.innerHeight;
-        const needed       = totalHeight - viewportH + 120; // 120px Puffer
+        const needed       = totalHeight - viewportH + 120;
 
         const maxShift     = Math.max(0, needed);
 
@@ -389,10 +466,6 @@ function updateStudentPositions(progress) {
 
         if (icon === avatarNode) {
 
-            // Avatar hat zwei Phasen:
-            // 1) Intro → Hochschulposition  (P_AVATAR_MOVE bis P_AVATAR_ARRIVE)
-            // 2) Hochschulposition → Ziel   (P_ICONS_START bis P_ICONS_END)
-
             const introX  = Number(icon.dataset.introX  || icon.dataset.startX);
             const introY  = Number(icon.dataset.introY  || icon.dataset.startY);
             const startX  = Number(icon.dataset.startX);
@@ -404,26 +477,22 @@ function updateStudentPositions(progress) {
 
             if (progress < P_AVATAR_MOVE) {
 
-                // Avatar steht auf der Stage
                 x = introX;
                 y = introY;
 
             } else if (progress < P_AVATAR_ARRIVE) {
 
-                // Wandert in Hochschulkasten
                 const t = (progress - P_AVATAR_MOVE) / (P_AVATAR_ARRIVE - P_AVATAR_MOVE);
                 x = introX + (startX - introX) * t;
                 y = introY + (startY - introY) * t;
 
             } else if (progress < P_ICONS_START) {
 
-                // Wartet im Hochschulkasten
                 x = startX;
                 y = startY;
 
             } else {
 
-                // Wandert zum Zielsektor
                 const t = Math.min(
                     (progress - P_ICONS_START) / (P_ICONS_END - P_ICONS_START),
                     1
@@ -436,7 +505,6 @@ function updateStudentPositions(progress) {
 
         } else {
 
-            // Alle anderen Icons: einheitliche Bewegung
             const t = Math.min(
                 Math.max((progress - P_ICONS_START) / (P_ICONS_END - P_ICONS_START), 0),
                 1
@@ -460,11 +528,11 @@ function updateStudentPositions(progress) {
 
 function setupScrollStory() {
 
-    const scene      = document.getElementById('career-scene');
-    const intro      = document.getElementById('intro-box');
+    const scene       = document.getElementById('career-scene');
+    const intro       = document.getElementById('intro-box');
     const avatarStage = document.getElementById('avatar-stage');
-    const university = document.getElementById('university-box');
-    const sectors    = document.getElementById('sector-row');
+    const university  = document.getElementById('university-box');
+    const sectors     = document.getElementById('sector-row');
 
     window.addEventListener('scroll', () => {
 
@@ -481,8 +549,6 @@ function setupScrollStory() {
 
         avatarStage.classList.toggle('phase-visible', progress > P_AVATAR);
 
-        // Avatar-Icon direkt mit Avatar-Stage einblenden,
-        // restliche Icons erst mit dem Hochschulkasten
         studentNodes.forEach(icon => {
             if (icon === avatarNode) {
                 icon.classList.toggle('visible', progress > P_AVATAR);
@@ -491,17 +557,14 @@ function setupScrollStory() {
             }
         });
 
-        // Avatar-Stage ausblenden sobald Hochschulkasten erscheint
         avatarStage.classList.toggle('phase-hidden-out', progress > P_UNIVERSITY);
 
         university.classList.toggle('phase-visible', progress > P_UNIVERSITY);
 
         sectors.classList.toggle('phase-visible', progress > P_SECTORS);
 
-        // Kamera-Pan anwenden
         updatePan(progress);
 
-        // Zielpositionen neu berechnen (sticky-Elemente verschieben sich)
         calculateTargets();
 
         updateStudentPositions(progress);

@@ -20,7 +20,7 @@
                 <h2>Karriereentscheidung</h2>
 
                 <p>
-                    Viele Studierende haben an der Umfrage teilgenommen.
+                    <span id="intro-total-count"></span> Personen haben an der Umfrage teilgenommen.
                 </p>
 
                 <p>
@@ -51,6 +51,7 @@
                         <li id="avatar-fact-status"></li>
                         <li id="avatar-fact-geschlecht"></li>
                         <li id="avatar-fact-nationalitaet"></li>
+                        <li id="avatar-fact-studiengang"></li>
                     </ul>
                 </div>
 
@@ -79,7 +80,15 @@
                     class="sector"
                     id="military-sector">
 
-                    <h2>Militärsektor</h2>
+                    <div class="sector-header">
+                        <h2>Militärsektor</h2>
+                        <select id="military-filter" class="studiengang-filter">
+                            <option value="alle">Alle Studiengänge</option>
+                            <option value="Informatik">Informatik</option>
+                            <option value="BWL">BWL</option>
+                            <option value="Maschinenbau">Maschinenbau</option>
+                        </select>
+                    </div>
 
                     <div class="sector-grid"></div>
 
@@ -95,7 +104,15 @@
                     class="sector"
                     id="civil-sector">
 
-                    <h2>Ziviler Sektor</h2>
+                    <div class="sector-header">
+                        <h2>Ziviler Sektor</h2>
+                        <select id="civil-filter" class="studiengang-filter">
+                            <option value="alle">Alle Studiengänge</option>
+                            <option value="Informatik">Informatik</option>
+                            <option value="BWL">BWL</option>
+                            <option value="Maschinenbau">Maschinenbau</option>
+                        </select>
+                    </div>
 
                     <div class="sector-grid"></div>
 

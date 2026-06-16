@@ -172,6 +172,13 @@ body {
     opacity: 1;
 }
 
+.student-icon.filtered-out {
+
+    opacity: 0.08 !important;
+
+    transition: opacity 0.4s ease;
+}
+
 
 /* Militär / Zivil */
 
@@ -196,6 +203,63 @@ body {
     min-height: 350px;
 
     height: auto;
+}
+
+
+/* Sektor-Header mit Dropdown */
+
+.sector-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 8px;
+}
+
+.sector-header h2 {
+
+    margin: 0;
+}
+
+.studiengang-filter {
+
+    background: rgba(255, 255, 255, 0.15);
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    border-radius: 8px;
+
+    padding: 4px 10px;
+
+    font-size: 0.85rem;
+
+    cursor: pointer;
+
+    outline: none;
+
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.studiengang-filter:hover,
+.studiengang-filter:focus {
+
+    background: rgba(255, 255, 255, 0.25);
+
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.studiengang-filter option {
+
+    background: #181f30;
+
+    color: white;
 }
 
 
@@ -306,7 +370,7 @@ body {
 }
 
 
-/* Avatar-Icon erzeugen (scrollStory setzt Groesse und Farbe) */
+/* Avatar-Icon */
 
 .student-icon--avatar {
 

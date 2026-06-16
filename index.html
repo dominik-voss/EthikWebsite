@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Defense & Ethik</title>
+    <link rel="stylesheet" href="/src/style.css">
 </head>
 
 <body>
+
+    <!-- Theme Toggle -->
+    <header class="site-header">
+        <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Darkmode aktivieren">
+            🌙
+        </button>
+    </header>
 
     <section id="career-scene">
 
@@ -173,6 +184,28 @@
     </section>
 
     <script type="module" src="/src/main.js"></script>
+
+    <script>
+        (function () {
+            const toggle = document.getElementById('theme-toggle');
+            const html   = document.documentElement;
+
+            // System-Präferenz als Standard
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                html.setAttribute('data-theme', 'dark');
+                toggle.textContent = '☀️';
+                toggle.setAttribute('aria-label', 'Lightmode aktivieren');
+            }
+
+            toggle.addEventListener('click', () => {
+                const isDark = html.getAttribute('data-theme') === 'dark';
+                html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+                toggle.textContent = isDark ? '🌙' : '☀️';
+                toggle.setAttribute('aria-label',
+                    isDark ? 'Darkmode aktivieren' : 'Lightmode aktivieren');
+            });
+        })();
+    </script>
 
 </body>
 

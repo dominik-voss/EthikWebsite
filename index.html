@@ -25,20 +25,10 @@
 
         <div class="story-sticky">
 
-            <div
-                class="textbox phase-hidden"
-                id="intro-box">
-
+            <div class="textbox phase-hidden" id="intro-box">
                 <h2>Karriereentscheidung</h2>
-
-                <p>
-                    <span id="intro-total-count"></span> Personen haben an der Umfrage teilgenommen.
-                </p>
-
-                <p>
-                    Die Frage lautete:
-                </p>
-
+                <p><span id="intro-total-count"></span> Personen haben an der Umfrage teilgenommen.</p>
+                <p>Die Frage lautete:</p>
                 <p>
                     <strong>
                         Würdest du eher zu einem Militärunternehmen
@@ -46,17 +36,11 @@
                         Unternehmen mit geringerem Gehalt gehen?
                     </strong>
                 </p>
-
             </div>
 
-
             <!-- Avatar-Vorstellung -->
-            <div
-                class="avatar-stage phase-hidden"
-                id="avatar-stage">
-
+            <div class="avatar-stage phase-hidden" id="avatar-stage">
                 <div class="avatar-icon-large">👤</div>
-
                 <div class="avatar-facts">
                     <h3>Der typische Befragte</h3>
                     <ul>
@@ -66,114 +50,55 @@
                         <li id="avatar-fact-studiengang"></li>
                     </ul>
                 </div>
-
             </div>
-
 
             <!-- Hochschulkasten + Mehrheitsbox nebeneinander -->
             <div class="university-row">
 
-                <div
-                    class="sector university phase-hidden"
-                    id="university-box">
-
+                <div class="sector university phase-hidden" id="university-box">
                     <h2>Hochschulen</h2>
-
-                    <div
-                        id="student-grid"
-                        class="student-grid">
-                    </div>
-
+                    <div id="student-grid" class="student-grid"></div>
                 </div>
 
-                <!-- Mehrheitstext -->
-                <div
-                    class="majority-box phase-hidden"
-                    id="majority-box">
-
+                <div class="majority-box phase-hidden" id="majority-box">
                     <p>
                         Die Mehrheit der Studierenden entschied sich für den
                         <strong id="majority-sector-label"></strong>.
                     </p>
-
                 </div>
 
             </div>
 
+            <div class="sector-row phase-hidden" id="sector-row">
 
-            <div
-                class="sector-row phase-hidden"
-                id="sector-row">
-
-                <div
-                    class="sector"
-                    id="military-sector">
-
+                <div class="sector" id="military-sector">
                     <div class="sector-header">
                         <h2>Militärsektor</h2>
-                        <button
-                            class="info-btn"
-                            id="military-info-btn"
-                            aria-label="Info zum Militärsektor">
-                            ℹ
-                        </button>
-                        <select id="military-filter" class="studiengang-filter">
+                        <select id="studiengang-filter" class="studiengang-filter">
                             <option value="alle">Alle Studiengänge</option>
                             <option value="Informatik">Informatik</option>
                             <option value="BWL">BWL</option>
                             <option value="Maschinenbau">Maschinenbau</option>
                         </select>
+                        <button class="info-btn" id="military-info-btn" aria-label="Info zum Militärsektor">ℹ</button>
                     </div>
-
-                    <div
-                        class="info-tooltip"
-                        id="military-info-tooltip">
+                    <div class="info-tooltip" id="military-info-tooltip">
                         Unternehmen im Militärsektor entwickeln Technologien für Streitkräfte – darunter Waffensysteme, Kommunikation und Cybersicherheit. Sie arbeiten eng mit staatlichen Institutionen zusammen und unterliegen strengen Exportkontrollen. Karrieren hier bieten oft überdurchschnittliche Gehälter, sind jedoch ethisch vieldiskutiert.
                     </div>
-
                     <div class="sector-grid"></div>
-
-                    <div
-                        id="military-percent"
-                        class="percentage">
-                    </div>
-
+                    <div id="military-percent" class="percentage"></div>
                 </div>
 
-
-                <div
-                    class="sector"
-                    id="civil-sector">
-
+                <div class="sector" id="civil-sector">
                     <div class="sector-header">
                         <h2>Ziviler Sektor</h2>
-                        <button
-                            class="info-btn"
-                            id="civil-info-btn"
-                            aria-label="Info zum Zivilen Sektor">
-                            ℹ
-                        </button>
-                        <select id="civil-filter" class="studiengang-filter">
-                            <option value="alle">Alle Studiengänge</option>
-                            <option value="Informatik">Informatik</option>
-                            <option value="BWL">BWL</option>
-                            <option value="Maschinenbau">Maschinenbau</option>
-                        </select>
+                        <button class="info-btn" id="civil-info-btn" aria-label="Info zum Zivilen Sektor">ℹ</button>
                     </div>
-
-                    <div
-                        class="info-tooltip"
-                        id="civil-info-tooltip">
+                    <div class="info-tooltip" id="civil-info-tooltip">
                         Der zivile Sektor umfasst alle nicht-militärischen Branchen – von Technologie und Gesundheit bis hin zu Energie und Bildung. Unternehmen hier orientieren sich an gesellschaftlichem Nutzen und marktwirtschaftlichen Zielen. Die Gehälter sind meist etwas niedriger, dafür gelten die Tätigkeiten als ethisch weniger konfliktbehaftet.
                     </div>
-
                     <div class="sector-grid"></div>
-
-                    <div
-                        id="civil-percent"
-                        class="percentage">
-                    </div>
-
+                    <div id="civil-percent" class="percentage"></div>
                 </div>
 
             </div>

@@ -16,6 +16,8 @@
     --color-majority-bg:    #ffffff;
     --color-majority-text:  #222222;
     --color-header-bg:      rgba(240, 242, 245, 0.85);
+    --color-border:         rgba(0, 0, 0, 0.15);
+    --color-primary:        #4a90e2;
     --shadow-card:          0 15px 40px rgba(0,0,0,.18);
     --shadow-sector:        0 15px 40px rgba(0,0,0,.22);
     --chart-tick-color:     #555555;
@@ -38,6 +40,8 @@
     --color-majority-bg:    #1a1d2e;
     --color-majority-text:  #e8eaf0;
     --color-header-bg:      rgba(15, 17, 23, 0.88);
+    --color-border:         rgba(255, 255, 255, 0.12);
+    --color-primary:        #5fa8f5;
     --shadow-card:          0 15px 40px rgba(0,0,0,.55);
     --shadow-sector:        0 4px 24px rgba(80,120,255,.12), 0 15px 40px rgba(0,0,0,.6);
     --chart-tick-color:     #a0a8c0;
@@ -61,6 +65,8 @@
         --color-majority-bg:    #1a1d2e;
         --color-majority-text:  #e8eaf0;
         --color-header-bg:      rgba(15, 17, 23, 0.88);
+        --color-border:         rgba(255, 255, 255, 0.12);
+        --color-primary:        #5fa8f5;
         --shadow-card:          0 15px 40px rgba(0,0,0,.55);
         --shadow-sector:        0 4px 24px rgba(80,120,255,.12), 0 15px 40px rgba(0,0,0,.6);
         --chart-tick-color:     #a0a8c0;
@@ -77,15 +83,10 @@
 }
 
 body {
-
     margin: 0;
-
     overflow-x: hidden;
-
     overflow-y: auto;
-
     background-color: var(--color-bg-body);
-
     transition: background-color 0.4s ease;
 }
 
@@ -95,49 +96,30 @@ body {
 ------------------------- */
 
 .site-header {
-
     position: fixed;
-
     top: 0;
-
     right: 0;
-
     z-index: 200;
-
     padding: 12px 20px;
-
     background: var(--color-header-bg);
-
     backdrop-filter: blur(8px);
-
     border-bottom-left-radius: 14px;
-
     transition: background 0.4s ease;
 }
 
 .theme-toggle {
-
     background: none;
-
     border: none;
-
     font-size: 1.4rem;
-
     cursor: pointer;
-
     line-height: 1;
-
     padding: 4px;
-
     border-radius: 8px;
-
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .theme-toggle:hover {
-
     transform: scale(1.15);
-
     opacity: 0.8;
 }
 
@@ -147,9 +129,7 @@ body {
 ------------------------- */
 
 #career-scene {
-
     height: 400vh;
-
     position: relative;
 }
 
@@ -157,40 +137,24 @@ body {
 /* Sticky Story */
 
 .story-sticky {
-
     position: sticky;
-
     overflow: visible;
-
     top: 0;
-
     min-height: 100vh;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 60px;
-
     padding: 80px 40px;
-
     max-width: 1400px;
-
     margin: 0 auto;
 }
 
 #student-overlay {
-
     position: absolute;
-
     inset: 0;
-
     pointer-events: none;
-
     z-index: 100;
 }
 
@@ -198,18 +162,13 @@ body {
 /* Allgemeine Animation */
 
 .phase-hidden {
-
     opacity: 0;
-
     transform: translateY(80px);
-
     transition: opacity .8s ease, transform .8s ease;
 }
 
 .phase-visible {
-
     opacity: 1;
-
     transform: translateY(0);
 }
 
@@ -217,21 +176,13 @@ body {
 /* Textbox */
 
 .textbox {
-
     max-width: 800px;
-
     background: var(--color-textbox-bg);
-
     color: var(--color-textbox-text);
-
     padding: 30px;
-
     border-radius: 20px;
-
     text-align: center;
-
     box-shadow: var(--shadow-card);
-
     transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -239,26 +190,17 @@ body {
 /* Karten */
 
 .sector {
-
     background: var(--color-sector);
-
     color: var(--color-sector-text);
-
     border-radius: 20px;
-
     padding: 20px;
-
     box-shadow: var(--shadow-sector);
-
     transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
 .university {
-
     width: 1000px;
-
     max-width: 90vw;
-
     min-height: 280px;
 }
 
@@ -266,17 +208,11 @@ body {
 /* Hochschulkasten + Mehrheitsbox nebeneinander */
 
 .university-row {
-
     display: flex;
-
     align-items: flex-start;
-
     gap: 32px;
-
     width: 100%;
-
     max-width: 1200px;
-
     justify-content: center;
 }
 
@@ -285,50 +221,32 @@ body {
 
 .student-grid,
 .sector-grid {
-
     position: relative;
-
     min-height: 250px;
-
     transition: margin-top 0.35s ease;
 }
 
 .student-icon {
-
     position: absolute;
-
     width: 24px;
-
     height: 24px;
-
     border-radius: 50%;
-
     background: #4a90e2;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     font-size: 0.7rem;
-
     will-change: transform;
-
     opacity: 0;
-
     transition: opacity 0.5s ease;
 }
 
 .student-icon.visible {
-
     opacity: 1;
 }
 
 .student-icon.filtered-out {
-
     opacity: 0.08 !important;
-
     transition: opacity 0.4s ease;
 }
 
@@ -336,27 +254,18 @@ body {
 /* Militär / Zivil */
 
 .sector-row {
-
     display: flex;
-
     justify-content: center;
-
     align-items: flex-start;
-
     gap: 60px;
-
     width: 100%;
 }
 
 #military-sector,
 #civil-sector {
-
     width: min(45vw, 650px);
-
     min-height: 350px;
-
     height: auto;
-
     position: relative;
 }
 
@@ -364,102 +273,84 @@ body {
 /* Sektor-Header */
 
 .sector-header {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     flex-wrap: wrap;
-
     margin-bottom: 8px;
 }
 
 .sector-header h2 {
-
     margin: 0;
 }
 
+
+/* -------------------------
+   Gemeinsamer Filter
+------------------------- */
+
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.filter-label {
+    font-size: 0.9rem;
+    color: var(--color-textbox-text);
+    font-weight: 500;
+    transition: color 0.4s ease;
+}
+
 .studiengang-filter {
-
-    background: rgba(255, 255, 255, 0.15);
-
-    color: white;
-
-    border: 1px solid rgba(255, 255, 255, 0.35);
-
+    background: var(--color-textbox-bg);
+    color: var(--color-textbox-text);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
-
-    padding: 4px 10px;
-
-    font-size: 0.85rem;
-
+    padding: 6px 14px;
+    font-size: 0.9rem;
     cursor: pointer;
-
     outline: none;
-
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.4s ease;
 }
 
 .studiengang-filter:hover,
 .studiengang-filter:focus {
-
-    background: rgba(255, 255, 255, 0.25);
-
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: var(--color-primary);
 }
 
 .studiengang-filter option {
-
-    background: #181f30;
-
-    color: white;
+    background: var(--color-textbox-bg);
+    color: var(--color-textbox-text);
 }
 
 
 /* Info-Button */
 
 .info-btn {
-
     width: 26px;
-
     height: 26px;
-
     border-radius: 50%;
-
     background: rgba(255, 255, 255, 0.18);
-
     border: 1px solid rgba(255, 255, 255, 0.4);
-
     color: white;
-
     font-size: 0.85rem;
-
     cursor: pointer;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
-
     transition: background 0.2s ease, transform 0.15s ease;
-
     padding: 0;
 }
 
 .info-btn:hover {
-
     background: rgba(255, 255, 255, 0.32);
-
     transform: scale(1.1);
 }
 
 .info-btn.active {
-
     background: rgba(255, 255, 255, 0.4);
 }
 
@@ -467,34 +358,21 @@ body {
 /* Info-Tooltip */
 
 .info-tooltip {
-
     display: none;
-
     background: rgba(255, 255, 255, 0.1);
-
     border: 1px solid rgba(255, 255, 255, 0.2);
-
     border-radius: 12px;
-
     padding: 14px 16px;
-
     font-size: 0.88rem;
-
     line-height: 1.55;
-
     color: rgba(255, 255, 255, 0.88);
-
     margin-bottom: 12px;
-
     animation: fadeInDown 0.25s ease;
-
     position: relative;
-
     z-index: 10;
 }
 
 .info-tooltip.visible {
-
     display: block;
 }
 
@@ -507,22 +385,15 @@ body {
 /* Prozent */
 
 .percentage {
-
     text-align: center;
-
     font-size: 3rem;
-
     font-weight: bold;
-
     margin-top: 20px;
-
     opacity: 0;
-
     transition: opacity .8s ease;
 }
 
 .percentage.visible {
-
     opacity: 1;
 }
 
@@ -532,88 +403,54 @@ body {
 ------------------------- */
 
 .avatar-stage {
-
     display: flex;
-
     align-items: center;
-
     gap: 40px;
-
     background: var(--color-avatar-bg);
-
     color: var(--color-avatar-text);
-
     padding: 30px 40px;
-
     border-radius: 20px;
-
     box-shadow: var(--shadow-card);
-
     max-width: 500px;
-
     transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .avatar-icon-large {
-
     font-size: 4rem;
-
     width: 80px;
-
     height: 80px;
-
     border-radius: 50%;
-
     background: #e8a020;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     flex-shrink: 0;
-
     box-shadow: 0 0 0 3px var(--color-avatar-bg), 0 0 14px 4px rgba(232,160,32,0.6);
-
     transition: box-shadow 0.4s ease;
 }
 
 .avatar-facts h3 {
-
     margin: 0 0 12px 0;
-
     font-size: 1.1rem;
 }
 
 .avatar-facts ul {
-
     margin: 0;
-
     padding: 0;
-
     list-style: none;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 6px;
 }
 
 .avatar-facts li {
-
     font-size: 0.95rem;
-
     color: var(--color-avatar-fact);
-
     transition: color 0.4s ease;
 }
 
 .avatar-facts li::before {
-
     content: '▸ ';
-
     color: #e8a020;
 }
 
@@ -621,11 +458,8 @@ body {
 /* Avatar-Icon */
 
 .student-icon--avatar {
-
     background: #e8a020;
-
     box-shadow: 0 0 0 2px #fff, 0 0 8px 2px rgba(232,160,32,0.7);
-
     z-index: 101;
 }
 
@@ -633,13 +467,9 @@ body {
 /* Avatar-Stage ausblenden */
 
 .phase-hidden-out {
-
     opacity: 0;
-
     transform: translateY(-40px);
-
     transition: opacity .6s ease, transform .6s ease;
-
     pointer-events: none;
 }
 
@@ -649,36 +479,22 @@ body {
 ------------------------- */
 
 .majority-box {
-
     background: var(--color-majority-bg);
-
     color: var(--color-majority-text);
-
     padding: 24px 28px;
-
     border-radius: 20px;
-
     text-align: center;
-
     box-shadow: var(--shadow-card);
-
     font-size: 1.05rem;
-
     line-height: 1.5;
-
     max-width: 240px;
-
     align-self: center;
-
     flex-shrink: 0;
-
     transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .majority-box p {
-
     margin: 0;
-
     max-width: unset;
 }
 
@@ -688,101 +504,66 @@ body {
 ------------------------- */
 
 #charts-section {
-
     padding: 80px 40px 100px;
-
     background: var(--color-bg-body);
-
     transition: background 0.4s ease;
 }
 
 .charts-container {
-
     max-width: 1200px;
-
     margin: 0 auto;
 }
 
 .charts-headline {
-
     font-size: clamp(1.6rem, 3vw, 2.4rem);
-
     font-weight: 700;
-
     color: var(--color-textbox-text);
-
     margin: 0 0 12px 0;
-
     transition: color 0.4s ease;
 }
 
 .charts-intro {
-
     font-size: 1rem;
-
     color: var(--chart-tick-color);
-
     margin: 0 0 48px 0;
-
     max-width: 620px;
-
     line-height: 1.6;
 }
 
 .charts-grid {
-
     display: grid;
-
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-
     gap: 28px;
 }
 
 .chart-card {
-
     background: var(--chart-card-bg);
-
     color: var(--chart-card-text);
-
     border-radius: 20px;
-
     padding: 28px 24px 20px;
-
     box-shadow: var(--shadow-card);
-
     border: 1px solid var(--chart-card-border);
-
     transition: background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .chart-card--wide {
-
     grid-column: 1 / -1;
 }
 
 .chart-card h3 {
-
     font-size: 0.95rem;
-
     font-weight: 600;
-
     margin: 0 0 20px 0;
-
     color: var(--chart-card-text);
-
     line-height: 1.4;
-
     transition: color 0.4s ease;
 }
 
 .chart-wrap {
-
     height: 220px;
-
     position: relative;
 }
 
 .chart-card--wide .chart-wrap {
-
     height: 260px;
 }

@@ -304,25 +304,25 @@ body {
 }
 
 .studiengang-filter {
-    background: rgba(255, 255, 255, 0.18);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: var(--color-sector);
+    color: var(--color-sector-text);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
     padding: 6px 14px;
     font-size: 0.9rem;
     cursor: pointer;
     outline: none;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .studiengang-filter:hover,
 .studiengang-filter:focus {
-    background: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .studiengang-filter option {
-    background: #1e2740;
-    color: white;
+    background: var(--color-sector);
+    color: var(--color-sector-text);
 }
 
 

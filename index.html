@@ -69,17 +69,28 @@
 
             </div>
 
+            <div class="filter-bar phase-hidden" id="filter-bar">
+                <span class="filter-label">Studiengang:</span>
+                <select id="studiengang-filter" class="studiengang-filter">
+                    <option value="alle">Alle Studiengänge</option>
+                    <option value="Informatik">Informatik</option>
+                    <option value="BWL">BWL</option>
+                    <option value="Maschinenbau">Maschinenbau</option>
+                </select>
+                <span class="filter-label">Geschlecht:</span>
+                <select id="geschlecht-filter" class="studiengang-filter">
+                    <option value="alle">Alle</option>
+                    <option value="maennlich">Männlich</option>
+                    <option value="weiblich">Weiblich</option>
+                    <option value="divers">Divers</option>
+                </select>
+            </div>
+
             <div class="sector-row phase-hidden" id="sector-row">
 
                 <div class="sector" id="military-sector">
                     <div class="sector-header">
                         <h2>Militärsektor</h2>
-                        <select id="studiengang-filter" class="studiengang-filter">
-                            <option value="alle">Alle Studiengänge</option>
-                            <option value="Informatik">Informatik</option>
-                            <option value="BWL">BWL</option>
-                            <option value="Maschinenbau">Maschinenbau</option>
-                        </select>
                         <button class="info-btn" id="military-info-btn" aria-label="Info zum Militärsektor">ℹ</button>
                     </div>
                     <div class="info-tooltip" id="military-info-tooltip">

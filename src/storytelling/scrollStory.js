@@ -6,6 +6,7 @@ let avatarNode      = null;
 const TOOLTIP_OFFSET    = 140;
 let militaryTooltipOpen = false;
 let civilTooltipOpen    = false;
+let geschlechtFilter   = 'alle';
 
 let currentProgress = 0;
 
@@ -137,41 +138,51 @@ function refreshIconPositions() {
 ------------------------- */
 
 function setupFilters() {
-    const select = document.getElementById('studiengang-filter');
-    if (!select) return;
-    select.addEventListener('change', () => applyFilter(select.value));
+const sgSelect = document.getElementById('studiengang-filter');
+const gsSelect = document.getElementById('geschlecht-filter');
+if (sgSelect) sgSelect.addEventListener('change', () => applyFilter());
+if (gsSelect) gsSelect.addEventListener('change', () => {
+geschlechtFilter = gsSelect.value;
+applyFilter();
+});
 }
 
-function applyFilter(filterValue = 'alle') {
+function applyFilter() {
 
-    const students = allStudentsData.filter(d => d.status === 'student');
+const sgSelect = document.getElementById('studiengang-filter');
+const sgFilter = sgSelect ? sgSelect.value : 'alle';
+const students = allStudentsData.filter(d => d.status === 'student');
 
-    // Beide Kästen gleichzeitig filtern
-    studentNodes.forEach(icon => {
-        const match = filterValue === 'alle' || icon.dataset.studiengang === filterValue;
-        icon.dataset.filtered = match ? 'show' : 'hide';
-        icon.classList.toggle('filtered-out', !match);
-    });
+studentNodes.forEach(icon => {
+const sgMatch = sgFilter === 'alle' || icon.dataset.studiengang === sgFilter;
+const gsMatch = geschlechtFilter === 'alle' || icon.dataset.geschlecht === geschlechtFilter;
+const match = sgMatch && gsMatch;
+icon.dataset.filtered = match ? 'show' : 'hide';
+icon.classList.toggle('filtered-out', !match);
+});
 
-    const base = filterValue === 'alle'
-        ? students.length
-        : students.filter(d => d.studiengang === filterValue).length;
+const base = students.filter(d =>
+(sgFilter === 'alle' || d.studiengang === sgFilter) &&
+(geschlechtFilter === 'alle' || d.geschlecht === geschlechtFilter)
+).length;
 
-    const milCount = students.filter(d =>
-        d.entscheidung === 'militaer' &&
-        (filterValue === 'alle' || d.studiengang === filterValue)
-    ).length;
+const milCount = students.filter(d =>
+d.entscheidung === 'militaer' &&
+(sgFilter === 'alle' || d.studiengang === sgFilter) &&
+(geschlechtFilter === 'alle' || d.geschlecht === geschlechtFilter)
+).length;
 
-    const civCount = students.filter(d =>
-        d.entscheidung === 'zivil' &&
-        (filterValue === 'alle' || d.studiengang === filterValue)
-    ).length;
+const civCount = students.filter(d =>
+d.entscheidung === 'zivil' &&
+(sgFilter === 'alle' || d.studiengang === sgFilter) &&
+(geschlechtFilter === 'alle' || d.geschlecht === geschlechtFilter)
+).length;
 
-    const milPct = base > 0 ? Math.round(milCount / base * 100) : 0;
-    const civPct = base > 0 ? Math.round(civCount / base * 100) : 0;
+const milPct = base > 0 ? Math.round(milCount / base * 100) : 0;
+const civPct = base > 0 ? Math.round(civCount / base * 100) : 0;
 
-    document.getElementById('military-percent').textContent = milPct + '% (' + milCount + ')';
-    document.getElementById('civil-percent').textContent    = civPct + '% (' + civCount + ')';
+document.getElementById('military-percent').textContent = milPct + '% (' + milCount + ')';
+document.getElementById('civil-percent').textContent = civPct + '% (' + civCount + ')';
 }
 
 /* -------------------------
@@ -223,6 +234,7 @@ function createStudents(data) {
         icon.dataset.target       = student.entscheidung;
         icon.dataset.index        = index;
         icon.dataset.studiengang  = student.studiengang || '';
+        icon.dataset.geschlecht   = student.geschlecht  || '';
         icon.dataset.filtered     = 'show';
         if (index === avatarIndex) {
             icon.classList.add('student-icon--avatar');
@@ -495,5 +507,7 @@ function setupScrollStory() {
             .classList.toggle('visible', currentProgress > P_PERCENT);
         document.getElementById('civil-percent')
             .classList.toggle('visible', currentProgress > P_PERCENT);
+        document.getElementById('filter-bar')
+            .classList.toggle('phase-visible', currentProgress > P_ICONS_END);
     });
 }

@@ -733,4 +733,9 @@ Mobile Responsive
         white-space: normal;
         max-width: 200px;
     }
+        .student-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 0.5rem;
+    }
 }

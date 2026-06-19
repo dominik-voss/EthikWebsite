@@ -3,7 +3,7 @@ let studentsData    = [];
 let studentNodes    = [];
 let avatarNode      = null;
 
-const TOOLTIP_OFFSET    = 140;
+const TOOLTIP_OFFSET = window.innerWidth <= 768 ? 220 : 140;
 let militaryTooltipOpen = false;
 let civilTooltipOpen    = false;
 let geschlechtFilter   = 'alle';
@@ -329,16 +329,23 @@ function calculateTargets() {
     const militaryRect   = document.getElementById('military-sector').getBoundingClientRect();
     const civilRect      = document.getElementById('civil-sector').getBoundingClientRect();
 
-    const ICON_SIZE = 24;
+    const ICON_SIZE = window.innerWidth <= 768 ? 16 : 24;
     const GAP       = 4;
     const PADDING   = 15;
 
+    const tooltipOffset = window.innerWidth <= 768 ? 220 : 140;
     const milOffset = militaryTooltipOpen ? TOOLTIP_OFFSET : 0;
     const civOffset = civilTooltipOpen    ? TOOLTIP_OFFSET : 0;
 
-    const militaryCols   = Math.max(1, Math.floor((militaryRect.width  - PADDING * 2) / (ICON_SIZE + GAP)));
-    const civilCols      = Math.max(1, Math.floor((civilRect.width     - PADDING * 2) / (ICON_SIZE + GAP)));
+    const militaryCols   = Math.max(1, Math.floor((militaryRect.width   - PADDING * 2) / (ICON_SIZE + GAP)));
+    const civilCols      = Math.max(1, Math.floor((civilRect.width      - PADDING * 2) / (ICON_SIZE + GAP)));
     const universityCols = Math.max(1, Math.floor((universityRect.width - 80)          / (ICON_SIZE + GAP)));
+
+    // University-Box Höhe dynamisch anpassen
+    const uniTopOffset = window.innerWidth <= 768 ? 80 : 90;
+    const totalRows    = Math.ceil(studentNodes.length / universityCols);
+    const neededHeight = uniTopOffset + totalRows * (ICON_SIZE + GAP) + 20;
+    document.getElementById('university-box').style.minHeight = neededHeight + 'px';
 
     let militaryCount = 0;
     let civilCount    = 0;
@@ -349,7 +356,7 @@ function calculateTargets() {
         const startRow = Math.floor(index / universityCols);
 
         icon.dataset.startX = (universityRect.left - overlayRect.left) + 50 + startCol * (ICON_SIZE + GAP);
-        icon.dataset.startY = (universityRect.top  - overlayRect.top)  + 90 + startRow * (ICON_SIZE + GAP);
+        icon.dataset.startY = (universityRect.top  - overlayRect.top)  + uniTopOffset + startRow * (ICON_SIZE + GAP);
 
         if (icon.dataset.target === 'militaer') {
             const col = militaryCount % militaryCols;
@@ -412,8 +419,11 @@ const P_MAJORITY_IN  = 0.50;
 
 // Späte Phasen dynamisch — passt sich der Viewport-Höhe an
 function calcLatePhases() {
-    const factor      = Math.min(1, window.innerHeight / 900);
-    const P_ICONS_END    = 0.58 + 0.28 * factor;   // 0.58 (klein) → 0.86 (groß)
+    const isMobile = window.innerWidth <= 768;
+    const factor = isMobile
+        ? 0.7
+        : Math.min(1, window.innerHeight / 900);
+    const P_ICONS_END    = 0.58 + 0.28 * factor;
     const P_PERCENT      = P_ICONS_END + 0.02;
     const P_MAJORITY_OUT = P_ICONS_END;
     return { P_ICONS_END, P_PERCENT, P_MAJORITY_OUT };

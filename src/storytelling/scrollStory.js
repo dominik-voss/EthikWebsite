@@ -361,12 +361,14 @@ function calculateTargets() {
         if (icon.dataset.target === 'militaer') {
             const col = militaryCount % militaryCols;
             const row = Math.floor(militaryCount / militaryCols);
+            const sectorTopPad = window.innerWidth <= 768 ? 40 : 70;
             icon.dataset.endX = (militaryRect.left - overlayRect.left) + PADDING + col * (ICON_SIZE + GAP);
             icon.dataset.endY = (militaryRect.top  - overlayRect.top)  + 70 + milOffset + row * (ICON_SIZE + GAP);
             militaryCount++;
         } else {
             const col = civilCount % civilCols;
             const row = Math.floor(civilCount / civilCols);
+            const sectorTopPadCiv = window.innerWidth <= 768 ? 40 : 80;
             icon.dataset.endX = (civilRect.left - overlayRect.left) + PADDING + col * (ICON_SIZE + GAP);
             icon.dataset.endY = (civilRect.top  - overlayRect.top)  + 80 + civOffset + row * (ICON_SIZE + GAP);
             civilCount++;
@@ -375,7 +377,7 @@ function calculateTargets() {
 
     const militaryRows = Math.ceil(militaryCount / militaryCols);
     const civilRows    = Math.ceil(civilCount    / civilCols);
-    const sectorBase = window.innerWidth <= 768 ? 80 : 150;
+    const sectorBase = window.innerWidth <= 768 ? 30 : 150;
 
     document.getElementById('military-sector').style.minHeight =
         `${150 + milOffset + militaryRows * (ICON_SIZE + GAP)}px`;

@@ -718,7 +718,8 @@ Mobile Responsive
     }
 
     .percentage {
-        font-size: 2rem;
+        margin-top: 4px;
+        font-size: 1.8rem;
     }
 
     #charts-section {

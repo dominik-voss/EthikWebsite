@@ -131,8 +131,15 @@ body {
 #career-scene {
     height: 400vh;
     position: relative;
+    background: var(--color-bg-body);
+    transition: background 0.4s ease;
 }
 
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 /* Sticky Story */
 
@@ -184,6 +191,32 @@ body {
     text-align: center;
     box-shadow: var(--shadow-card);
     transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+#intro-box,
+#avatar-stage {
+    background: var(--color-sector);
+    color: var(--color-sector-text);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-sector);
+}
+
+/* Subtiler Glanz-Effekt oben links */
+#intro-box::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(232, 160, 32, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Goldene Zahl hervorheben */
+#intro-box strong,
+#intro-box b {
+    color: #e8a020;
 }
 
 
@@ -445,7 +478,7 @@ body {
 
 .avatar-facts li {
     font-size: 0.95rem;
-    color: var(--color-avatar-fact);
+    color: var(--color-sector-text);
     transition: color 0.4s ease;
 }
 

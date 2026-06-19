@@ -690,7 +690,7 @@ Mobile Responsive
     #military-sector,
     #civil-sector {
         width: 100%;
-        min-height: 200px;
+        min-height: 0;
     }
 
     .avatar-stage {

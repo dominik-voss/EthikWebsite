@@ -375,6 +375,7 @@ function calculateTargets() {
 
     const militaryRows = Math.ceil(militaryCount / militaryCols);
     const civilRows    = Math.ceil(civilCount    / civilCols);
+    const sectorBase = window.innerWidth <= 768 ? 80 : 150;
 
     document.getElementById('military-sector').style.minHeight =
         `${150 + milOffset + militaryRows * (ICON_SIZE + GAP)}px`;

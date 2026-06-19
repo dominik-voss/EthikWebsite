@@ -645,3 +645,92 @@ Avatar Hover-Tooltip
     content: '▸ ';
     color: #e8a020;
 }
+
+/* -------------------------
+Mobile Responsive
+------------------------- */
+
+@media (max-width: 768px) {
+
+    #career-scene {
+        height: 700vh;
+    }
+
+    .story-sticky {
+        gap: 24px;
+        padding: 60px 16px 24px;
+    }
+
+    .textbox {
+        padding: 20px 16px;
+        font-size: 0.95rem;
+    }
+
+    .university {
+        width: 100%;
+        min-height: 180px;
+    }
+
+    .university-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .majority-box {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .sector-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    #military-sector,
+    #civil-sector {
+        width: 100%;
+        min-height: 200px;
+    }
+
+    .avatar-stage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .avatar-facts ul {
+        align-items: center;
+    }
+
+    .filter-bar {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .studiengang-filter {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+
+    .percentage {
+        font-size: 2rem;
+    }
+
+    #charts-section {
+        padding: 40px 16px 60px;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-tooltip {
+        white-space: normal;
+        max-width: 200px;
+    }
+}

@@ -237,9 +237,23 @@ function createStudents(data) {
         icon.dataset.geschlecht   = student.geschlecht  || '';
         icon.dataset.filtered     = 'show';
         if (index === avatarIndex) {
-            icon.classList.add('student-icon--avatar');
-            avatarNode = icon;
-        }
+    icon.classList.add('student-icon--avatar');
+    avatarNode = icon;
+
+    // Hover-Tooltip
+    const tooltip = document.getElementById('avatar-tooltip');
+    icon.style.pointerEvents = 'auto';
+    icon.addEventListener('mouseenter', () => {
+        const rect = icon.getBoundingClientRect();
+        const overlayRect = document.getElementById('student-overlay').getBoundingClientRect();
+        tooltip.style.left = (rect.left - overlayRect.left + 30) + 'px';
+        tooltip.style.top  = (rect.top  - overlayRect.top  - 10) + 'px';
+        tooltip.classList.add('visible');
+    });
+    icon.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('visible');
+    });
+}
         overlay.appendChild(icon);
         studentNodes.push(icon);
     });
@@ -264,6 +278,17 @@ function fillAvatarFacts(data) {
         `Nationalität: ${fmt(calcModus(students.map(s => s.nationalitaet)))}`;
     document.getElementById('avatar-fact-studiengang').textContent =
         `Studiengang: ${calcModus(students.filter(s => s.studiengang).map(s => s.studiengang))}`;
+    // Tooltip-Felder befüllen
+const ttMap = {
+    'tt-status':        `Status: ${fmt(calcModus(students.map(s => s.status)))}`,
+    'tt-geschlecht':    `Geschlecht: ${fmt(calcModus(students.map(s => s.geschlecht)))}`,
+    'tt-nationalitaet': `Nationalität: ${fmt(calcModus(students.map(s => s.nationalitaet)))}`,
+    'tt-studiengang':   `Studiengang: ${calcModus(students.filter(s => s.studiengang).map(s => s.studiengang))}`,
+};
+Object.entries(ttMap).forEach(([id, text]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+});
 }
 
 /* -------------------------

@@ -17,7 +17,7 @@
     --color-majority-text:  #222222;
     --color-header-bg:      rgba(240, 242, 245, 0.85);
     --color-border:         rgba(0, 0, 0, 0.15);
-    --color-primary:        #4a90e2;
+    --color-primary:        #e8a020;
     --shadow-card:          0 15px 40px rgba(0,0,0,.18);
     --shadow-sector:        0 15px 40px rgba(0,0,0,.22);
     --chart-tick-color:     #555555;
@@ -41,7 +41,7 @@
     --color-majority-text:  #e8eaf0;
     --color-header-bg:      rgba(15, 17, 23, 0.88);
     --color-border:         rgba(255, 255, 255, 0.12);
-    --color-primary:        #5fa8f5;
+    --color-primary:        #e8a020;
     --shadow-card:          0 15px 40px rgba(0,0,0,.55);
     --shadow-sector:        0 4px 24px rgba(80,120,255,.12), 0 15px 40px rgba(0,0,0,.6);
     --chart-tick-color:     #a0a8c0;
@@ -66,7 +66,7 @@
         --color-majority-text:  #e8eaf0;
         --color-header-bg:      rgba(15, 17, 23, 0.88);
         --color-border:         rgba(255, 255, 255, 0.12);
-        --color-primary:        #5fa8f5;
+        --color-primary:        #e8a020;
         --shadow-card:          0 15px 40px rgba(0,0,0,.55);
         --shadow-sector:        0 4px 24px rgba(80,120,255,.12), 0 15px 40px rgba(0,0,0,.6);
         --chart-tick-color:     #a0a8c0;
@@ -520,6 +520,8 @@ body {
     color: var(--color-textbox-text);
     margin: 0 0 12px 0;
     transition: color 0.4s ease;
+    border-left: 4px solid var(--color-primary);
+    padding-left: 16px;
 }
 
 .charts-intro {
@@ -528,6 +530,7 @@ body {
     margin: 0 0 48px 0;
     max-width: 620px;
     line-height: 1.6;
+    padding-left: 20px;
 }
 
 .charts-grid {
@@ -566,4 +569,153 @@ body {
 
 .chart-card--wide .chart-wrap {
     height: 260px;
+}
+
+/* -------------------------
+   Hero Section
+------------------------- */
+
+#hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    background-color: var(--color-bg-body);
+    background-image: url('/On the way-pana.svg');
+    background-repeat: no-repeat;
+    background-position: center 120%;
+    background-size: 55%;
+    transition: background-color 0.4s ease;
+    padding-bottom: 80px;
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(240, 242, 245, 0.88);
+    z-index: 0;
+}
+
+#hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 16px 0;
+    transition: color 0.4s ease;
+}
+
+.hero-title {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--color-textbox-text);
+    margin: 0 0 20px 0;
+    line-height: 1.15;
+    transition: color 0.4s ease;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--chart-tick-color);
+    max-width: 580px;
+    line-height: 1.65;
+    margin: 0 0 40px 0;
+    transition: color 0.4s ease;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 10px 28px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.hero-badge:hover {
+    background: var(--color-primary);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.hero-scroll-hint {
+    position: fixed;
+    bottom: 32px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 99;
+    color: var(--color-primary);
+    opacity: 0.8;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    animation: bounce 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(6px); }
+}
+
+.hero-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--color-primary);
+    margin: 0 auto 24px;
+}
+
+
+/* -------------------------
+   Pull Quote
+------------------------- */
+
+.pull-quote {
+    max-width: 720px;
+    width: 100%;
+    padding: 32px 0 32px 32px;
+    border-left: 4px solid var(--color-primary);
+    text-align: left;
+}
+
+.pull-quote-count {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 16px;
+}
+
+.pull-quote blockquote {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--color-textbox-text);
+    line-height: 1.5;
+    font-style: italic;
+    transition: color 0.4s ease;
+}
+
+.pull-quote {
+    margin: 0 auto;
 }

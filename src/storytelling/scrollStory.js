@@ -3,9 +3,10 @@ let studentsData    = [];
 let studentNodes    = [];
 let avatarNode      = null;
 
-const TOOLTIP_OFFSET    = 140;
+const TOOLTIP_OFFSET = window.innerWidth <= 768 ? 220 : 140;
 let militaryTooltipOpen = false;
 let civilTooltipOpen    = false;
+let geschlechtFilter   = 'alle';
 
 let currentProgress = 0;
 
@@ -137,41 +138,51 @@ function refreshIconPositions() {
 ------------------------- */
 
 function setupFilters() {
-    const select = document.getElementById('studiengang-filter');
-    if (!select) return;
-    select.addEventListener('change', () => applyFilter(select.value));
+const sgSelect = document.getElementById('studiengang-filter');
+const gsSelect = document.getElementById('geschlecht-filter');
+if (sgSelect) sgSelect.addEventListener('change', () => applyFilter());
+if (gsSelect) gsSelect.addEventListener('change', () => {
+geschlechtFilter = gsSelect.value;
+applyFilter();
+});
 }
 
-function applyFilter(filterValue = 'alle') {
+function applyFilter() {
 
-    const students = allStudentsData.filter(d => d.status === 'student');
+const sgSelect = document.getElementById('studiengang-filter');
+const sgFilter = sgSelect ? sgSelect.value : 'alle';
+const students = allStudentsData.filter(d => d.status === 'student');
 
-    // Beide Kästen gleichzeitig filtern
-    studentNodes.forEach(icon => {
-        const match = filterValue === 'alle' || icon.dataset.studiengang === filterValue;
-        icon.dataset.filtered = match ? 'show' : 'hide';
-        icon.classList.toggle('filtered-out', !match);
-    });
+studentNodes.forEach(icon => {
+const sgMatch = sgFilter === 'alle' || icon.dataset.studiengang === sgFilter;
+const gsMatch = geschlechtFilter === 'alle' || icon.dataset.geschlecht === geschlechtFilter;
+const match = sgMatch && gsMatch;
+icon.dataset.filtered = match ? 'show' : 'hide';
+icon.classList.toggle('filtered-out', !match);
+});
 
-    const base = filterValue === 'alle'
-        ? students.length
-        : students.filter(d => d.studiengang === filterValue).length;
+const base = students.filter(d =>
+(sgFilter === 'alle' || d.studiengang === sgFilter) &&
+(geschlechtFilter === 'alle' || d.geschlecht === geschlechtFilter)
+).length;
 
-    const milCount = students.filter(d =>
-        d.entscheidung === 'militaer' &&
-        (filterValue === 'alle' || d.studiengang === filterValue)
-    ).length;
+const milCount = students.filter(d =>
+d.entscheidung === 'militaer' &&
+(sgFilter === 'alle' || d.studiengang === sgFilter) &&
+(geschlechtFilter === 'alle' || d.geschlecht === geschlechtFilter)
+).length;
 
-    const civCount = students.filter(d =>
-        d.entscheidung === 'zivil' &&
-        (filterValue === 'alle' || d.studiengang === filterValue)
-    ).length;
+const civCount = students.filter(d =>
+d.entscheidung === 'zivil' &&
+(sgFilter === 'alle' || d.studiengang === sgFilter) &&
+(geschlechtFilter === 'alle' || d.geschlecht === geschlechtFilter)
+).length;
 
-    const milPct = base > 0 ? Math.round(milCount / base * 100) : 0;
-    const civPct = base > 0 ? Math.round(civCount / base * 100) : 0;
+const milPct = base > 0 ? Math.round(milCount / base * 100) : 0;
+const civPct = base > 0 ? Math.round(civCount / base * 100) : 0;
 
-    document.getElementById('military-percent').textContent = milPct + '% (' + milCount + ')';
-    document.getElementById('civil-percent').textContent    = civPct + '% (' + civCount + ')';
+document.getElementById('military-percent').textContent = milPct + '% (' + milCount + ')';
+document.getElementById('civil-percent').textContent = civPct + '% (' + civCount + ')';
 }
 
 /* -------------------------
@@ -223,11 +234,26 @@ function createStudents(data) {
         icon.dataset.target       = student.entscheidung;
         icon.dataset.index        = index;
         icon.dataset.studiengang  = student.studiengang || '';
+        icon.dataset.geschlecht   = student.geschlecht  || '';
         icon.dataset.filtered     = 'show';
         if (index === avatarIndex) {
-            icon.classList.add('student-icon--avatar');
-            avatarNode = icon;
-        }
+    icon.classList.add('student-icon--avatar');
+    avatarNode = icon;
+
+    // Hover-Tooltip
+    const tooltip = document.getElementById('avatar-tooltip');
+    icon.style.pointerEvents = 'auto';
+    icon.addEventListener('mouseenter', () => {
+        const rect = icon.getBoundingClientRect();
+        const overlayRect = document.getElementById('student-overlay').getBoundingClientRect();
+        tooltip.style.left = (rect.left - overlayRect.left + 30) + 'px';
+        tooltip.style.top  = (rect.top  - overlayRect.top  - 10) + 'px';
+        tooltip.classList.add('visible');
+    });
+    icon.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('visible');
+    });
+}
         overlay.appendChild(icon);
         studentNodes.push(icon);
     });
@@ -252,6 +278,17 @@ function fillAvatarFacts(data) {
         `Nationalität: ${fmt(calcModus(students.map(s => s.nationalitaet)))}`;
     document.getElementById('avatar-fact-studiengang').textContent =
         `Studiengang: ${calcModus(students.filter(s => s.studiengang).map(s => s.studiengang))}`;
+    // Tooltip-Felder befüllen
+const ttMap = {
+    'tt-status':        `Status: ${fmt(calcModus(students.map(s => s.status)))}`,
+    'tt-geschlecht':    `Geschlecht: ${fmt(calcModus(students.map(s => s.geschlecht)))}`,
+    'tt-nationalitaet': `Nationalität: ${fmt(calcModus(students.map(s => s.nationalitaet)))}`,
+    'tt-studiengang':   `Studiengang: ${calcModus(students.filter(s => s.studiengang).map(s => s.studiengang))}`,
+};
+Object.entries(ttMap).forEach(([id, text]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text;
+});
 }
 
 /* -------------------------
@@ -292,16 +329,23 @@ function calculateTargets() {
     const militaryRect   = document.getElementById('military-sector').getBoundingClientRect();
     const civilRect      = document.getElementById('civil-sector').getBoundingClientRect();
 
-    const ICON_SIZE = 24;
+    const ICON_SIZE = window.innerWidth <= 768 ? 16 : 24;
     const GAP       = 4;
     const PADDING   = 15;
 
+    const tooltipOffset = window.innerWidth <= 768 ? 220 : 140;
     const milOffset = militaryTooltipOpen ? TOOLTIP_OFFSET : 0;
     const civOffset = civilTooltipOpen    ? TOOLTIP_OFFSET : 0;
 
-    const militaryCols   = Math.max(1, Math.floor((militaryRect.width  - PADDING * 2) / (ICON_SIZE + GAP)));
-    const civilCols      = Math.max(1, Math.floor((civilRect.width     - PADDING * 2) / (ICON_SIZE + GAP)));
+    const militaryCols   = Math.max(1, Math.floor((militaryRect.width   - PADDING * 2) / (ICON_SIZE + GAP)));
+    const civilCols      = Math.max(1, Math.floor((civilRect.width      - PADDING * 2) / (ICON_SIZE + GAP)));
     const universityCols = Math.max(1, Math.floor((universityRect.width - 80)          / (ICON_SIZE + GAP)));
+
+    // University-Box Höhe dynamisch anpassen
+    const uniTopOffset = window.innerWidth <= 768 ? 80 : 90;
+    const totalRows    = Math.ceil(studentNodes.length / universityCols);
+    const neededHeight = uniTopOffset + totalRows * (ICON_SIZE + GAP) + 20;
+    document.getElementById('university-box').style.minHeight = neededHeight + 'px';
 
     let militaryCount = 0;
     let civilCount    = 0;
@@ -312,17 +356,19 @@ function calculateTargets() {
         const startRow = Math.floor(index / universityCols);
 
         icon.dataset.startX = (universityRect.left - overlayRect.left) + 50 + startCol * (ICON_SIZE + GAP);
-        icon.dataset.startY = (universityRect.top  - overlayRect.top)  + 90 + startRow * (ICON_SIZE + GAP);
+        icon.dataset.startY = (universityRect.top  - overlayRect.top)  + uniTopOffset + startRow * (ICON_SIZE + GAP);
 
         if (icon.dataset.target === 'militaer') {
             const col = militaryCount % militaryCols;
             const row = Math.floor(militaryCount / militaryCols);
+            const sectorTopPad = window.innerWidth <= 768 ? 40 : 70;
             icon.dataset.endX = (militaryRect.left - overlayRect.left) + PADDING + col * (ICON_SIZE + GAP);
             icon.dataset.endY = (militaryRect.top  - overlayRect.top)  + 70 + milOffset + row * (ICON_SIZE + GAP);
             militaryCount++;
         } else {
             const col = civilCount % civilCols;
             const row = Math.floor(civilCount / civilCols);
+            const sectorTopPadCiv = window.innerWidth <= 768 ? 40 : 80;
             icon.dataset.endX = (civilRect.left - overlayRect.left) + PADDING + col * (ICON_SIZE + GAP);
             icon.dataset.endY = (civilRect.top  - overlayRect.top)  + 80 + civOffset + row * (ICON_SIZE + GAP);
             civilCount++;
@@ -331,6 +377,7 @@ function calculateTargets() {
 
     const militaryRows = Math.ceil(militaryCount / militaryCols);
     const civilRows    = Math.ceil(civilCount    / civilCols);
+    const sectorBase = window.innerWidth <= 768 ? 30 : 150;
 
     document.getElementById('military-sector').style.minHeight =
         `${150 + milOffset + militaryRows * (ICON_SIZE + GAP)}px`;
@@ -375,8 +422,11 @@ const P_MAJORITY_IN  = 0.50;
 
 // Späte Phasen dynamisch — passt sich der Viewport-Höhe an
 function calcLatePhases() {
-    const factor      = Math.min(1, window.innerHeight / 900);
-    const P_ICONS_END    = 0.58 + 0.28 * factor;   // 0.58 (klein) → 0.86 (groß)
+    const isMobile = window.innerWidth <= 768;
+    const factor = isMobile
+        ? 0.7
+        : Math.min(1, window.innerHeight / 900);
+    const P_ICONS_END    = 0.58 + 0.28 * factor;
     const P_PERCENT      = P_ICONS_END + 0.02;
     const P_MAJORITY_OUT = P_ICONS_END;
     return { P_ICONS_END, P_PERCENT, P_MAJORITY_OUT };
@@ -495,5 +545,7 @@ function setupScrollStory() {
             .classList.toggle('visible', currentProgress > P_PERCENT);
         document.getElementById('civil-percent')
             .classList.toggle('visible', currentProgress > P_PERCENT);
+        document.getElementById('filter-bar')
+            .classList.toggle('phase-visible', currentProgress > P_ICONS_END);
     });
 }

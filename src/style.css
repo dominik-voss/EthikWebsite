@@ -129,10 +129,17 @@ body {
 ------------------------- */
 
 #career-scene {
-    height: 400vh;
+    height: 550vh;
     position: relative;
+    background: var(--color-bg-body);
+    transition: background 0.4s ease;
 }
 
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 /* Sticky Story */
 
@@ -186,6 +193,32 @@ body {
     transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 
+#intro-box,
+#avatar-stage {
+    background: var(--color-sector);
+    color: var(--color-sector-text);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-sector);
+}
+
+/* Subtiler Glanz-Effekt oben links */
+#intro-box::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(232, 160, 32, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Goldene Zahl hervorheben */
+#intro-box strong,
+#intro-box b {
+    color: #e8a020;
+}
+
 
 /* Karten */
 
@@ -199,9 +232,8 @@ body {
 }
 
 .university {
-    width: 1000px;
-    max-width: 90vw;
-    min-height: 280px;
+    width: 100%;
+    min-height: auto;
 }
 
 
@@ -304,25 +336,25 @@ body {
 }
 
 .studiengang-filter {
-    background: rgba(255, 255, 255, 0.18);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: var(--color-sector);
+    color: var(--color-sector-text);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
     padding: 6px 14px;
     font-size: 0.9rem;
     cursor: pointer;
     outline: none;
-    transition: background 0.2s ease, border-color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .studiengang-filter:hover,
 .studiengang-filter:focus {
-    background: rgba(255, 255, 255, 0.32);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
 .studiengang-filter option {
-    background: #1e2740;
-    color: white;
+    background: var(--color-sector);
+    color: var(--color-sector-text);
 }
 
 
@@ -445,7 +477,7 @@ body {
 
 .avatar-facts li {
     font-size: 0.95rem;
-    color: var(--color-avatar-fact);
+    color: var(--color-sector-text);
     transition: color 0.4s ease;
 }
 
@@ -571,6 +603,146 @@ body {
     height: 260px;
 }
 
+/* -------------------------
+Avatar Hover-Tooltip
+------------------------- */
+
+.avatar-tooltip {
+    position: absolute;
+    z-index: 200;
+    background: var(--color-sector);
+    color: var(--color-sector-text);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    box-shadow: var(--shadow-card);
+}
+
+.avatar-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.avatar-tooltip strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.92rem;
+    color: #e8a020;
+}
+
+.avatar-tooltip ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.avatar-tooltip li::before {
+    content: '▸ ';
+    color: #e8a020;
+}
+
+/* -------------------------
+Mobile Responsive
+------------------------- */
+
+@media (max-width: 768px) {
+
+    #career-scene {
+        height: 700vh;
+    }
+
+    .story-sticky {
+        gap: 24px;
+        padding: 60px 16px 24px;
+    }
+
+    .textbox {
+        padding: 20px 16px;
+        font-size: 0.95rem;
+    }
+
+    .university {
+        width: 100%;
+        min-height: 180px;
+    }
+
+    .university-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .majority-box {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .sector-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    #military-sector,
+    #civil-sector {
+        width: 100%;
+        min-height: 0;
+    }
+
+    .avatar-stage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .avatar-facts ul {
+        align-items: center;
+    }
+
+    .filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    }
+
+    .studiengang-filter {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+
+    .percentage {
+        margin-top: 4px;
+        font-size: 1.8rem;
+    }
+
+    #charts-section {
+        padding: 40px 16px 60px;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-tooltip {
+        white-space: normal;
+        max-width: 200px;
+    }
+        .student-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 0.5rem;
+    }
+}
 /* -------------------------
    Hero Section
 ------------------------- */

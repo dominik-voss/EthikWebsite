@@ -411,12 +411,12 @@ function positionAllAtStart() {
 
 const P_INTRO        = 0.05;
 const P_AVATAR       = 0.15;
-const P_UNIVERSITY   = 0.30;
+const P_UNIVERSITY   = 0.22;
 const P_AVATAR_MOVE  = 0.25;
 const P_AVATAR_ARRIVE = 0.33;
 const P_SECTORS      = 0.42;
-const P_PAN_START    = 0.44;
-const P_PAN_END      = 0.54;
+const P_PAN_START    = 0.40;
+const P_PAN_END      = 0.65;
 const P_ICONS_START  = 0.56;
 const P_MAJORITY_IN  = 0.50;
 

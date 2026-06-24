@@ -677,7 +677,7 @@ Mobile Responsive
 @media (max-width: 768px) {
 
     #career-scene {
-        height: 700vh;
+        height: 300vh;
     }
 
     .story-sticky {
@@ -922,4 +922,8 @@ Mobile Responsive
     line-height: 1.5;
     font-style: italic;
     transition: color 0.4s ease;
+}
+
+#university-box {
+    overflow: hidden;
 }

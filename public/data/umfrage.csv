@@ -1,190 +1,230 @@
-status,geschlecht,nationalitaet,entscheidung,studiengang,ethik_wichtig,gehalt_ausschlaggebend,wuerde_wechseln
-student,weiblich,deutsch,militaer,Informatik,ja,teilweise,vielleicht
-student,maennlich,deutsch,zivil,Informatik,ja,ja,nein
-student,maennlich,deutsch,zivil,Informatik,teilweise,ja,vielleicht
-student,weiblich,deutsch,militaer,Informatik,ja,teilweise,vielleicht
-student,maennlich,deutsch,zivil,Maschinenbau,ja,ja,vielleicht
-student,weiblich,deutsch,militaer,BWL,ja,ja,ja
-student,maennlich,deutsch,zivil,Informatik,ja,teilweise,nein
-student,weiblich,deutsch,militaer,Maschinenbau,nein,ja,ja
-arbeitslos,weiblich,deutsch,zivil,,teilweise,nein,vielleicht
-student,maennlich,deutsch,zivil,BWL,ja,teilweise,vielleicht
-student,maennlich,deutsch,militaer,Maschinenbau,teilweise,ja,vielleicht
-student,maennlich,international,militaer,BWL,teilweise,teilweise,nein
-student,weiblich,deutsch,militaer,Informatik,teilweise,nein,vielleicht
-arbeitslos,weiblich,deutsch,zivil,,teilweise,teilweise,vielleicht
-student,maennlich,deutsch,militaer,Informatik,nein,teilweise,nein
-student,weiblich,international,militaer,Maschinenbau,teilweise,teilweise,ja
-student,weiblich,international,zivil,Maschinenbau,ja,teilweise,ja
-student,maennlich,deutsch,zivil,BWL,ja,nein,nein
-arbeitslos,weiblich,deutsch,zivil,,nein,ja,vielleicht
-student,weiblich,international,zivil,Informatik,teilweise,teilweise,nein
-student,maennlich,deutsch,militaer,Maschinenbau,ja,teilweise,vielleicht
-student,weiblich,deutsch,zivil,Maschinenbau,teilweise,ja,vielleicht
-student,weiblich,international,zivil,Informatik,ja,ja,vielleicht
-student,maennlich,deutsch,zivil,Informatik,ja,nein,nein
-arbeitslos,maennlich,deutsch,militaer,,nein,ja,ja
-student,maennlich,deutsch,zivil,BWL,ja,nein,nein
-student,divers,international,zivil,Maschinenbau,nein,nein,ja
-student,weiblich,international,militaer,Informatik,ja,ja,nein
-student,maennlich,international,zivil,BWL,ja,teilweise,ja
-student,weiblich,deutsch,zivil,Informatik,ja,teilweise,vielleicht
-student,maennlich,deutsch,zivil,Informatik,ja,ja,nein
-student,maennlich,deutsch,zivil,Maschinenbau,ja,teilweise,vielleicht
-arbeitslos,maennlich,deutsch,militaer,,teilweise,teilweise,ja
-student,maennlich,deutsch,zivil,Informatik,ja,teilweise,vielleicht
-student,weiblich,international,militaer,BWL,ja,teilweise,vielleicht
-student,weiblich,deutsch,zivil,Maschinenbau,nein,ja,nein
-student,weiblich,deutsch,militaer,Informatik,ja,ja,vielleicht
-student,maennlich,international,zivil,Maschinenbau,ja,teilweise,vielleicht
-student,weiblich,deutsch,zivil,Informatik,ja,teilweise,ja
-student,weiblich,deutsch,zivil,Maschinenbau,ja,ja,ja
-student,weiblich,deutsch,militaer,Informatik,ja,teilweise,nein
-student,weiblich,international,militaer,Maschinenbau,ja,teilweise,ja
-student,weiblich,deutsch,zivil,Informatik,teilweise,nein,nein
-student,maennlich,international,zivil,Maschinenbau,ja,nein,vielleicht
-student,maennlich,deutsch,zivil,Informatik,ja,ja,nein
-student,maennlich,international,zivil,Maschinenbau,nein,ja,nein
-student,maennlich,deutsch,militaer,BWL,nein,ja,nein
-student,maennlich,deutsch,militaer,Maschinenbau,teilweise,teilweise,vielleicht
-arbeitslos,weiblich,deutsch,militaer,,nein,nein,vielleicht
-student,weiblich,deutsch,militaer,Informatik,teilweise,ja,ja
-student,weiblich,deutsch,zivil,BWL,ja,teilweise,vielleicht
-student,maennlich,deutsch,zivil,BWL,teilweise,teilweise,vielleicht
-student,weiblich,international,zivil,BWL,teilweise,ja,nein
-student,weiblich,international,zivil,Informatik,ja,ja,ja
-student,weiblich,international,militaer,BWL,nein,teilweise,vielleicht
-student,maennlich,deutsch,militaer,BWL,nein,teilweise,ja
-student,weiblich,deutsch,zivil,Informatik,ja,nein,ja
-student,weiblich,international,zivil,BWL,nein,nein,vielleicht
-student,maennlich,international,zivil,Maschinenbau,ja,nein,vielleicht
-student,maennlich,international,zivil,Maschinenbau,ja,teilweise,nein
-student,maennlich,deutsch,militaer,BWL,ja,teilweise,vielleicht
-student,maennlich,deutsch,militaer,BWL,nein,ja,vielleicht
-arbeitslos,maennlich,international,zivil,,ja,nein,vielleicht
-student,weiblich,international,zivil,BWL,teilweise,teilweise,vielleicht
-student,maennlich,deutsch,militaer,BWL,ja,ja,ja
-student,weiblich,deutsch,zivil,Informatik,ja,teilweise,nein
-student,maennlich,deutsch,militaer,BWL,nein,ja,vielleicht
-student,weiblich,deutsch,zivil,BWL,ja,nein,vielleicht
-student,maennlich,deutsch,militaer,Maschinenbau,nein,teilweise,ja
-student,weiblich,deutsch,zivil,Informatik,teilweise,ja,vielleicht
-student,weiblich,deutsch,militaer,Informatik,teilweise,nein,vielleicht
-arbeitslos,maennlich,international,militaer,,teilweise,teilweise,ja
-student,weiblich,deutsch,militaer,BWL,nein,teilweise,ja
-student,maennlich,deutsch,militaer,BWL,teilweise,ja,ja
-student,weiblich,deutsch,zivil,BWL,nein,ja,nein
-student,maennlich,international,zivil,BWL,ja,ja,nein
-student,maennlich,deutsch,zivil,BWL,ja,ja,nein
-student,maennlich,deutsch,militaer,Informatik,teilweise,nein,vielleicht
-student,maennlich,international,zivil,Informatik,teilweise,teilweise,nein
-student,maennlich,deutsch,zivil,Informatik,ja,teilweise,vielleicht
-student,divers,deutsch,militaer,BWL,teilweise,ja,ja
-student,maennlich,deutsch,zivil,BWL,ja,ja,vielleicht
-student,weiblich,international,zivil,Maschinenbau,ja,teilweise,vielleicht
-student,maennlich,international,zivil,Informatik,teilweise,ja,nein
-student,weiblich,deutsch,zivil,Informatik,ja,ja,nein
-student,maennlich,deutsch,zivil,Informatik,ja,ja,vielleicht
-student,maennlich,international,zivil,Informatik,teilweise,ja,vielleicht
-student,maennlich,deutsch,militaer,BWL,teilweise,ja,nein
-student,weiblich,deutsch,militaer,Informatik,ja,teilweise,ja
-student,weiblich,deutsch,militaer,Maschinenbau,nein,teilweise,ja
-student,weiblich,deutsch,zivil,BWL,nein,teilweise,vielleicht
-student,weiblich,deutsch,militaer,BWL,ja,teilweise,vielleicht
-student,maennlich,deutsch,zivil,Informatik,ja,teilweise,vielleicht
-student,weiblich,deutsch,militaer,BWL,ja,teilweise,nein
-student,divers,deutsch,militaer,Informatik,ja,teilweise,ja
-student,maennlich,deutsch,zivil,BWL,ja,ja,vielleicht
-student,maennlich,deutsch,militaer,Maschinenbau,teilweise,teilweise,ja
-student,maennlich,deutsch,militaer,Informatik,nein,ja,vielleicht
-arbeitslos,weiblich,deutsch,militaer,,ja,ja,vielleicht
-student,maennlich,deutsch,zivil,Informatik,ja,teilweise,ja
-arbeitslos,weiblich,deutsch,militaer,,teilweise,teilweise,ja
-arbeitslos,weiblich,deutsch,militaer,,nein,ja,vielleicht
-student,maennlich,deutsch,militaer,BWL,teilweise,ja,ja
-student,weiblich,international,militaer,Maschinenbau,nein,ja,nein
-student,maennlich,deutsch,zivil,Informatik,nein,teilweise,ja
-student,maennlich,international,militaer,BWL,nein,nein,nein
-student,maennlich,international,militaer,BWL,nein,teilweise,vielleicht
-student,weiblich,deutsch,militaer,Maschinenbau,nein,ja,nein
-student,weiblich,deutsch,zivil,Informatik,ja,nein,vielleicht
-student,maennlich,international,militaer,Informatik,teilweise,ja,ja
-student,weiblich,deutsch,militaer,Maschinenbau,nein,teilweise,nein
-student,maennlich,deutsch,militaer,Informatik,ja,ja,nein
-student,weiblich,deutsch,zivil,Maschinenbau,teilweise,ja,nein
-student,maennlich,deutsch,militaer,BWL,teilweise,ja,ja
-student,weiblich,deutsch,zivil,BWL,ja,teilweise,vielleicht
-student,weiblich,deutsch,militaer,Informatik,teilweise,ja,nein
-arbeitslos,maennlich,international,zivil,,ja,teilweise,nein
-student,maennlich,deutsch,zivil,Informatik,nein,ja,nein
-student,maennlich,international,zivil,BWL,nein,nein,nein
-student,weiblich,deutsch,zivil,BWL,ja,ja,vielleicht
-student,weiblich,deutsch,militaer,Maschinenbau,teilweise,ja,vielleicht
-student,weiblich,deutsch,militaer,BWL,nein,ja,ja
-student,weiblich,international,zivil,BWL,ja,nein,vielleicht
-student,weiblich,international,zivil,Maschinenbau,ja,nein,vielleicht
-student,divers,international,zivil,Maschinenbau,ja,nein,ja
-student,maennlich,international,militaer,BWL,teilweise,teilweise,ja
-student,maennlich,international,zivil,BWL,teilweise,ja,ja
-student,maennlich,deutsch,militaer,Maschinenbau,nein,ja,ja
-student,maennlich,deutsch,zivil,Maschinenbau,teilweise,nein,vielleicht
-student,weiblich,deutsch,zivil,Informatik,ja,nein,vielleicht
-student,maennlich,international,zivil,Informatik,ja,teilweise,vielleicht
-arbeitslos,maennlich,deutsch,militaer,,ja,teilweise,ja
-student,weiblich,international,militaer,Maschinenbau,ja,nein,vielleicht
-student,maennlich,deutsch,zivil,Maschinenbau,ja,ja,nein
-student,divers,deutsch,zivil,Informatik,ja,nein,ja
-student,weiblich,deutsch,militaer,Informatik,ja,ja,ja
-student,weiblich,deutsch,militaer,BWL,teilweise,nein,ja
-student,weiblich,deutsch,zivil,Maschinenbau,ja,teilweise,vielleicht
-student,weiblich,deutsch,zivil,BWL,ja,ja,ja
-student,weiblich,deutsch,zivil,Maschinenbau,ja,teilweise,vielleicht
-student,maennlich,deutsch,zivil,Maschinenbau,ja,nein,vielleicht
-student,maennlich,deutsch,militaer,BWL,ja,ja,vielleicht
-student,weiblich,deutsch,militaer,Informatik,ja,ja,vielleicht
-student,weiblich,deutsch,zivil,Informatik,ja,ja,vielleicht
-student,weiblich,international,zivil,BWL,ja,teilweise,vielleicht
-student,maennlich,international,militaer,Maschinenbau,teilweise,ja,ja
-student,weiblich,international,zivil,BWL,ja,teilweise,ja
-arbeitslos,weiblich,deutsch,militaer,,nein,ja,ja
-student,weiblich,deutsch,militaer,Informatik,teilweise,ja,vielleicht
-student,maennlich,deutsch,militaer,BWL,ja,nein,vielleicht
-student,maennlich,deutsch,zivil,Informatik,ja,teilweise,vielleicht
-student,maennlich,deutsch,militaer,BWL,ja,teilweise,vielleicht
-student,maennlich,deutsch,zivil,BWL,ja,teilweise,vielleicht
-student,maennlich,deutsch,militaer,BWL,teilweise,ja,vielleicht
-student,weiblich,international,militaer,Maschinenbau,nein,ja,ja
-arbeitslos,weiblich,deutsch,zivil,,teilweise,teilweise,ja
-student,maennlich,international,militaer,BWL,teilweise,ja,ja
-student,weiblich,deutsch,militaer,BWL,ja,ja,ja
-student,weiblich,deutsch,militaer,Maschinenbau,nein,ja,nein
-student,maennlich,deutsch,militaer,Informatik,teilweise,teilweise,vielleicht
-student,maennlich,international,zivil,Maschinenbau,ja,nein,vielleicht
-student,maennlich,international,militaer,Maschinenbau,teilweise,ja,vielleicht
-student,maennlich,deutsch,militaer,Maschinenbau,teilweise,ja,vielleicht
-student,weiblich,deutsch,zivil,Informatik,ja,nein,nein
-student,weiblich,deutsch,zivil,Maschinenbau,ja,ja,ja
-student,divers,deutsch,zivil,BWL,ja,teilweise,nein
-student,maennlich,deutsch,militaer,Maschinenbau,teilweise,ja,vielleicht
-student,maennlich,deutsch,zivil,Maschinenbau,ja,ja,nein
-arbeitslos,weiblich,deutsch,militaer,,teilweise,nein,ja
-student,maennlich,deutsch,zivil,Maschinenbau,ja,teilweise,nein
-student,weiblich,international,zivil,Maschinenbau,teilweise,ja,nein
-student,maennlich,deutsch,militaer,Informatik,nein,ja,ja
-student,maennlich,international,zivil,Informatik,ja,nein,vielleicht
-student,maennlich,deutsch,militaer,Maschinenbau,nein,teilweise,vielleicht
-student,maennlich,deutsch,zivil,BWL,nein,teilweise,nein
-student,weiblich,deutsch,zivil,Informatik,ja,nein,vielleicht
-arbeitslos,divers,deutsch,militaer,,teilweise,ja,nein
-student,maennlich,deutsch,zivil,Maschinenbau,teilweise,teilweise,ja
-student,maennlich,international,militaer,Informatik,nein,ja,ja
-arbeitslos,maennlich,deutsch,militaer,,ja,ja,vielleicht
-student,maennlich,deutsch,zivil,Informatik,teilweise,teilweise,nein
-student,weiblich,deutsch,zivil,BWL,teilweise,teilweise,vielleicht
-arbeitslos,maennlich,deutsch,militaer,,nein,teilweise,ja
-student,maennlich,deutsch,zivil,Informatik,teilweise,teilweise,ja
-arbeitslos,weiblich,deutsch,zivil,,ja,ja,vielleicht
-student,weiblich,deutsch,zivil,Informatik,ja,teilweise,nein
-student,weiblich,deutsch,zivil,Maschinenbau,ja,nein,vielleicht
-student,maennlich,international,zivil,Informatik,teilweise,nein,vielleicht
-student,maennlich,deutsch,zivil,Maschinenbau,teilweise,nein,vielleicht
+status,geschlecht,nationalitaet,studiengang,entscheidung,alter,semester,bereich,vertraut_defense,ethik_im_studium,ethik_vorbereitung,ethik_orientierung,vorstellen_defense,vorstellen_forschung,dualuse_bedenken,gewissenskonflikte,einstellung_veraendert
+student,weiblich,deutsch,Informatik,zivil,18-22,1./2. Semester,Ich arbeite nicht,2,Nein,2,3,1,3,3,3,2
+student,maennlich,deutsch,Informatik,zivil,18-22,3./4. Semester,Informatik / Software Engineering,2,Nein,2,3,4,2,1,3,2
+student,maennlich,deutsch,Informatik,militaer,23-27,7./8. Semester,Informatik / Software Engineering,2,Nein,3,2,5,5,1,1,3
+student,maennlich,deutsch,Informatik,militaer,18-22,3./4. Semester,Ich arbeite nicht,2,Nein,4,1,4,4,1,1,1
+student,maennlich,deutsch,SDS,militaer,18-22,3./4. Semester,Data Science / Data Engineering,5,"Ja, aber nur am Rande",4,1,5,5,1,1,3
+student,maennlich,deutsch,SDS,militaer,18-22,3./4. Semester,Anderes,3,"Ja, aber nur am Rande",3,3,3,4,1,1,3
+student,maennlich,deutsch,SDS,militaer,23-27,1./2. Semester,Anderes,4,"Ja, aber nur am Rande",2,2,5,5,1,1,1
+student,weiblich,deutsch,SDS,zivil,28-34,3./4. Semester,Anderes,4,Ja,3,4,1,1,4,5,4
+student,weiblich,deutsch,SDS,militaer,18-22,3./4. Semester,Ich arbeite nicht,4,Ja,4,4,3,3,3,2,3
+student,weiblich,deutsch,SDS,zivil,18-22,3./4. Semester,Ich arbeite nicht,3,Ja,4,4,1,2,5,4,4
+student,maennlich,deutsch,SDS,unentschieden,28-34,3./4. Semester,Anderes,3,"Ja, aber nur am Rande",3,3,3,2,3,2,4
+student,maennlich,deutsch,SDS,zivil,18-22,3./4. Semester,Data Science / Data Engineering,3,"Ja, aber nur am Rande",4,4,2,1,3,5,4
+student,maennlich,deutsch,SDS,unentschieden,18-22,1./2. Semester,Ich arbeite nicht,3,Ja,3,4,3,3,1,3,4
+student,weiblich,deutsch,Informatik,zivil,18-22,1./2. Semester,Ich arbeite nicht,1,Nein,2,3,3,2,5,4,3
+student,weiblich,deutsch,SDS,militaer,23-27,1./2. Semester,Ich arbeite nicht,4,Ja,5,3,5,5,1,1,1
+student,maennlich,deutsch,Informatik,zivil,18-22,1./2. Semester,Ich arbeite nicht,1,Nein,1,3,1,1,4,5,2
+student,weiblich,deutsch,SDS,militaer,18-22,3./4. Semester,Ich arbeite nicht,3,"Ja, aber nur am Rande",3,3,2,2,2,2,2
+student,weiblich,deutsch,SDS,militaer,18-22,3./4. Semester,Data Science / Data Engineering,5,"Ja, aber nur am Rande",3,3,3,1,5,5,2
+student,maennlich,deutsch,Elektrotechnik,militaer,23-27,7./8. Semester,Elektrotechnik,3,Nein,3,4,4,5,4,2,1
+student,maennlich,deutsch,Elektrotechnik,zivil,23-27,9. Semester oder höher,Informatik / Software Engineering,5,Nein,1,5,3,3,4,5,2
+student,weiblich,deutsch,Maschinenbau,militaer,23-27,9. Semester oder höher,Wirtschaftsingenieurwesen,1,Nein,1,5,2,5,4,4,1
+student,maennlich,deutsch,Elektrotechnik,militaer,23-27,7./8. Semester,Elektrotechnik,3,Nein,3,4,5,5,1,2,2
+student,maennlich,deutsch,Elektrotechnik,militaer,23-27,7./8. Semester,Elektrotechnik,2,Nein,1,3,5,5,1,1,2
+student,weiblich,deutsch,Elektrotechnik,zivil,18-22,7./8. Semester,Informatik / Software Engineering,2,Nein,1,4,1,1,5,5,5
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,7./8. Semester,Informatik / Software Engineering,4,Nein,2,3,5,5,3,2,4
+student,weiblich,deutsch,Informatik,unentschieden,18-22,1./2. Semester,Anderes,3,Weiß ich nicht,3,3,2,2,5,4,4
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,7./8. Semester,Elektrotechnik,4,Nein,4,3,5,5,1,1,1
+student,maennlich,deutsch,Elektrotechnik,militaer,23-27,7./8. Semester,Elektrotechnik,5,Nein,3,1,5,5,1,1,1
+student,weiblich,deutsch,SDS,zivil,23-27,3./4. Semester,Ich arbeite nicht,1,"Ja, aber nur am Rande",3,3,1,1,3,5,1
+student,maennlich,deutsch,SDS,unentschieden,18-22,1./2. Semester,Anderes,2,Ja,3,4,3,3,4,3,4
+student,maennlich,deutsch,Wirtschaftsinformatik ,militaer,18-22,5./6. Semester,Anderes,3,"Ja, aber nur am Rande",3,4,4,5,1,1,4
+student,weiblich,deutsch,Wirtschaftsinformatik ,unentschieden,23-27,5./6. Semester,Informatik / Software Engineering,3,Nein,1,2,3,3,3,5,4
+student,weiblich,deutsch,Wirtschaftsinformatik ,unentschieden,18-22,5./6. Semester,Informatik / Software Engineering,3,Nein,2,4,4,4,3,3,2
+student,maennlich,deutsch,Informatik,unentschieden,23-27,5./6. Semester,Informatik / Software Engineering,3,Nein,3,3,2,2,4,4,2
+student,maennlich,deutsch,Informatik,zivil,18-22,5./6. Semester,Informatik / Software Engineering,4,Nein,1,3,1,1,5,5,1
+student,maennlich,deutsch,Wirtschaftsinformatik ,militaer,23-27,3./4. Semester,Informatik / Software Engineering,3,Nein,1,4,5,5,1,1,1
+student,maennlich,deutsch,SDS,zivil,23-27,3./4. Semester,Anderes,2,Ja,4,4,1,1,5,5,2
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,1./2. Semester,Maschinenbau und Produktion,5,Nein,4,4,5,5,1,1,1
+student,weiblich,deutsch,Maschinenbau,zivil,18-22,1./2. Semester,Ich arbeite nicht,2,Nein,3,4,4,3,4,4,2
+student,maennlich,deutsch,Maschinenbau,unentschieden,18-22,1./2. Semester,Maschinenbau und Produktion,1,Nein,1,2,3,1,3,3,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,1./2. Semester,Maschinenbau und Produktion,2,Nein,2,4,5,4,4,3,1
+berufstaetig,maennlich,deutsch,,zivil,28-34,,Informatik / Software Engineering,4,,,3,4,4,2,3,4
+student,weiblich,deutsch,Maschinenbau,militaer,18-22,1./2. Semester,Maschinenbau und Produktion,4,Ja,4,4,3,5,4,3,4
+student,weiblich,deutsch,SDS,militaer,23-27,3./4. Semester,Ich arbeite nicht,2,"Ja, aber nur am Rande",2,5,1,1,2,3,4
+student,weiblich,deutsch,SDS,militaer,28-34,3./4. Semester,Ich arbeite nicht,2,Nein,1,1,1,1,5,4,2
+student,maennlich,deutsch,Maschinenbau,unentschieden,23-27,5./6. Semester,Maschinenbau und Produktion,3,Nein,1,2,5,5,4,4,4
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Ich arbeite nicht,5,Nein,1,3,4,5,2,2,4
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Ich arbeite nicht,4,Nein,1,1,4,5,1,2,1
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,3,"Ja, aber nur am Rande",1,2,5,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,4,Nein,1,3,5,5,4,2,1
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,5,Nein,2,2,5,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,unentschieden,18-22,5./6. Semester,Maschinenbau und Produktion,1,Nein,1,2,2,4,1,4,2
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,5,"Ja, aber nur am Rande",5,3,5,5,1,1,4
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,5,Nein,1,1,5,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,5./6. Semester,Wirtschaftsingenieurwesen,5,Nein,1,1,5,5,1,1,1
+student,weiblich,deutsch,Maschinenbau,zivil,18-22,3./4. Semester,Maschinenbau und Produktion,1,Weiß ich nicht,4,1,1,3,4,4,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,1,Weiß ich nicht,5,1,5,5,3,1,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Ich arbeite nicht,5,Nein,5,1,5,5,5,5,1
+student,maennlich,deutsch,Maschinenbau,unentschieden,18-22,3./4. Semester,Maschinenbau und Produktion,2,Nein,2,3,4,4,2,2,4
+student,maennlich,deutsch,Maschinenbau,zivil,23-27,3./4. Semester,Ich arbeite nicht,1,Nein,1,4,1,1,5,5,5
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,1,Weiß ich nicht,2,4,4,4,1,2,2
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,3,Nein,1,3,4,4,1,2,3
+student,weiblich,deutsch,Maschinenbau,zivil,18-22,3./4. Semester,Anderes,4,Nein,1,5,2,2,3,5,4
+student,maennlich,deutsch,Maschinenbau,unentschieden,23-27,3./4. Semester,Maschinenbau und Produktion,3,Nein,3,2,4,4,3,2,1
+student,weiblich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Ich arbeite nicht,4,Nein,1,4,4,4,2,2,1
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,3,Nein,2,3,5,5,1,1,3
+student,maennlich,deutsch,Maschinenbau,unentschieden,23-27,3./4. Semester,Maschinenbau und Produktion,3,Nein,5,2,3,4,1,4,4
+student,maennlich,deutsch,Maschinenbau,unentschieden,23-27,3./4. Semester,Maschinenbau und Produktion,4,Nein,2,3,5,4,2,3,4
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Ich arbeite nicht,5,Nein,5,3,5,5,1,1,3
+student,maennlich,deutsch,Maschinenbau,unentschieden,23-27,3./4. Semester,Maschinenbau und Produktion,2,Nein,1,2,5,5,4,2,3
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,2,Nein,3,3,4,4,2,1,4
+student,divers,deutsch,Maschinenbau,militaer,Unter 18,3./4. Semester,Anderes,5,Nein,1,1,5,5,1,1,1
+student,weiblich,deutsch,Maschinenbau,unentschieden,18-22,5./6. Semester,Maschinenbau und Produktion,2,"Ja, aber nur am Rande",3,4,4,4,5,2,3
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,5,Nein,5,3,5,5,1,2,2
+student,weiblich,deutsch,Maschinenbau,militaer,28-34,3./4. Semester,Maschinenbau und Produktion,3,Nein,2,2,5,5,3,3,5
+student,weiblich,deutsch,Maschinenbau,unentschieden,23-27,3./4. Semester,Maschinenbau und Produktion,5,Nein,1,2,3,3,3,4,2
+student,weiblich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,1,"Ja, aber nur am Rande",1,3,5,5,2,1,1
+student,maennlich,deutsch,Maschinenbau,unentschieden,18-22,3./4. Semester,Maschinenbau und Produktion,3,"Ja, aber nur am Rande",4,3,4,4,1,3,3
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Anderes,4,Nein,3,1,4,4,1,1,4
+student,maennlich,deutsch,Maschinenbau,unentschieden,18-22,3./4. Semester,Ich arbeite nicht,3,Nein,3,4,2,2,4,4,3
+student,weiblich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,5,Nein,2,1,4,3,3,2,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,5,Nein,5,1,5,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,4,Nein,2,2,5,5,2,2,2
+student,maennlich,deutsch,Maschinenbau,unentschieden,18-22,3./4. Semester,Ich arbeite nicht,4,Weiß ich nicht,1,3,2,2,4,2,2
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,5,Nein,4,3,5,5,2,2,2
+student,maennlich,deutsch,Maschinenbau,zivil,18-22,3./4. Semester,Ich arbeite nicht,4,Nein,1,3,2,4,4,5,3
+student,maennlich,deutsch,Maschinenbau,zivil,23-27,3./4. Semester,Maschinenbau und Produktion,4,Nein,1,2,3,3,2,3,1
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,3,Nein,3,1,5,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Ich arbeite nicht,3,Nein,4,5,4,4,3,2,2
+student,maennlich,deutsch,Maschinenbau,unentschieden,18-22,3./4. Semester,Ich arbeite nicht,4,Nein,2,4,5,5,2,3,4
+student,maennlich,deutsch,Maschinenbau,unentschieden,23-27,3./4. Semester,Maschinenbau und Produktion,3,Nein,4,3,4,4,2,2,3
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,5,Nein,1,3,3,2,5,4,5
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Ich arbeite nicht,5,Nein,5,1,5,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,4,Nein,5,3,5,5,2,1,3
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,3,Nein,5,1,5,5,1,1,4
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,3,Nein,5,5,4,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,5,Nein,5,4,5,5,1,1,2
+student,maennlich,deutsch,Maschinenbau,zivil,18-22,3./4. Semester,Ich arbeite nicht,2,"Ja, aber nur am Rande",2,2,2,3,3,3,3
+student,maennlich,deutsch,Maschinenbau,militaer,18-22,3./4. Semester,Maschinenbau und Produktion,4,Nein,5,1,5,5,1,1,1
+student,maennlich,deutsch,Maschinenbau,unentschieden,23-27,3./4. Semester,Maschinenbau und Produktion,3,Nein,3,2,5,4,1,1,4
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Anderes,5,"Ja, aber nur am Rande",3,3,4,4,2,2,4
+student,maennlich,deutsch,Maschinenbau,zivil,18-22,3./4. Semester,Maschinenbau und Produktion,3,Nein,2,3,1,1,4,5,5
+student,maennlich,deutsch,Maschinenbau,zivil,28-34,3./4. Semester,Informatik / Software Engineering,3,Nein,2,1,1,1,5,5,1
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,5./6. Semester,Maschinenbau und Produktion,5,Nein,5,1,5,5,1,1,5
+student,weiblich,deutsch,IB,militaer,18-22,3./4. Semester,Ich arbeite nicht,4,Ja,3,2,5,3,4,4,5
+student,weiblich,deutsch,SDS,zivil,18-22,3./4. Semester,Ich arbeite nicht,4,Ja,4,4,1,2,5,4,4
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,3./4. Semester,Ich arbeite nicht,5,"Ja, aber nur am Rande",3,3,5,5,1,1,2
+student,weiblich,deutsch,IB,zivil,23-27,5./6. Semester,Anderes,2,"Ja, aber nur am Rande",2,4,2,3,4,4,4
+student,weiblich,deutsch,IB,militaer,18-22,5./6. Semester,Ich arbeite nicht,4,Ja,5,4,3,4,2,2,1
+student,weiblich,deutsch,IB,unentschieden,23-27,3./4. Semester,Anderes,2,Ja,3,2,3,2,4,4,2
+student,weiblich,deutsch,IB,unentschieden,23-27,5./6. Semester,Ich arbeite nicht,2,Ja,3,2,2,2,4,3,3
+student,weiblich,deutsch,IB,unentschieden,18-22,3./4. Semester,Ich arbeite nicht,2,"Ja, aber nur am Rande",3,4,3,3,1,2,3
+student,weiblich,deutsch,IB,militaer,23-27,1./2. Semester,Anderes,3,Ja,4,5,5,5,1,1,5
+student,weiblich,deutsch,IB,unentschieden,18-22,1./2. Semester,Anderes,5,"Ja, aber nur am Rande",4,1,4,5,2,3,2
+student,maennlich,deutsch,IB,unentschieden,18-22,1./2. Semester,Anderes,4,"Ja, aber nur am Rande",4,3,5,5,2,2,3
+student,weiblich,deutsch,IB,unentschieden,28-34,1./2. Semester,Anderes,3,Ja,5,4,3,4,3,3,2
+student,weiblich,deutsch,SDS,zivil,18-22,3./4. Semester,Data Science / Data Engineering,4,"Ja, aber nur am Rande",2,4,1,1,4,5,1
+student,weiblich,deutsch,IB,zivil,18-22,5./6. Semester,Ich arbeite nicht,1,"Ja, aber nur am Rande",1,5,1,2,4,5,3
+student,maennlich,deutsch,Elektrotechnik,zivil,18-22,7./8. Semester,Elektrotechnik,2,Nein,2,2,1,5,3,3,4
+student,maennlich,deutsch,IB,militaer,23-27,7./8. Semester,Ich arbeite nicht,3,Ja,3,3,3,3,3,4,4
+student,maennlich,deutsch,SDS,unentschieden,23-27,1./2. Semester,Anderes,3,"Ja, aber nur am Rande",3,4,4,4,3,2,2
+student,maennlich,deutsch,SDS,zivil,18-22,1./2. Semester,Ich arbeite nicht,3,"Ja, aber nur am Rande",2,3,3,3,2,2,4
+student,maennlich,deutsch,SDS,unentschieden,18-22,1./2. Semester,Anderes,5,"Ja, aber nur am Rande",4,2,5,5,2,1,1
+student,maennlich,deutsch,SDS,militaer,23-27,1./2. Semester,Anderes,2,Ja,4,4,2,3,2,3,2
+student,weiblich,deutsch,SDS,militaer,28-34,1./2. Semester,Anderes,3,Ja,4,4,3,3,2,1,5
+student,weiblich,deutsch,SDS,zivil,23-27,3./4. Semester,Data Science / Data Engineering,2,Ja,4,3,2,2,5,5,5
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,3,Nein,5,1,5,5,5,1,5
+student,maennlich,deutsch,Elektrotechnik,zivil,23-27,1./2. Semester,Elektrotechnik,3,Nein,1,4,3,4,4,4,2
+student,maennlich,deutsch,Elektrotechnik,unentschieden,23-27,1./2. Semester,Elektrotechnik,5,Weiß ich nicht,1,2,5,5,5,1,1
+student,weiblich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,3,Nein,3,2,4,4,3,2,3
+student,maennlich,deutsch,Elektrotechnik,unentschieden,23-27,1./2. Semester,Anderes,4,Nein,3,3,4,4,2,2,4
+student,maennlich,deutsch,Elektrotechnik,militaer,23-27,1./2. Semester,Maschinenbau und Produktion,2,Nein,2,3,4,5,1,1,1
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,4,Nein,3,3,5,5,2,1,4
+student,weiblich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,3,Weiß ich nicht,3,3,4,3,4,4,2
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,4,Nein,1,3,3,4,1,4,2
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,4,Weiß ich nicht,3,3,4,4,3,3,2
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,2,Nein,1,2,3,3,4,3,3
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,4,Nein,4,3,5,5,1,1,2
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,4,Nein,3,3,4,4,3,3,2
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,4,Nein,3,4,5,5,4,3,2
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,2,Nein,2,3,4,5,1,2,1
+student,weiblich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,3,Weiß ich nicht,2,5,3,3,4,4,3
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,1,"Ja, aber nur am Rande",2,2,2,1,2,4,3
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,4,Weiß ich nicht,3,3,4,4,3,2,2
+student,weiblich,deutsch,IB,unentschieden,23-27,7./8. Semester,Anderes,2,"Ja, aber nur am Rande",2,4,3,3,3,2,3
+student,maennlich,deutsch,Elektrotechnik,militaer,28-34,1./2. Semester,Maschinenbau und Produktion,3,"Ja, aber nur am Rande",3,5,5,5,1,1,4
+student,weiblich,deutsch,IB,zivil,18-22,7./8. Semester,Anderes,2,"Ja, aber nur am Rande",2,4,2,2,3,4,4
+student,maennlich,deutsch,IB,militaer,23-27,5./6. Semester,Ich arbeite nicht,3,"Ja, aber nur am Rande",2,4,4,4,2,2,2
+student,maennlich,deutsch,Maschinenbau,zivil,18-22,5./6. Semester,Maschinenbau und Produktion,5,"Ja, aber nur am Rande",4,3,4,5,2,3,5
+student,maennlich,deutsch,Maschinenbau,zivil,23-27,1./2. Semester,Anderes,4,Nein,1,5,1,1,5,5,4
+student,maennlich,deutsch,SDS,unentschieden,23-27,3./4. Semester,Data Science / Data Engineering,3,Ja,3,4,3,3,3,3,3
+student,weiblich,deutsch,SDS,zivil,23-27,3./4. Semester,Anderes,2,"Ja, aber nur am Rande",3,4,2,1,4,5,3
+student,weiblich,deutsch,SDS,militaer,23-27,1./2. Semester,Data Science / Data Engineering,5,"Ja, aber nur am Rande",5,3,5,5,1,1,1
+student,maennlich,deutsch,SDS,unentschieden,18-22,1./2. Semester,Anderes,2,Nein,3,3,4,4,2,2,3
+student,maennlich,deutsch,SDS,unentschieden,18-22,1./2. Semester,Anderes,2,Ja,3,4,3,4,3,2,4
+student,weiblich,deutsch,SDS,unentschieden,18-22,3./4. Semester,Ich arbeite nicht,4,Ja,4,3,3,3,2,2,3
+student,weiblich,deutsch,SDS,zivil,18-22,3./4. Semester,Ich arbeite nicht,4,Ja,4,5,1,2,5,5,4
+student,maennlich,deutsch,SDS,militaer,18-22,3./4. Semester,Data Science / Data Engineering,5,Ja,5,1,5,5,1,1,1
+student,maennlich,deutsch,SDS,zivil,18-22,1./2. Semester,Ich arbeite nicht,3,"Ja, aber nur am Rande",2,4,2,4,2,3,4
+berufstaetig,divers,deutsch,,zivil,23-27,,Anderes,1,,,2,1,1,4,5,3
+student,maennlich,deutsch,SDS,zivil,23-27,1./2. Semester,Anderes,3,Ja,3,3,3,3,3,3,3
+student,maennlich,deutsch,SDS,zivil,18-22,3./4. Semester,Anderes,2,"Ja, aber nur am Rande",2,1,1,1,1,5,4
+student,maennlich,deutsch,IB,militaer,18-22,3./4. Semester,Ich arbeite nicht,5,Ja,3,4,4,4,2,4,3
+student,weiblich,deutsch,IB,militaer,18-22,3./4. Semester,Anderes,4,"Ja, aber nur am Rande",2,2,4,2,3,4,5
+student,weiblich,deutsch,IB,zivil,18-22,7./8. Semester,Informatik / Software Engineering,2,Ja,4,4,1,4,5,5,4
+student,weiblich,deutsch,IB,unentschieden,18-22,7./8. Semester,Anderes,2,"Ja, aber nur am Rande",3,2,2,3,3,5,3
+student,weiblich,deutsch,IB,zivil,18-22,7./8. Semester,Anderes,3,"Ja, aber nur am Rande",2,4,3,2,4,4,4
+student,weiblich,deutsch,IB,zivil,18-22,3./4. Semester,Ich arbeite nicht,1,"Ja, aber nur am Rande",4,2,1,2,2,5,2
+student,weiblich,deutsch,IB,unentschieden,18-22,3./4. Semester,Anderes,1,"Ja, aber nur am Rande",1,5,3,3,5,5,2
+student,maennlich,deutsch,IB,militaer,18-22,3./4. Semester,Wirtschaftsingenieurwesen,4,Ja,4,4,5,5,4,2,4
+student,maennlich,deutsch,IB,unentschieden,23-27,5./6. Semester,Ich arbeite nicht,4,"Ja, aber nur am Rande",3,3,3,3,3,2,4
+student,weiblich,deutsch,IB,unentschieden,18-22,7./8. Semester,Ich arbeite nicht,1,Ja,4,4,2,3,4,4,2
+student,weiblich,deutsch,IB,militaer,18-22,5./6. Semester,Ich arbeite nicht,4,"Ja, aber nur am Rande",4,3,3,4,2,2,3
+student,maennlich,deutsch,IB,unentschieden,23-27,3./4. Semester,Anderes,5,Ja,5,2,4,4,4,2,4
+student,weiblich,deutsch,IB,unentschieden,18-22,3./4. Semester,Anderes,3,Ja,3,5,4,4,2,3,3
+student,weiblich,deutsch,IB,militaer,28-34,7./8. Semester,Ich arbeite nicht,2,Nein,2,3,1,1,3,5,1
+student,maennlich,deutsch,IB,unentschieden,23-27,5./6. Semester,Anderes,3,"Ja, aber nur am Rande",3,3,3,4,2,3,4
+student,maennlich,deutsch,IB,zivil,18-22,3./4. Semester,Ich arbeite nicht,3,Ja,4,4,1,1,5,5,1
+student,maennlich,deutsch,IB,zivil,18-22,5./6. Semester,Wirtschaftsingenieurwesen,4,Ja,4,5,3,2,5,5,5
+student,weiblich,deutsch,IB,militaer,18-22,1./2. Semester,Ich arbeite nicht,1,"Ja, aber nur am Rande",2,3,4,2,2,2,2
+student,weiblich,deutsch,Elektrotechnik,unentschieden,23-27,1./2. Semester,Anderes,2,Weiß ich nicht,2,4,2,4,4,3,2
+student,maennlich,deutsch,Elektrotechnik,zivil,18-22,1./2. Semester,Elektrotechnik,2,Weiß ich nicht,3,4,2,4,3,4,1
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,3,Nein,3,3,2,4,2,3,2
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Ich arbeite nicht,3,"Ja, aber nur am Rande",4,4,4,4,2,2,2
+student,weiblich,deutsch,Elektrotechnik,zivil,23-27,1./2. Semester,Elektrotechnik,1,Weiß ich nicht,1,4,2,2,4,4,1
+student,maennlich,deutsch,Elektrotechnik,zivil,18-22,1./2. Semester,Informatik / Software Engineering,2,"Ja, aber nur am Rande",4,3,2,2,4,4,1
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,2,Nein,1,1,4,5,5,1,3
+student,maennlich,deutsch,Elektrotechnik,militaer,23-27,1./2. Semester,Elektrotechnik,5,Nein,5,1,5,5,1,1,3
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,3,Nein,1,1,5,5,1,1,1
+student,maennlich,deutsch,Elektrotechnik,zivil,18-22,1./2. Semester,Elektrotechnik,4,Nein,3,3,4,3,3,2,3
+student,maennlich,deutsch,Elektrotechnik,zivil,23-27,1./2. Semester,Anderes,1,Nein,1,5,2,3,3,4,2
+student,maennlich,deutsch,Elektrotechnik,unentschieden,23-27,1./2. Semester,Elektrotechnik,2,Nein,2,4,2,4,2,2,4
+student,weiblich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Elektrotechnik,4,Nein,4,5,5,5,2,1,4
+student,maennlich,deutsch,Elektrotechnik,zivil,18-22,1./2. Semester,Elektrotechnik,2,Nein,5,1,4,4,2,3,4
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Ich arbeite nicht,3,Weiß ich nicht,5,1,5,5,1,1,1
+student,maennlich,deutsch,SDS,zivil,23-27,1./2. Semester,Ich arbeite nicht,3,"Ja, aber nur am Rande",4,4,2,3,5,5,4
+student,maennlich,deutsch,Elektrotechnik,unentschieden,18-22,1./2. Semester,Anderes,2,Weiß ich nicht,2,4,4,4,3,2,2
+student,maennlich,deutsch,SDS,unentschieden,23-27,3./4. Semester,Ich arbeite nicht,3,Ja,3,3,3,3,3,3,3
+student,maennlich,deutsch,SDS,unentschieden,28-34,3./4. Semester,Anderes,5,Ja,3,2,5,5,1,1,1
+student,maennlich,deutsch,Elektrotechnik,militaer,23-27,1./2. Semester,Elektrotechnik,5,Nein,5,1,5,5,3,1,1
+student,weiblich,deutsch,Elektrotechnik,zivil,23-27,1./2. Semester,Elektrotechnik,3,Nein,5,5,1,1,5,5,1
+student,maennlich,deutsch,Elektrotechnik,zivil,18-22,1./2. Semester,Ich arbeite nicht,2,Nein,1,3,1,1,4,5,3
+student,weiblich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,3,Nein,3,3,3,4,3,3,3
+student,maennlich,deutsch,Elektrotechnik,zivil,18-22,1./2. Semester,Anderes,1,Nein,2,5,1,1,5,5,5
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Elektrotechnik,3,Nein,4,3,4,4,1,1,1
+student,maennlich,deutsch,Elektrotechnik,militaer,18-22,1./2. Semester,Ich arbeite nicht,3,Nein,4,4,4,4,2,3,3
+student,maennlich,deutsch,Elektrotechnik,zivil,23-27,3./4. Semester,Ich arbeite nicht,3,Nein,1,5,1,1,5,5,2
+student,maennlich,deutsch,Maschinenbau,militaer,23-27,3./4. Semester,Maschinenbau und Produktion,5,Nein,1,3,4,5,1,1,1
+student,maennlich,deutsch,Elektrotechnik,zivil,23-27,3./4. Semester,Anderes,1,Weiß ich nicht,1,5,1,1,5,5,3
+student,weiblich,deutsch,Wirtschaftsinformatik ,unentschieden,18-22,1./2. Semester,Informatik / Software Engineering,1,Nein,2,3,1,1,3,3,2
+student,maennlich,deutsch,Informatik,militaer,18-22,3./4. Semester,Informatik / Software Engineering,5,Weiß ich nicht,5,1,4,4,2,2,2
+student,maennlich,deutsch,Wirtschaftsinformatik ,militaer,18-22,1./2. Semester,Anderes,5,Nein,1,1,3,3,3,1,3
+student,maennlich,deutsch,Wirtschaftsinformatik ,militaer,18-22,1./2. Semester,Anderes,1,Weiß ich nicht,3,4,5,5,3,2,1
+student,maennlich,deutsch,Wirtschaftsinformatik ,militaer,18-22,1./2. Semester,Informatik / Software Engineering,4,Weiß ich nicht,4,4,5,5,4,1,2
+student,weiblich,deutsch,Wirtschaftsinformatik ,zivil,18-22,1./2. Semester,Informatik / Software Engineering,1,Nein,2,4,1,2,4,5,3
+student,weiblich,deutsch,Wirtschaftsinformatik ,unentschieden,18-22,1./2. Semester,Anderes,1,Weiß ich nicht,4,4,4,2,4,4,2
+student,maennlich,deutsch,Wirtschaftsinformatik ,militaer,18-22,1./2. Semester,Informatik / Software Engineering,4,Nein,3,4,4,5,1,1,1
+student,weiblich,deutsch,Wirtschaftsinformatik ,unentschieden,18-22,1./2. Semester,Anderes,2,"Ja, aber nur am Rande",2,3,4,1,3,4,1
+student,weiblich,deutsch,IB,unentschieden,18-22,3./4. Semester,Ich arbeite nicht,1,"Ja, aber nur am Rande",2,3,1,1,1,1,1
+student,maennlich,deutsch,Wirtschaftsinformatik ,militaer,18-22,1./2. Semester,Informatik / Software Engineering,3,Weiß ich nicht,2,2,4,5,1,1,2
+student,maennlich,deutsch,Informatik,militaer,28-34,1./2. Semester,Ich arbeite nicht,1,Ja,3,1,5,5,1,1,1
+student,maennlich,deutsch,Wirtschaftsinformatik ,zivil,18-22,5./6. Semester,Anderes,4,"Ja, aber nur am Rande",2,4,3,2,3,3,2
+student,weiblich,deutsch,Wirtschaftsinformatik ,zivil,18-22,5./6. Semester,Anderes,2,Nein,2,3,1,2,4,5,3
+student,weiblich,deutsch,Wirtschaftsinformatik ,zivil,18-22,5./6. Semester,Anderes,1,Nein,1,2,1,1,5,5,1
+student,weiblich,deutsch,IB,militaer,18-22,3./4. Semester,Anderes,3,Nein,2,3,3,4,3,2,4
+student,weiblich,deutsch,IB,zivil,18-22,3./4. Semester,Ich arbeite nicht,2,"Ja, aber nur am Rande",3,4,1,1,3,5,2
+student,maennlich,deutsch,Elektrotechnik,zivil,23-27,1./2. Semester,Elektrotechnik,4,Ja,2,5,1,1,5,5,1
+student,maennlich,deutsch,SDS,zivil,18-22,1./2. Semester,Ich arbeite nicht,2,"Ja, aber nur am Rande",2,4,2,3,5,4,4
+student,weiblich,deutsch,IB,zivil,23-27,7./8. Semester,Anderes,5,"Ja, aber nur am Rande",4,5,1,1,5,5,4

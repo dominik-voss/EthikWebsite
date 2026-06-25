@@ -47,7 +47,7 @@
 :root,
 [data-theme="light"] {
     --color-bg:             #f0f2f5;
-    --color-bg-body:        #f0f2f5;
+    --color-bg-body:        #e4e8f0;
     --color-sector:         #181f30;
     --color-sector-text:    #ffffff;
     --color-textbox-bg:     #ffffff;
@@ -57,6 +57,7 @@
     --color-avatar-fact:    #444444;
     --color-majority-bg:    #ffffff;
     --color-majority-text:  #222222;
+    --hero-subtitle-color: var(--chart-tick-color);
     --color-header-bg:      rgba(240, 242, 245, 0.85);
     --color-border:         rgba(0, 0, 0, 0.15);
     --color-primary:        #e8a020;
@@ -81,6 +82,7 @@
     --color-avatar-fact:    #b0b4c8;
     --color-majority-bg:    #1a1d2e;
     --color-majority-text:  #e8eaf0;
+    --hero-subtitle-color: #e8eaf0;
     --color-header-bg:      rgba(15, 17, 23, 0.88);
     --color-border:         rgba(255, 255, 255, 0.12);
     --color-primary:        #e8a020;
@@ -106,6 +108,7 @@
         --color-avatar-fact:    #b0b4c8;
         --color-majority-bg:    #1a1d2e;
         --color-majority-text:  #e8eaf0;
+        --hero-subtitle-color: #e8eaf0;
         --color-header-bg:      rgba(15, 17, 23, 0.88);
         --color-border:         rgba(255, 255, 255, 0.12);
         --color-primary:        #e8a020;
@@ -174,6 +177,8 @@ body {
     height: 550vh;
     position: relative;
     background: var(--color-bg-body);
+    background-image: radial-gradient(circle, rgba(24, 31, 48, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
     transition: background 0.4s ease;
 }
 
@@ -800,6 +805,18 @@ Mobile Responsive
     z-index: 0;
 }
 
+#hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, var(--color-bg-body));
+    z-index: 1;
+    pointer-events: none;
+}
+
 #hero > * {
     position: relative;
     z-index: 1;
@@ -828,7 +845,7 @@ Mobile Responsive
 
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--chart-tick-color);
+    color: var(--hero-subtitle-color);
     max-width: 50%;
     text-align: left;
     line-height: 1.65;
@@ -872,6 +889,7 @@ Mobile Responsive
     font-size: 0.85rem;
     animation: bounce 2s infinite;
     pointer-events: none;
+    transition: opacity 0.6s ease;
 }
 
 @keyframes bounce {

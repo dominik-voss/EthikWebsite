@@ -548,4 +548,14 @@ function setupScrollStory() {
         document.getElementById('filter-bar')
             .classList.toggle('phase-visible', currentProgress > P_ICONS_END);
     });
+
+    const scrollHint = document.querySelector('.hero-scroll-hint');
+
+window.addEventListener('scroll', () => {
+    if (!scrollHint) return;
+    const scrolled = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const nearEnd = scrolled >= maxScroll - 50;
+    scrollHint.style.opacity = nearEnd ? '0' : '0.8';
+}, { passive: true });
 }

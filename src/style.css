@@ -531,7 +531,7 @@ body {
 }
 
 .avatar-facts li::before {
-    content: '\25B8 ';
+    content: '▸';
     color: #e8a020;
 }
 
@@ -693,7 +693,7 @@ Avatar Hover-Tooltip
 }
 
 .avatar-tooltip li::before {
-    content: 'â–¸ ';
+    content: '▸';
     color: #e8a020;
 }
 

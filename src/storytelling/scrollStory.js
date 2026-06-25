@@ -152,13 +152,33 @@ function refreshIconPositions() {
 ------------------------- */
 
 function setupFilters() {
-  const sgSelect = document.getElementById('studiengang-filter');
-  const gsSelect = document.getElementById('geschlecht-filter');
-  if (sgSelect) sgSelect.addEventListener('change', () => applyFilter());
-  if (gsSelect) gsSelect.addEventListener('change', () => {
-    geschlechtFilter = gsSelect.value;
-    applyFilter();
-  });
+    const sgSelect = document.getElementById('studiengang-filter');
+    const gsSelect = document.getElementById('geschlecht-filter');
+
+    // Studiengänge dynamisch aus Daten befüllen
+    if (sgSelect) {
+        const studiengaenge = [
+            ...new Set(
+                allStudentsData
+                    .map(d => d.studiengang)
+                    .filter(s => s && s.trim() !== '')
+                    .map(s => s.trim())
+            )
+        ].sort();
+
+        studiengaenge.forEach(sg => {
+            const opt = document.createElement('option');
+            opt.value = sg;
+            opt.textContent = sg;
+            sgSelect.appendChild(opt);
+        });
+    }
+
+    if (sgSelect) sgSelect.addEventListener('change', applyFilter);
+    if (gsSelect) gsSelect.addEventListener('change', () => {
+        geschlechtFilter = gsSelect.value;
+        applyFilter();
+    });
 
   document.querySelectorAll('.basis-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -213,22 +233,37 @@ function calcModus(values) {
 }
 
 function findAvatarIndex(students) {
+  const modusStudiengang = calcModus(
+    students.filter(s => s.studiengang).map(s => s.studiengang)
+  );
   const modusGeschlecht = calcModus(students.map(s => s.geschlecht));
   const modusNationalitaet = calcModus(students.map(s => s.nationalitaet));
   const modusEntscheidung = calcModus(
     students.filter(s => s.entscheidung !== 'unentschieden').map(s => s.entscheidung)
   );
+
   const match =
+    // Alle 4 Kriterien
     students.find(s =>
+      s.studiengang === modusStudiengang &&
       s.geschlecht === modusGeschlecht &&
       s.nationalitaet === modusNationalitaet &&
       s.entscheidung === modusEntscheidung
     ) ||
+    // Ohne Nationalität
     students.find(s =>
+      s.studiengang === modusStudiengang &&
       s.geschlecht === modusGeschlecht &&
       s.entscheidung === modusEntscheidung
     ) ||
-    students.find(s => s.entscheidung === modusEntscheidung);
+    // Nur Studiengang + Entscheidung
+    students.find(s =>
+      s.studiengang === modusStudiengang &&
+      s.entscheidung === modusEntscheidung
+    ) ||
+    // Nur Studiengang
+    students.find(s => s.studiengang === modusStudiengang);
+
   return students.indexOf(match);
 }
 

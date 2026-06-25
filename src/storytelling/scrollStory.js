@@ -323,8 +323,6 @@ function fillAvatarFacts(data) {
     divers: 'Divers', deutsch: 'Deutsch', international: 'International',
   };
   const fmt = v => labels[v] || v;
-  document.getElementById('avatar-fact-status').textContent =
-    `Status: ${fmt(calcModus(students.map(s => s.status)))}`;
 document.getElementById('avatar-fact-alter').textContent =
     `Alter: ${calcModus(students.map(s => s.alter))}`;
   document.getElementById('avatar-fact-geschlecht').textContent =
@@ -335,7 +333,6 @@ document.getElementById('avatar-fact-alter').textContent =
     `Studiengang: ${calcModus(students.filter(s => s.studiengang).map(s => s.studiengang))}`;
 
   const ttMap = {
-    'tt-status': `Status: ${fmt(calcModus(students.map(s => s.status)))}`,
     'tt-alter': `Alter: ${calcModus(students.map(s => s.alter))}`,
     'tt-geschlecht': `Geschlecht: ${fmt(calcModus(students.map(s => s.geschlecht)))}`,
     'tt-nationalitaet': `Nationalität: ${fmt(calcModus(students.map(s => s.nationalitaet)))}`,

@@ -10,7 +10,7 @@ async function start() {
     const csv = await response.text();
 
     initStory(csv);
-    initCharts();
+    initCharts(csv);
 }
 
 

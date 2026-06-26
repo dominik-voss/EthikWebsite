@@ -11,7 +11,20 @@ function parseCSV(csv) {
     const lines = csv.trim().split('\n');
     const headers = lines[0].split(',').map(h => h.trim());
     return lines.slice(1).map(line => {
-        const values = line.split(',').map(v => v.trim());
+        const values = [];
+        let current = '';
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+            if (line[i] === '"') {
+                inQuotes = !inQuotes;
+            } else if (line[i] === ',' && !inQuotes) {
+                values.push(current.trim());
+                current = '';
+            } else {
+                current += line[i];
+            }
+        }
+        values.push(current.trim());
         const obj = {};
         headers.forEach((h, i) => { obj[h] = values[i]; });
         return obj;

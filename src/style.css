@@ -171,7 +171,7 @@ body {
 ------------------------- */
 
 #career-scene {
-    height: 550vh;
+    height: 450vh;
     position: relative;
     background: var(--color-bg-body);
     transition: background 0.4s ease;
@@ -802,7 +802,7 @@ Mobile Responsive
     gap: 0;
     position: relative;
     overflow: hidden;
-    min-height: 100vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -863,27 +863,6 @@ Mobile Responsive
     transition: color 0.4s ease;
     margin-top: 12px;
     margin-bottom: 20px;
-}
-
-.hero-badge {
-    display: inline-block;
-    background: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    padding: 10px 28px;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    box-shadow: none;
-    transition: background 0.2s ease, color 0.2s ease;
-}
-
-.hero-badge:hover {
-    background: var(--color-primary);
-    color: #ffffff;
-    cursor: pointer;
 }
 
 .hero-scroll-hint {

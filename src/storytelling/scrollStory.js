@@ -460,7 +460,7 @@ function positionAllAtStart() {
    Scroll-Phasen
 ------------------------- */
 
-const P_INTRO = 0.05;
+const P_INTRO = 0;
 const P_AVATAR = 0.15;
 const P_UNIVERSITY = 0.22;
 const P_AVATAR_MOVE = 0.25;
@@ -558,16 +558,20 @@ function setupScrollStory() {
   const sectors = document.getElementById('sector-row');
   const majorityBox = document.getElementById('majority-box');
 
+  // Vorlauf wird subtrahiert, damit die Scene früher startet
   window.addEventListener('scroll', () => {
-    currentProgress = Math.min(
-      Math.max(
-        -scene.getBoundingClientRect().top /
-        (scene.offsetHeight - window.innerHeight),
-        0
-      ),
-      1
-    );
+    const sceneRect = scene.getBoundingClientRect();
+    const earlyStart = window.innerHeight * 0.8; // Scene startet 80vh früher
 
+    currentProgress = Math.min(
+        Math.max(
+            (-sceneRect.top + earlyStart) /
+            (scene.offsetHeight - window.innerHeight + earlyStart),
+            0
+        ),
+        1
+    );
+   
     const { P_ICONS_END, P_PERCENT, P_MAJORITY_OUT } = calcLatePhases();
 
     intro.classList.toggle('phase-visible', currentProgress > P_INTRO);

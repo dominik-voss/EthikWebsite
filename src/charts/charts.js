@@ -1,11 +1,22 @@
-export function initCharts() {
-
-    import('./chart-ethik.js');
-    import('./chart-gehalt.js');
-    import('./chart-wechseln.js');
-    import('./chart-studiengang.js');
+export function initCharts(csv) {
+    const data = parseCSV(csv).filter(d => d.status === 'student');
+    
+    import('./chart-ethik.js').then(m => m.initChartEthik(data));
+    import('./chart-gehalt.js').then(m => m.initChartGehalt(data));
+    import('./chart-wechseln.js').then(m => m.initChartWechseln(data));
+    import('./chart-studiengang.js').then(m => m.initChartStudiengang(data));
 }
 
+function parseCSV(csv) {
+    const lines = csv.trim().split('\n');
+    const headers = lines[0].split(',').map(h => h.trim());
+    return lines.slice(1).map(line => {
+        const values = line.split(',').map(v => v.trim());
+        const obj = {};
+        headers.forEach((h, i) => { obj[h] = values[i]; });
+        return obj;
+    });
+}
 
 /* -------------------------
    Hilfsfunktion: einfacher Bar Chart

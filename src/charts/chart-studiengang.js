@@ -1,10 +1,26 @@
 import { createGroupedBarChart } from './charts.js';
 
-createGroupedBarChart(
-    'chart-studiengang',
-    ['Informatik', 'BWL', 'Maschinenbau'],
-    [
-        { label: 'Militärsektor', data: [36, 51, 43], color: '#4a90e2' },
-        { label: 'Ziviler Sektor', data: [64, 49, 57], color: '#e8a020' },
-    ]
-);
+export function initChartStudiengang(data) {
+    const studiengaenge = ['Informatik', 'BWL', 'Maschinenbau'];
+
+    const milData = studiengaenge.map(sg => {
+        const group = data.filter(d => d.studiengang === sg);
+        const mil   = group.filter(d => d.entscheidung === 'militaer').length;
+        return group.length > 0 ? Math.round(mil / group.length * 100) : 0;
+    });
+
+    const civData = studiengaenge.map(sg => {
+        const group = data.filter(d => d.studiengang === sg);
+        const civ   = group.filter(d => d.entscheidung === 'zivil').length;
+        return group.length > 0 ? Math.round(civ / group.length * 100) : 0;
+    });
+
+    createGroupedBarChart(
+        'chart-studiengang',
+        studiengaenge,
+        [
+            { label: 'Militärsektor',  data: milData, color: '#4a90e2' },
+            { label: 'Ziviler Sektor', data: civData, color: '#e8a020' },
+        ]
+    );
+}

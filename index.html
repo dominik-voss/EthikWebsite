@@ -2,222 +2,258 @@
 <html lang="de" data-theme="light">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wie stehen Studierende der TH Nürnberg 
-    zur Arbeit in der Verteidigungsindustrie? Wie wägen sie ethisch ab? Eine scrollbare Datengeschichte.">
-    <title>Defense & Ethik</title>
-    <link rel="stylesheet" href="/src/style.css">
-    <link rel="icon" type="image/png" href="/public/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/public/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/public/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
-    <link rel="manifest" href="/public/favicon/site.webmanifest" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wie stehen Studierende der TH Nürnberg zur Arbeit in der Verteidigungsindustrie? Wie wägen sie ethisch ab? Eine scrollbare Datengeschichte.">
+  <title>Defense & Ethik</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="icon" type="image/png" href="/public/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/public/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/public/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+  <link rel="manifest" href="/public/favicon/site.webmanifest" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <script>
+    function updateChartDefaults() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const tickColor = isDark ? '#a0a8c0' : '#555555';
+      const gridColor = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.08)';
+      if (window.Chart) {
+        window.Chart.defaults.color = tickColor;
+        window.Chart.defaults.borderColor = gridColor;
+      }
+    }
+  </script>
 </head>
 
 <body>
-<!-- Hero Section -->
-<div class="masthead">
+
+  <!-- Hero Section -->
+  <div class="masthead">
     <span>Berufsethik & Verteidigung</span>
     <span>TH Nürnberg · 2026</span>
-</div>
-<section id="hero">
+  </div>
+
+  <section id="hero">
     <p class="hero-eyebrow">Datenreport · Studierende TH Nürnberg 2026</p>
-<div class="hero-title-block">
-    <div class="hero-title-rule"></div>
-    <h1 class="hero-title">Berufsethik in der<br>Verteidigungsindustrie</h1>
-<div class="hero-title-rule"></div>
-</div>
+    <div class="hero-title-block">
+      <div class="hero-title-rule"></div>
+      <h1 class="hero-title">Berufsethik in der<br>Verteidigungsindustrie</h1>
+      <div class="hero-title-rule"></div>
+    </div>
     <p class="hero-subtitle">
-        Wie entscheiden sich Studierende zwischen Karriere und Gewissen?
-        <br>Eine scrollbare Datengeschichte.
+      Wie entscheiden sich Studierende zwischen Karriere und Gewissen?
+      <br>Eine scrollbare Datengeschichte.
     </p>
-</section>
-     <span class="hero-scroll-hint">↓ Scroll</span>
+  </section>
 
-    <!-- Theme Toggle -->
-    <header class="site-header">
-        <button
-            class="theme-toggle"
-            id="theme-toggle"
-            aria-label="Darkmode aktivieren">
-            🌙
-        </button>
-    </header>
+  <span class="hero-scroll-hint">↓ Scroll</span>
 
-    <section id="career-scene">
+  <!-- Theme Toggle -->
+  <header class="site-header">
+    <button class="theme-toggle" id="theme-toggle" aria-label="Darkmode aktivieren">🌙</button>
+  </header>
 
-        <div class="story-sticky">
+  <section id="career-scene">
+    <div class="story-sticky">
 
-            <div class="pull-quote phase-hidden" id="intro-box">
-    <span class="pull-quote-count"><span id="intro-total-count"></span> Befragte</span>
-    <blockquote>
-        "Würdest du eher zu einem Militärunternehmen für 20 % mehr Gehalt
-        oder zu einem zivilen Unternehmen mit geringerem Gehalt gehen?"
-    </blockquote>
-</div>
+      <div class="pull-quote phase-hidden" id="intro-box">
+        <span class="pull-quote-count"><span id="intro-total-count"></span> Befragte</span>
+        <blockquote>
+          "Würdest du eher zu einem Militärunternehmen für 20 % mehr Gehalt
+          oder zu einem zivilen Unternehmen mit geringerem Gehalt gehen?"
+        </blockquote>
+      </div>
 
-            <!-- Avatar-Vorstellung -->
-            <div class="avatar-stage phase-hidden" id="avatar-stage">
-                <div class="avatar-icon-large">👤</div>
-                <div class="avatar-facts">
-                    <h3>Der typische Befragte</h3>
-                    <ul>
-                        <li id="avatar-fact-alter"></li>
-                        <li id="avatar-fact-geschlecht"></li>
-                        <li id="avatar-fact-nationalitaet"></li>
-                        <li id="avatar-fact-studiengang"></li>
-                    </ul>
-                </div>
-            </div>
+      <!-- Avatar-Vorstellung -->
+      <div class="avatar-stage phase-hidden" id="avatar-stage">
+        <div class="avatar-icon-large">👤</div>
+        <div class="avatar-facts">
+          <h3>Der typische Befragte</h3>
+          <ul>
+            <li id="avatar-fact-alter"></li>
+            <li id="avatar-fact-geschlecht"></li>
+            <li id="avatar-fact-nationalitaet"></li>
+            <li id="avatar-fact-studiengang"></li>
+          </ul>
+        </div>
+      </div>
 
-            <!-- Hochschulkasten + Mehrheitsbox nebeneinander -->
-            <div class="university-row">
+      <!-- Hochschulkasten + Mehrheitsbox -->
+      <div class="university-row">
+        <div class="sector university phase-hidden" id="university-box">
+          <h2>Hochschulen</h2>
+          <div id="student-grid" class="student-grid"></div>
+        </div>
+        <div class="majority-box phase-hidden" id="majority-box">
+          <p>
+            Die Mehrheit der Studierenden entschied sich für den
+            <strong id="majority-sector-label"></strong>.
+          </p>
+        </div>
+      </div>
 
-                <div class="sector university phase-hidden" id="university-box">
-                    <h2>Hochschulen</h2>
-                    <div id="student-grid" class="student-grid"></div>
-                </div>
+      <div class="filter-bar phase-hidden" id="filter-bar">
+        <span class="filter-label">Studiengang:</span>
+        <select id="studiengang-filter" class="studiengang-filter">
+          <option value="alle">Alle Studiengänge</option>
+        </select>
+        <span class="filter-label">Geschlecht:</span>
+        <select id="geschlecht-filter" class="studiengang-filter">
+          <option value="alle">Alle</option>
+          <option value="maennlich">Männlich</option>
+          <option value="weiblich">Weiblich</option>
+          <option value="divers">Divers</option>
+        </select>
+        <label class="filter-label">Basis:</label>
+        <div class="basis-toggle">
+          <button class="basis-btn active" data-basis="alle">Alle</button>
+          <button class="basis-btn" data-basis="entschieden">Nur Entschiedene</button>
+        </div>
+      </div>
 
-                <div class="majority-box phase-hidden" id="majority-box">
-                    <p>
-                        Die Mehrheit der Studierenden entschied sich für den
-                        <strong id="majority-sector-label"></strong>.
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="filter-bar phase-hidden" id="filter-bar">
-                <span class="filter-label">Studiengang:</span>
-                <select id="studiengang-filter" class="studiengang-filter">
-                    <option value="alle">Alle Studiengänge</option>
-                </select>
-                <span class="filter-label">Geschlecht:</span>
-                <select id="geschlecht-filter" class="studiengang-filter">
-                    <option value="alle">Alle</option>
-                    <option value="maennlich">Männlich</option>
-                    <option value="weiblich">Weiblich</option>
-                    <option value="divers">Divers</option>
-                </select>
-                <label class="filter-label">Basis:</label>
-                <div class="basis-toggle">
-                    <button class="basis-btn active" data-basis="alle">Alle</button>
-                    <button class="basis-btn" data-basis="entschieden">Nur Entschiedene</button>
-                </div>
-            </div>
-
-            <div class="sector-row phase-hidden" id="sector-row">
-
-                <div class="sector" id="military-sector">
-                    <div class="sector-header">
-                        <h2>Militärsektor</h2>
-                        <button class="info-btn" id="military-info-btn" aria-label="Info zum Militärsektor">ℹ</button>
-                    </div>
-                    <div class="info-tooltip" id="military-info-tooltip">
-                        Unternehmen im Militärsektor entwickeln Technologien für Streitkräfte – darunter Waffensysteme, Kommunikation und Cybersicherheit. Sie arbeiten eng mit staatlichen Institutionen zusammen und unterliegen strengen Exportkontrollen. Karrieren hier bieten oft überdurchschnittliche Gehälter, sind jedoch ethisch vieldiskutiert.
-                    </div>
-                    <div class="sector-grid"></div>
-                    <div id="military-percent" class="percentage"></div>
-                </div>
-
-                <div class="sector" id="civil-sector">
-                    <div class="sector-header">
-                        <h2>Ziviler Sektor</h2>
-                        <button class="info-btn" id="civil-info-btn" aria-label="Info zum Zivilen Sektor">ℹ</button>
-                    </div>
-                    <div class="info-tooltip" id="civil-info-tooltip">
-                        Der zivile Sektor umfasst alle nicht-militärischen Branchen – von Technologie und Gesundheit bis hin zu Energie und Bildung. Unternehmen hier orientieren sich an gesellschaftlichem Nutzen und marktwirtschaftlichen Zielen. Die Gehälter sind meist etwas niedriger, dafür gelten die Tätigkeiten als ethisch weniger konfliktbehaftet.
-                    </div>
-                    <div class="sector-grid"></div>
-                    <div id="civil-percent" class="percentage"></div>
-                </div>
-
-            </div>
-
-            <div id="student-overlay"></div>
-
-            <div id="avatar-tooltip" class="avatar-tooltip">
-    <strong>Typischer Befragter</strong>
-    <ul>
-        <li id="tt-alter"></li>
-        <li id="tt-geschlecht"></li>
-        <li id="tt-nationalitaet"></li>
-        <li id="tt-studiengang"></li>
-    </ul>
-</div>
-
+      <div class="sector-row phase-hidden" id="sector-row">
+        <div class="sector" id="military-sector">
+          <div class="sector-header">
+            <h2>Militärsektor</h2>
+            <button class="info-btn" id="military-info-btn" aria-label="Info zum Militärsektor">ℹ</button>
+          </div>
+          <div class="info-tooltip" id="military-info-tooltip">
+            Unternehmen im Militärsektor entwickeln Technologien für Streitkräfte – darunter Waffensysteme, Kommunikation und Cybersicherheit. Sie arbeiten eng mit staatlichen Institutionen zusammen und unterliegen strengen Exportkontrollen. Karrieren hier bieten oft überdurchschnittliche Gehälter, sind jedoch ethisch vieldiskutiert.
+          </div>
+          <div class="sector-grid"></div>
+          <div id="military-percent" class="percentage"></div>
         </div>
 
-    </section>
-
-
-    <!-- Charts Section -->
-    <section id="charts-section">
-
-        <div class="charts-container">
-
-            <h2 class="charts-headline">Meinungen der Befragten</h2>
-
-            <p class="charts-intro">
-                Neben der Sektorentscheidung wurden die Teilnehmenden zu weiteren
-                Einstellungen rund um Ethik, Gehalt und Karriere befragt.
-            </p>
-
-            <div class="charts-grid">
-
-                <div class="chart-card">
-    <h3>Wurde Ethik im Studium behandelt?</h3>
-    <div class="chart-wrap">
-        <canvas id="chart-ethik"></canvas>
-    </div>
-                </div>
-
-                <div class="chart-card">
-    <h3>Vorstellbarkeit, in der Verteidigungsindustrie zu arbeiten (Ø pro Studiengang)</h3>
-    <div class="chart-wrap">
-        <canvas id="chart-gehalt"></canvas>
-    </div>
-                </div>
-
-                <div class="chart-card">
-    <h3>Gewissenskonflikte bei der Arbeit in der Verteidigungsindustrie</h3>
-    <div class="chart-wrap">
-        <canvas id="chart-wechseln"></canvas>
-    </div>
-                </div>
-
-
+        <div class="sector" id="civil-sector">
+          <div class="sector-header">
+            <h2>Ziviler Sektor</h2>
+            <button class="info-btn" id="civil-info-btn" aria-label="Info zum Zivilen Sektor">ℹ</button>
+          </div>
+          <div class="info-tooltip" id="civil-info-tooltip">
+            Der zivile Sektor umfasst alle nicht-militärischen Branchen – von Technologie und Gesundheit bis hin zu Energie und Bildung. Unternehmen hier orientieren sich an gesellschaftlichem Nutzen und marktwirtschaftlichen Zielen. Die Gehälter sind meist etwas niedriger, dafür gelten die Tätigkeiten als ethisch weniger konfliktbehaftet.
+          </div>
+          <div class="sector-grid"></div>
+          <div id="civil-percent" class="percentage"></div>
         </div>
+      </div>
 
-    </section>
+      <div id="student-overlay"></div>
 
+      <div id="avatar-tooltip" class="avatar-tooltip">
+        <strong>Typischer Befragter</strong>
+        <ul>
+          <li id="tt-alter"></li>
+          <li id="tt-geschlecht"></li>
+          <li id="tt-nationalitaet"></li>
+          <li id="tt-studiengang"></li>
+        </ul>
+      </div>
 
-    <script type="module" src="/src/main.js"></script>
+    </div>
+  </section>
 
-    <script>
-        (function () {
-            const toggle = document.getElementById('theme-toggle');
-            const html   = document.documentElement;
+  <!-- Charts Section -->
+  <section id="charts-section">
+    <div class="charts-container">
+      <h2 class="charts-headline">Die Daten im Detail</h2>
+      <p class="charts-intro">Alle Studierenden, die aktuell immatrikuliert sind (n = 227).</p>
 
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                html.setAttribute('data-theme', 'dark');
-                toggle.textContent = '☀️';
-                toggle.setAttribute('aria-label', 'Lightmode aktivieren');
-            }
+      <!-- Reihe 1: Ethik -->
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>Wird Berufsethik in deinem Studium thematisiert?</h3>
+          <div class="filter-bar" style="justify-content: flex-start; margin-bottom: 16px;">
+            <label class="filter-label" for="filter-studiengang-ethik">Studiengang</label>
+            <select class="studiengang-filter" id="filter-studiengang-ethik">
+              <option value="alle">Alle</option>
+            </select>
+            <span class="chart-n" id="chart-ethik-n"></span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="chart-ethik"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <!-- Textbox kommt noch -->
+        </div>
+      </div>
 
-            toggle.addEventListener('click', () => {
-                const isDark = html.getAttribute('data-theme') === 'dark';
-                html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-                toggle.textContent = isDark ? '🌙' : '☀️';
-                toggle.setAttribute('aria-label',
-                    isDark ? 'Darkmode aktivieren' : 'Lightmode aktivieren');
-            });
-        })();
-    </script>
+      <!-- Reihe 2: Gehalt -->
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>Gehalt</h3>
+          <div class="chart-wrap">
+            <canvas id="chart-gehalt"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <!-- Textbox kommt noch -->
+        </div>
+      </div>
+
+      <!-- Reihe 3: Wechseln -->
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>Würdest du wechseln?</h3>
+          <div class="chart-wrap">
+            <canvas id="chart-wechseln"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <!-- Textbox kommt noch -->
+        </div>
+      </div>
+
+      <!-- Reihe 4: Studiengang -->
+      <div class="chart-row">
+        <div class="chart-card">
+          <h3>Verteilung nach Studiengang</h3>
+          <div class="chart-wrap">
+            <canvas id="chart-studiengang"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <!-- Textbox kommt noch -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script type="module" src="/src/main.js"></script>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+
+      // System-Preference beim ersten Laden
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        html.setAttribute('data-theme', 'dark');
+        toggle.textContent = '☀️';
+        toggle.setAttribute('aria-label', 'Lightmode aktivieren');
+      }
+
+      updateChartDefaults();
+
+      toggle.addEventListener('click', () => {
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        toggle.textContent = isDark ? '🌙' : '☀️';
+        toggle.setAttribute('aria-label', isDark ? 'Darkmode aktivieren' : 'Lightmode aktivieren');
+
+        updateChartDefaults();
+        setTimeout(() => {
+          if (window.Chart?.instances) {
+            Object.values(window.Chart.instances).forEach(c => c.update());
+          }
+        }, 50);
+      });
+    })();
+  </script>
 
 </body>
-
 </html>

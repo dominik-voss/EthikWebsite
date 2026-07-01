@@ -1,6 +1,6 @@
 # Defense & Ethik
 
-**Berufsethik in der Verteidigungsindustrie** – scrollbares Storytelling darüber, wie Studierende der TH Nürnberg im Bezug zu Karriere und der Meinung zu Defense und Dual-Use stehen.
+**Berufsethik in der Verteidigungsindustrie** – scrollbares Storytelling in der TH Nürnberg auf Basis einer Umfrage von Studierenden im Bezug zu Karriere und der Meinung zu Defense und Dual-Use stehen.
 
 🔗 **Live-Demo:** [dominik-voss.github.io/EthikWebsite](https://dominik-voss.github.io/EthikWebsite/)
 

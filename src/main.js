@@ -1,6 +1,7 @@
 import './style.css';
 import { initStory } from './storytelling/scrollStory.js';
 import { initCharts } from './charts/charts.js';
+import { initMilestones } from './milestones/milestones.js';
 
 
 async function start() {
@@ -11,6 +12,7 @@ async function start() {
 
     initStory(csv);
     initCharts(csv);
+    initMilestones(csv);
 }
 
 

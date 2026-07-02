@@ -704,7 +704,7 @@ Mobile Responsive
 @media (max-width: 768px) {
 
     #career-scene {
-        height: 300vh;
+        height: 450vh;
     }
 
     .story-sticky {
@@ -802,7 +802,7 @@ Mobile Responsive
     gap: 0;
     position: relative;
     overflow: hidden;
-    min-height: 60vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -932,4 +932,249 @@ Mobile Responsive
 
 #university-box {
     overflow: hidden;
+}
+
+/* -------------------------
+   Milestones Section
+------------------------- */
+
+#milestones-section {
+    padding: 80px 40px;
+    background: var(--color-bg-body);
+    transition: background 0.4s ease;
+}
+
+.milestones-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.milestone {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.milestone-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.milestone-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.milestone-card {
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.milestone-card.dark {
+    background: var(--color-sector);
+    color: var(--color-sector-text);
+    box-shadow: var(--shadow-sector);
+}
+
+.milestone-card.light {
+    background: var(--color-textbox-bg);
+    color: var(--color-textbox-text);
+    box-shadow: var(--shadow-card);
+    border: none;
+}
+
+.milestone-group {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0;
+    opacity: 0.5;
+}
+
+.milestone-card.dark .milestone-group {
+    color: var(--color-sector-text);
+}
+
+.milestone-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 16px;
+    border-top: 0.5px solid var(--color-border);
+}
+
+.milestone-card.dark .milestone-metric {
+    border-top-color: rgba(255,255,255,0.1);
+}
+
+.milestone-metric:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.milestone-metric-label {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin: 0;
+}
+
+.milestone-metric-number {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+}
+
+.milestone-card.dark .milestone-metric-number {
+    color: var(--color-sector-text);
+}
+
+.milestone-card.light .milestone-metric-number {
+    color: var(--color-primary);
+}
+
+.milestone-metric-sub {
+    font-size: 0.75rem;
+    opacity: 0.4;
+}
+
+.milestone-insight {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-textbox-text);
+    border-left: 3px solid var(--color-primary);
+    padding-left: 12px;
+    margin: 0;
+    transition: color 0.4s ease;
+}
+
+/* Zeitenwende */
+
+.milestone-zeitenwende {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    background: var(--color-textbox-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow-card);
+}
+
+.milestone-big-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.milestone-big-number .milestone-metric-number {
+    font-size: 4rem;
+    color: var(--color-textbox-text);
+}
+
+.milestone-distribution {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.distribution-bars {
+    display: flex;
+    gap: 4px;
+    height: 40px;
+    align-items: flex-end;
+}
+
+.distribution-bar {
+    background: var(--color-sector);
+    border-radius: 3px 3px 0 0;
+    height: 40px;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.distribution-bar.b4 {
+    background: var(--color-primary);
+    opacity: 0.7;
+}
+
+.distribution-bar.b5 {
+    background: var(--color-primary);
+    opacity: 1;
+}
+
+.distribution-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--chart-tick-color);
+}
+
+/* Waffle */
+
+.milestone-waffle-card {
+    gap: 16px;
+}
+
+.waffle-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.waffle-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.waffle-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--color-textbox-text);
+}
+
+.waffle-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.waffle-dot.amber { background: var(--color-primary); }
+.waffle-dot.gray { background: var(--color-border); }
+
+
+.distribution-bar-wrap {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    height: 40px;
+}
+
+.distribution-bar-wrap .distribution-bar {
+    width: 100%;
+}
+
+.distribution-bar-pct {
+    font-size: 0.65rem;
+    color: var(--chart-tick-color);
 }

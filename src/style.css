@@ -284,7 +284,7 @@ h1, h2, h3, .charts-headline, .sector-header h2 {
     align-items: center;
     justify-content: center;
     gap: 60px;
-    padding: 80px 40px;
+    padding: 80px 40px 0px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -958,16 +958,22 @@ Mobile Responsive
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--chart-tick-color);
-    max-width: 50%;
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    color: var(--color-textbox-text);
+    font-weight: 500;
+    max-width: 55%;
     text-align: left;
-    line-height: 1.65;
+    line-height: 1.6;
     margin: 0 0 40px 0;
     transition: color 0.4s ease;
-    margin-top: 12px;
-    margin-bottom: 20px;
 }
+
+
+.hero-subtitle-highlight {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
 
 .hero-scroll-hint {
     position: fixed;
@@ -1043,7 +1049,7 @@ Mobile Responsive
 ------------------------- */
 
 #milestones-section {
-    padding: 80px 40px;
+    padding: 20px 40px 80px;
     background: var(--color-bg-body);
     transition: background 0.4s ease;
 }
@@ -1281,4 +1287,20 @@ Mobile Responsive
 .distribution-bar-pct {
     font-size: 0.65rem;
     color: var(--chart-tick-color);
+}
+
+/*SECTION BREAKER*/
+
+.section-bridge {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-bridge p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    color: var(--color-textbox-text);
+    line-height: 1.5;
 }

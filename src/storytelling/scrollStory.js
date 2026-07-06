@@ -585,7 +585,7 @@ function setupScrollStory() {
       );
     });
 
-    avatarStage.classList.toggle('phase-hidden-out', currentProgress > P_UNIVERSITY);
+    //avatarStage.classList.toggle('phase-hidden-out', currentProgress > P_UNIVERSITY);
     university.classList.toggle('phase-visible', currentProgress > P_UNIVERSITY);
     sectors.classList.toggle('phase-visible', currentProgress > P_SECTORS);
 

@@ -46,6 +46,9 @@
 
 :root,
 [data-theme="light"] {
+    --font-display:         'Newsreader', Georgia, serif;
+    --font-body:            'Inter', 'Segoe UI', sans-serif;
+    --font-numeric:         'Space Grotesk', 'Inter', sans-serif;
     --color-bg:             #f0f2f5;
     --color-bg-body:        #f0f2f5;
     --color-sector:         #181f30;
@@ -70,6 +73,9 @@
 }
 
 [data-theme="dark"] {
+    --font-display:         'Newsreader', Georgia, serif;
+    --font-body:            'Inter', 'Segoe UI', sans-serif;
+    --font-numeric:         'Space Grotesk', 'Inter', sans-serif;
     --color-bg:             #0f1117;
     --color-bg-body:        #0f1117;
     --color-sector:         #1e2740;
@@ -132,6 +138,89 @@ body {
     transition: background-color 0.4s ease;
 }
 
+/* -------------------------
+   Fonts
+------------------------- */
+
+@font-face {
+    font-family: 'Newsreader';
+    src: url('/fonts/newsreader-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    src: url('/fonts/newsreader-600.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Newsreader';
+    src: url('/fonts/newsreader-500-italic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter-400.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/inter-600.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-500.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-400.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/space-grotesk-700.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+body {
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, .charts-headline, .sector-header h2 {
+    font-family: var(--font-display);
+}
+
+.pull-quote blockquote {
+    font-family: var(--font-display);
+    font-style: italic;
+}
+
+.milestone-metric-number,
+.percentage,
+#m4-avg,
+.distribution-bar-pct {
+    font-family: var(--font-numeric);
+    font-variant-numeric: tabular-nums;
+}
 
 /* -------------------------
    Site Header / Toggle

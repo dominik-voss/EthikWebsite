@@ -1,3 +1,5 @@
+import { initExtendedMilestones } from './extended.js';
+
 export function initMilestones(csv) {
     const data = parseCSV(csv).filter(d => d.status === 'student');
 
@@ -50,6 +52,7 @@ export function initMilestones(csv) {
     setText('m5-total', `${total} Studierende`);
 
     initWaffle(ethikJaPct);
+    initExtendedMilestones(data);
 }
 
 function setText(id, text) {

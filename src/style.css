@@ -283,7 +283,7 @@ h1, h2, h3, .charts-headline, .sector-header h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 60px;
+    gap: 24px;
     padding: 80px 40px 0px;
     max-width: 1400px;
     margin: 0 auto;
@@ -1303,4 +1303,57 @@ Mobile Responsive
     font-size: clamp(1.3rem, 2.5vw, 1.8rem);
     color: var(--color-textbox-text);
     line-height: 1.5;
+}
+
+
+/* Ranking list */
+.ranking-list { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.ranking-row { display: flex; align-items: center; gap: 10px; }
+.ranking-number { font-size: 0.7rem; color: var(--chart-tick-color); width: 20px; flex-shrink: 0; }
+.ranking-label { font-size: 0.85rem; color: var(--color-textbox-text); flex: 1; }
+.ranking-track { width: 140px; height: 8px; background: var(--color-border); border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+.ranking-fill { height: 100%; background: var(--color-primary); border-radius: 4px; }
+.ranking-fill.low { background: var(--color-sector); }
+
+/* Comparison bars (Geld ins Spiel) */
+.comparison-bar { display: flex; height: 36px; border-radius: 8px; overflow: hidden; margin-top: 8px; }
+.comparison-segment { display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; }
+.scenario-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+.scenario-legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--color-textbox-text); }
+.scenario-legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+/* Reasons list */
+.reasons-list { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.reasons-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; }
+.reasons-count { color: var(--color-primary); font-weight: 700; }
+.milestone-card.dark .reasons-row { color: var(--color-sector-text); }
+
+/* Quote Carousel */
+#quotes-section { padding: 40px 40px 100px; background: var(--color-bg-body); transition: background 0.4s ease; }
+.quotes-container { max-width: 1360px; margin: 0 auto; }
+.quote-card { background: var(--color-textbox-bg); border-radius: 20px; padding: 40px 36px; box-shadow: var(--shadow-card); margin-top: 16px; transition: background 0.4s ease, box-shadow 0.4s ease; }
+.quote-meta { font-size: 0.7rem; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin: 0 0 20px 0; }
+.quote-text { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 1.2rem; line-height: 1.6; color: var(--color-textbox-text); margin: 0 0 24px 0; transition: color 0.4s ease; }
+.quote-controls { display: flex; align-items: center; justify-content: space-between; }
+.quote-dots { display: flex; gap: 6px; }
+.quote-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-border); transition: background 0.2s ease; }
+.quote-dot.active { background: var(--color-primary); }
+.quote-next-btn { background: none; border: 0.5px solid var(--color-border); border-radius: 8px; padding: 8px 16px; font-size: 0.8rem; color: var(--color-textbox-text); cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease; }
+.quote-next-btn:hover { background: var(--color-bg); border-color: var(--color-primary); }
+
+/*BAR CHART ANIMATION"*/
+
+.ranking-fill {
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: 4px;
+    transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ranking-pct {
+    font-size: 0.75rem;
+    color: var(--chart-tick-color);
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
 }

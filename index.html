@@ -63,8 +63,7 @@
       <div class="pull-quote phase-hidden" id="intro-box">
         <span class="pull-quote-count"><span id="intro-total-count"></span> Befragte</span>
         <blockquote>
-          "Würdest du eher zu einem Militärunternehmen für 20 % mehr Gehalt
-          oder zu einem zivilen Unternehmen mit geringerem Gehalt gehen?"
+    „Kannst du dir vorstellen, in einem Unternehmen oder Projekt mit Bezug zum Rüstungs-/Verteidigungsbereich zu arbeiten?"
         </blockquote>
       </div>
 
@@ -157,136 +156,179 @@
   </section>
 </section>
 
-    <!-- Milestones Section -->
-    <section id="milestones-section">
-        <div class="milestones-container">
+  <!-- Milestones Section -->
+<section id="milestones-section">
+    <div class="milestones-container">
 
-
-        <div class="section-bridge">
+<div class="section-bridge">
   <p>Doch die Zahlen erzählen nur die halbe Geschichte. Was passiert, wenn man tiefer fragt?</p>
 </div>
 
+        <!-- M2: Berufswerte-Ranking -->
+        <div class="milestone">
+            <p class="milestone-label">02 — Was zählt wirklich? Berufswerte-Ranking</p>
+            <div class="milestone-card light">
+                <p class="milestone-metric-label">Wichtigkeit bei der Berufswahl (1 = am wichtigsten)</p>
+                <div id="ranking-list" class="ranking-list"></div>
+            </div>
+            <p class="milestone-insight">Bevor wir über Verteidigung sprechen: Moral und gesellschaftlicher Beitrag stehen bei der Berufswahl an letzter Stelle.</p>
+        </div>
 
-  <!-- M2: Zwei Welten -->
-<div class="milestone">
-  <p class="milestone-label">02 — Zwei Welten: Vorstellungskraft & Gewissen</p>
-  <div class="milestone-split">
-    <div class="milestone-card dark">
-      <p class="milestone-group">Militär-Wähler</p>
-      <div class="milestone-metric">
-        <span class="milestone-metric-label">Kann sich Defense vorstellen</span>
-        <span class="milestone-metric-number" id="m2-mil-vorstellen">–</span>
-        <span class="milestone-metric-sub">von 5</span>
-      </div>
-      <div class="milestone-metric">
-        <span class="milestone-metric-label">Gewissenskonflikte</span>
-        <span class="milestone-metric-number" id="m2-mil-gewissen">–</span>
-        <span class="milestone-metric-sub">von 5</span>
-      </div>
-    </div>
-    <div class="milestone-card light">
-      <p class="milestone-group">Zivil-Wähler</p>
-      <div class="milestone-metric">
-        <span class="milestone-metric-label">Kann sich Defense vorstellen</span>
-        <span class="milestone-metric-number" id="m2-ziv-vorstellen">–</span>
-        <span class="milestone-metric-sub">von 5</span>
-      </div>
-      <div class="milestone-metric">
-        <span class="milestone-metric-label">Gewissenskonflikte</span>
-        <span class="milestone-metric-number" id="m2-ziv-gewissen">–</span>
-        <span class="milestone-metric-sub">von 5</span>
-      </div>
-    </div>
-  </div>
-  <p class="milestone-insight">Dieselbe Branche — zwei völlig entgegengesetzte Reaktionen. Vorstellungskraft und Gewissen spiegeln sich.</p>
-</div>
+        <!-- M3: Geld ins Spiel -->
+        <div class="milestone">
+            <p class="milestone-label">03 — Was passiert, wenn Geld ins Spiel kommt?</p>
+            <div class="milestone-card light">
+                <p class="milestone-metric-label">Grundsätzliche Bereitschaft</p>
+                <div class="comparison-bar" id="bar-general"></div>
 
-<!-- M3: Dual-Use -->
-<div class="milestone">
-  <p class="milestone-label">03 — Technologie mit zwei Gesichtern: Dual-Use-Bedenken</p>
-  <div class="milestone-split">
-    <div class="milestone-card dark">
-      <p class="milestone-group">Militär-Wähler</p>
-      <div class="milestone-metric">
-        <span class="milestone-metric-label">Bedenken gegenüber Dual-Use-Technologien</span>
-        <span class="milestone-metric-number" id="m3-mil-dualuse">–</span>
-        <span class="milestone-metric-sub">von 5</span>
-      </div>
-    </div>
-    <div class="milestone-card light">
-      <p class="milestone-group">Zivil-Wähler</p>
-      <div class="milestone-metric">
-        <span class="milestone-metric-label">Bedenken gegenüber Dual-Use-Technologien</span>
-        <span class="milestone-metric-number" id="m3-ziv-dualuse">–</span>
-        <span class="milestone-metric-sub">von 5</span>
-      </div>
-    </div>
-  </div>
-  <p class="milestone-insight">Wer Bedenken gegenüber Dual-Use-Technologien hat, wählt zivil. Wer keine hat, wählt Militär.</p>
-</div>
+                <p class="milestone-metric-label" style="margin-top: 20px;">Entscheidung im Gehaltsszenario (20 % mehr Gehalt)</p>
+                <div class="comparison-bar" id="bar-scenario"></div>
 
-<!-- M4: Zeitenwende -->
-<div class="milestone">
-  <p class="milestone-label">04 — Die Zeitenwende im Hörsaal: Einstellung verändert</p>
-  <div class="milestone-zeitenwende">
-    <div class="milestone-big-number">
-      <span class="milestone-metric-number" id="m4-avg">–</span>
-      <span class="milestone-metric-sub">Ø von 5</span>
-    </div>
-    <div class="milestone-distribution">
-      <p class="milestone-metric-label">Hat sich deine Einstellung in den letzten Jahren verändert?</p>
-      <div class="distribution-bars">
-  <div class="distribution-bar-wrap">
-    <div class="distribution-bar" id="m4-bar-1"></div>
-    <span class="distribution-bar-pct" id="m4-pct-1"></span>
-  </div>
-  <div class="distribution-bar-wrap">
-    <div class="distribution-bar" id="m4-bar-2"></div>
-    <span class="distribution-bar-pct" id="m4-pct-2"></span>
-  </div>
-  <div class="distribution-bar-wrap">
-    <div class="distribution-bar" id="m4-bar-3"></div>
-    <span class="distribution-bar-pct" id="m4-pct-3"></span>
-  </div>
-  <div class="distribution-bar-wrap">
-    <div class="distribution-bar b4" id="m4-bar-4"></div>
-    <span class="distribution-bar-pct" id="m4-pct-4"></span>
-  </div>
-  <div class="distribution-bar-wrap">
-    <div class="distribution-bar b5" id="m4-bar-5"></div>
-    <span class="distribution-bar-pct" id="m4-pct-5"></span>
-  </div>
-</div>
-      <div class="distribution-labels">
-        <span>Kaum verändert</span><span>Stark verändert</span>
-      </div>
-    </div>
-  </div>
-  <p class="milestone-insight">Die gesellschaftliche Debatte hat etwas bewegt — aber wenig. Die Haltung war schon vorher da.</p>
-</div>
+                <div class="scenario-legend">
+                    <span class="scenario-legend-item"><span class="scenario-legend-dot" style="background:#181f30"></span>Militär-Neigung</span>
+                    <span class="scenario-legend-item"><span class="scenario-legend-dot" style="background:#b4b2a9"></span>Unentschieden</span>
+                    <span class="scenario-legend-item"><span class="scenario-legend-dot" style="background:#e8a020"></span>Zivil-Neigung</span>
+                </div>
+            </div>
+            <p class="milestone-insight">Sobald ein konkretes Gehaltsangebot auf dem Tisch liegt, wächst die Gruppe der Unentschiedenen deutlich — und die klare Zivil-Position schrumpft stark.</p>
+        </div>
 
-<!-- M5: Ethische Vorbereitung -->
-<div class="milestone">
-  <p class="milestone-label">05 — Eine Entscheidung ohne Kompass: Ethische Vorbereitung</p>
-  <div class="milestone-card light milestone-waffle-card">
-    <p class="milestone-metric-label" id="m5-total">–</p>
-    <div id="waffle-chart" class="waffle-grid"></div>
-    <div class="waffle-legend">
-      <span class="waffle-legend-item"><span class="waffle-dot amber"></span>Ja (<span id="m5-ja-pct">–</span> — <span id="m5-ja-count">–</span>)</span>
-      <span class="waffle-legend-item"><span class="waffle-dot gray"></span>Kaum oder gar nicht (<span id="m5-nein-pct">–</span> — <span id="m5-nein-count">–</span>)</span>
-    </div>
-  </div>
-  <p class="milestone-insight">Ohne ethische Vorbereitung in der Uni — und trotzdem hat jeder eine Antwort.</p>
-</div>
+        <!-- M4: Gründe dafür / dagegen -->
+        <div class="milestone">
+            <p class="milestone-label">04 — Die Gründe dafür, die Gründe dagegen</p>
+            <div class="milestone-split">
+                <div class="milestone-card dark">
+                    <p class="milestone-group">Gründe dafür</p>
+                    <div id="reasons-pro" class="reasons-list"></div>
+                </div>
+                <div class="milestone-card light">
+                    <p class="milestone-group">Gründe dagegen</p>
+                    <div id="reasons-contra" class="reasons-list"></div>
+                </div>
+            </div>
+            <p class="milestone-insight">Wer sich für Defense entscheidet, tut es meist wegen Innovation und Geld — nicht wegen Patriotismus. Wer dagegen ist, hat oft moralische Bedenken oder keinen konkreten Grund.</p>
+        </div>
 
-</div>
+        <!-- M5: Zwei Welten -->
+        <div class="milestone">
+            <p class="milestone-label">05 — Zwei Welten: Vorstellungskraft & Gewissen</p>
+            <div class="milestone-split">
+                <div class="milestone-card dark">
+                    <p class="milestone-group">Militär-Wähler</p>
+                    <div class="milestone-metric">
+                        <span class="milestone-metric-label">Kann sich Defense vorstellen</span>
+                        <span class="milestone-metric-number" id="m2-mil-vorstellen">–</span>
+                        <span class="milestone-metric-sub">von 5</span>
+                    </div>
+                    <div class="milestone-metric">
+                        <span class="milestone-metric-label">Gewissenskonflikte</span>
+                        <span class="milestone-metric-number" id="m2-mil-gewissen">–</span>
+                        <span class="milestone-metric-sub">von 5</span>
+                    </div>
+                </div>
+                <div class="milestone-card light">
+                    <p class="milestone-group">Zivil-Wähler</p>
+                    <div class="milestone-metric">
+                        <span class="milestone-metric-label">Kann sich Defense vorstellen</span>
+                        <span class="milestone-metric-number" id="m2-ziv-vorstellen">–</span>
+                        <span class="milestone-metric-sub">von 5</span>
+                    </div>
+                    <div class="milestone-metric">
+                        <span class="milestone-metric-label">Gewissenskonflikte</span>
+                        <span class="milestone-metric-number" id="m2-ziv-gewissen">–</span>
+                        <span class="milestone-metric-sub">von 5</span>
+                    </div>
+                </div>
+            </div>
+            <p class="milestone-insight">Dieselbe Branche — zwei völlig entgegengesetzte Reaktionen. Vorstellungskraft und Gewissen spiegeln sich.</p>
+        </div>
+
+        <!-- M6: Dual-Use -->
+        <div class="milestone">
+            <p class="milestone-label">06 — Technologie mit zwei Gesichtern: Dual-Use-Bedenken</p>
+            <div class="milestone-split">
+                <div class="milestone-card dark">
+                    <p class="milestone-group">Militär-Wähler</p>
+                    <div class="milestone-metric">
+                        <span class="milestone-metric-label">Bedenken gegenüber Dual-Use-Technologien</span>
+                        <span class="milestone-metric-number" id="m3-mil-dualuse">–</span>
+                        <span class="milestone-metric-sub">von 5</span>
+                    </div>
+                </div>
+                <div class="milestone-card light">
+                    <p class="milestone-group">Zivil-Wähler</p>
+                    <div class="milestone-metric">
+                        <span class="milestone-metric-label">Bedenken gegenüber Dual-Use-Technologien</span>
+                        <span class="milestone-metric-number" id="m3-ziv-dualuse">–</span>
+                        <span class="milestone-metric-sub">von 5</span>
+                    </div>
+                </div>
+            </div>
+            <p class="milestone-insight">Wer Bedenken gegenüber Dual-Use-Technologien hat, wählt zivil. Wer keine hat, wählt Militär.</p>
+        </div>
+
+        <!-- M7: Zeitenwende -->
+        <div class="milestone">
+            <p class="milestone-label">07 — Die Zeitenwende im Hörsaal: Einstellung verändert</p>
+            <div class="milestone-zeitenwende">
+                <div class="milestone-big-number">
+                    <span class="milestone-metric-number" id="m4-avg">–</span>
+                    <span class="milestone-metric-sub">Ø von 5</span>
+                </div>
+                <div class="milestone-distribution">
+                    <p class="milestone-metric-label">Hat sich deine Einstellung in den letzten Jahren verändert?</p>
+                    <div class="distribution-bars">
+                        <div class="distribution-bar-wrap"><div class="distribution-bar" id="m4-bar-1"></div><span class="distribution-bar-pct" id="m4-pct-1"></span></div>
+                        <div class="distribution-bar-wrap"><div class="distribution-bar" id="m4-bar-2"></div><span class="distribution-bar-pct" id="m4-pct-2"></span></div>
+                        <div class="distribution-bar-wrap"><div class="distribution-bar" id="m4-bar-3"></div><span class="distribution-bar-pct" id="m4-pct-3"></span></div>
+                        <div class="distribution-bar-wrap"><div class="distribution-bar b4" id="m4-bar-4"></div><span class="distribution-bar-pct" id="m4-pct-4"></span></div>
+                        <div class="distribution-bar-wrap"><div class="distribution-bar b5" id="m4-bar-5"></div><span class="distribution-bar-pct" id="m4-pct-5"></span></div>
+                    </div>
+                    <div class="distribution-labels">
+                        <span>Kaum verändert</span><span>Stark verändert</span>
+                    </div>
+                </div>
+            </div>
+            <p class="milestone-insight">Die gesellschaftliche Debatte hat etwas bewegt — aber wenig. Die Haltung war schon vorher da.</p>
+        </div>
+
+        <!-- M8: Ethische Vorbereitung -->
+        <div class="milestone">
+            <p class="milestone-label">08 — Eine Entscheidung ohne Kompass: Ethische Vorbereitung</p>
+            <div class="milestone-card light milestone-waffle-card">
+                <p class="milestone-metric-label" id="m5-total">–</p>
+                <div id="waffle-chart" class="waffle-grid"></div>
+                <div class="waffle-legend">
+                    <span class="waffle-legend-item"><span class="waffle-dot amber"></span>Ja (<span id="m5-ja-pct">–</span> — <span id="m5-ja-count">–</span>)</span>
+                    <span class="waffle-legend-item"><span class="waffle-dot gray"></span>Kaum oder gar nicht (<span id="m5-nein-pct">–</span> — <span id="m5-nein-count">–</span>)</span>
+                </div>
+            </div>
+            <p class="milestone-insight">Ohne ethische Vorbereitung — und trotzdem hat jeder eine Antwort.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Quote Carousel Section -->
+<section id="quotes-section">
+    <div class="quotes-container">
+        <p class="milestone-label">Stimmen aus der Umfrage</p>
+        <div class="quote-card">
+            <p class="quote-meta" id="quote-meta">–</p>
+            <blockquote class="quote-text" id="quote-text">–</blockquote>
+            <div class="quote-controls">
+                <div class="quote-dots" id="quote-dots"></div>
+                <button class="quote-next-btn" id="quote-next-btn">Nächstes Zitat →</button>
+            </div>
+        </div>
+    </div>
 </section>
 
   <!-- Charts Section -->
   <section id="charts-section">
     <div class="charts-container">
       <h2 class="charts-headline">Die Daten im Detail</h2>
-      <p class="charts-intro">Alle Studierenden, die aktuell immatrikuliert sind (n = 227).</p>
+      <p class="charts-intro">Alle Studierenden, die aktuell immatrikuliert sind (n = 243).</p>
 
       <!-- Reihe 1: Ethik -->
       <div class="chart-row">

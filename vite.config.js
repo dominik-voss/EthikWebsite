@@ -2,5 +2,8 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-    base: '/EthikWebsite/',
+  base: '/EthikWebsite/',
+  server: {
+    allowedHosts: ['rehire-simmering-user.ngrok-free.dev']
+  }
 })

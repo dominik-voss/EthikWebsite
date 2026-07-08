@@ -435,11 +435,18 @@ function calculateTargets() {
   document.getElementById('civil-sector').style.minHeight =
     `${150 + civOffset + civilRows * (ICON_SIZE + GAP)}px`;
 
-  if (avatarNode) {
-    const stageRect = document.getElementById('avatar-stage').getBoundingClientRect();
+if (avatarNode) {
+  const stageRect = document.getElementById('avatar-stage').getBoundingClientRect();
+  const isMobile = window.innerWidth <= 768;
+
+  if (isMobile) {
+    avatarNode.dataset.introX = (stageRect.left - overlayRect.left) + (stageRect.width / 2) - 8;
+    avatarNode.dataset.introY = (stageRect.top - overlayRect.top) + 24;
+  } else {
     avatarNode.dataset.introX = (stageRect.left - overlayRect.left) + 40;
     avatarNode.dataset.introY = (stageRect.top - overlayRect.top) + (stageRect.height / 2) - 12;
   }
+}
 }
 
 /* -------------------------
@@ -486,6 +493,13 @@ function calcLatePhases() {
 
 function updatePan(progress) {
   const sticky = document.querySelector('.story-sticky');
+  if (!sticky) return;
+
+  if (window.innerWidth <= 768) {
+    sticky.style.transform = 'none';
+    return;
+  }
+
   if (progress <= P_PAN_START) {
     sticky.style.transform = '';
   } else {
@@ -494,6 +508,7 @@ function updatePan(progress) {
     const totalHeight = sectorsRect.bottom - universityRect.top;
     const viewportH = window.innerHeight;
     const maxShift = Math.max(0, totalHeight - viewportH + 120);
+
     if (progress >= P_PAN_END) {
       sticky.style.transform = `translateY(-${maxShift}px)`;
     } else {

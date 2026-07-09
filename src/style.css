@@ -48,6 +48,7 @@
     word-break: normal;
 }
 
+
 @media (max-width: 768px) {
     #hero {
         padding-right: 20px !important;
@@ -57,10 +58,11 @@
 
     .hero-title-block,
     .hero-subtitle {
-        position: relative;
-        z-index: 2;
-    }
+    max-width: 700px;
 }
+
+}
+
 
 :root,
 [data-theme="light"] {
@@ -1002,13 +1004,18 @@ Mobile Responsive
     font-size: clamp(1.1rem, 2.2vw, 1.35rem);
     color: var(--color-textbox-text);
     font-weight: 500;
-    max-width: 55%;
+    max-width: 90%;
     text-align: left;
     line-height: 1.6;
     margin: 0 0 40px 0;
     transition: color 0.4s ease;
 }
 
+.nowrap-highlight {
+    white-space: nowrap;
+    color: var(--color-primary);
+    font-weight: 600;
+}
 
 .hero-subtitle-highlight {
     color: var(--color-primary);
@@ -1165,6 +1172,11 @@ Mobile Responsive
     color: var(--color-sector-text);
 }
 
+.milestone-card.dark .milestone-metric-label {
+    color: var(--color-sector-text);
+    opacity: 0.9;
+}
+
 .milestone-metric {
     display: flex;
     flex-direction: column;
@@ -1183,8 +1195,10 @@ Mobile Responsive
 }
 
 .milestone-metric-label {
-    font-size: 0.75rem;
-    opacity: 0.6;
+    font-size: 0.85rem;
+    font-weight: 700;
+    opacity: 1;
+    color: var(--color-textbox-text);
     margin: 0;
 }
 
@@ -1204,8 +1218,15 @@ Mobile Responsive
 }
 
 .milestone-metric-sub {
-    font-size: 0.75rem;
-    opacity: 0.4;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.85;
+    color: var(--color-textbox-text);
+}
+
+.milestone-card.dark .milestone-metric-sub {
+    color: var(--color-sector-text);
+    opacity: 0.75;
 }
 
 .milestone-insight {
@@ -1476,7 +1497,7 @@ Mobile Responsive
 }
 
 .quotes-container {
-    max-width: 1360px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 

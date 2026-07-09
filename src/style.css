@@ -1585,262 +1585,265 @@ Mobile Responsive
     flex-shrink: 0;
 
 }
+
 /* =========================================================
    MOBILE FIXES – bereinigte Version
    Diesen Block ganz ans ENDE der style.css setzen
 ========================================================= */
 @media (max-width: 768px) {
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: hidden !important;
-  }
 
-  .masthead {
-    padding: 8px 16px;
-    font-size: 0.65rem;
-  }
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden !important;
+    }
 
-  .site-header {
-    top: 44px !important;
-    right: 8px !important;
-    padding: 6px 8px !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    border-bottom-left-radius: 0 !important;
-    box-shadow: none !important;
-  }
+    .masthead {
+        padding: 8px 16px;
+        font-size: 0.65rem;
+    }
 
-  .theme-toggle {
-    background: rgba(30, 39, 64, 0.92) !important;
-    border-radius: 999px !important;
-    padding: 6px !important;
-  }
+    .site-header {
+        top: 44px !important;
+        right: 8px !important;
+        padding: 6px 8px !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        border-bottom-left-radius: 0 !important;
+        box-shadow: none !important;
+    }
 
-  #hero {
-    width: 100%;
-    max-width: 100%;
-    min-height: auto;
-    padding: 96px 20px 32px;
-    overflow: hidden;
-    background-size: 120px auto;
-    background-position: right bottom;
-    background-repeat: no-repeat;
-  }
+    .theme-toggle {
+        background: rgba(30, 39, 64, 0.92) !important;
+        border-radius: 999px !important;
+        padding: 6px !important;
+    }
 
-  #hero::before {
-    display: none !important;
-    content: none !important;
-    background: none !important;
-  }
+    #hero {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 96px 20px 32px;
+        overflow: hidden;
+        background-size: 120px auto;
+        background-position: right bottom;
+        background-repeat: no-repeat;
+    }
 
-  .hero-title-block,
-  .hero-subtitle,
-  .pull-quote,
-  .textbox {
-    max-width: 100%;
-  }
+    #hero::before {
+        display: none !important;
+        content: none !important;
+        background: none !important;
+    }
 
-  .hero-title {
-    width: 100%;
-    max-width: 100%;
-    font-size: clamp(1.6rem, 9vw, 2.6rem);
-    line-height: 1.04;
-    word-break: break-word;
-    overflow-wrap: anywhere;
-    margin: 0;
-  }
+    .hero-title-block,
+    .hero-subtitle,
+    .pull-quote,
+    .textbox {
+        max-width: 100%;
+    }
 
-  .hero-title-rule {
-    width: 100%;
-    max-width: 100%;
-    margin: 12px 0 14px;
-  }
+    .hero-title {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(1.6rem, 9vw, 2.6rem);
+        line-height: 1.04;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        margin: 0;
+    }
 
-  .hero-subtitle {
-    width: 100%;
-    max-width: 100%;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0 0 24px 0;
-  }
+    .hero-title-rule {
+        width: 100%;
+        max-width: 100%;
+        margin: 12px 0 14px;
+    }
 
-  .hero-subtitle br {
-    display: none;
-  }
+    .hero-subtitle {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0 0 24px 0;
+    }
 
-  .pull-quote {
-    padding: 20px 0 20px 16px;
-  }
+    .hero-subtitle br {
+        display: none;
+    }
 
-  .pull-quote blockquote {
-    font-size: 1.05rem;
-    line-height: 1.45;
-  }
+    .pull-quote {
+        padding: 20px 0 20px 16px;
+    }
 
-  #career-scene {
-    height: auto;
-    min-height: auto;
-    padding-bottom: 24px;
-  }
+    .pull-quote blockquote {
+        font-size: 1.05rem;
+        line-height: 1.45;
+    }
 
-  .story-sticky {
-    position: relative;
-    top: auto;
-    min-height: auto;
-    max-width: 100%;
-    padding: 72px 16px 24px;
-    gap: 16px;
-    transform: none !important;
-  }
+    #career-scene {
+        height: auto;
+        min-height: auto;
+        padding-bottom: 24px;
+    }
 
-  .textbox,
-  .sector,
-  .avatar-stage,
-  .majority-box,
-  .chart-card,
-  .quote-card,
-  .milestone-card,
-  .milestone-zeitenwende {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    border-radius: 16px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+    .story-sticky {
+        position: relative;
+        top: auto;
+        min-height: auto;
+        max-width: 100%;
+        padding: 72px 16px 24px;
+        gap: 16px;
+        transform: none !important;
+    }
 
-  .university-row,
-  .sector-row,
-  .chart-row,
-  .milestone-split {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+    .textbox,
+    .sector,
+    .avatar-stage,
+    .majority-box,
+    .chart-card,
+    .quote-card,
+    .milestone-card,
+    .milestone-zeitenwende {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        border-radius: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
-  #military-sector,
-  #civil-sector,
-  .majority-box,
-  .avatar-stage {
-    width: 100%;
-    max-width: 100%;
-  }
+    .university-row,
+    .sector-row,
+    .chart-row,
+    .milestone-split {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
 
-  .charts-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
+    #military-sector,
+    #civil-sector,
+    .majority-box,
+    .avatar-stage {
+        width: 100%;
+        max-width: 100%;
+    }
 
-  .chart-wrap {
-    height: 200px;
-  }
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
 
-  .chart-card--wide .chart-wrap {
-    height: 220px;
-  }
+    .chart-wrap {
+        height: 200px;
+    }
 
-  .filter-bar {
-    align-items: stretch;
-  }
+    .chart-card--wide .chart-wrap {
+        height: 220px;
+    }
 
-  .studiengang-filter,
-  .basis-btn {
-    min-height: 44px;
-    width: 100%;
-  }
+    .filter-bar {
+        align-items: stretch;
+    }
 
-  .basis-toggle {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-  }
+    .studiengang-filter,
+    .basis-btn {
+        min-height: 44px;
+        width: 100%;
+    }
 
-  .percentage {
-    font-size: 1.6rem;
-  }
+    .basis-toggle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
 
-  .hero-scroll-hint {
-    display: none;
-  }
+    .percentage {
+        font-size: 1.6rem;
+    }
 
-  .avatar-tooltip {
-    display: none !important;
-  }
+    .hero-scroll-hint {
+        display: none;
+    }
 
-  /* Ranking mobil: Text oben, Balken + Prozent darunter */
-  .ranking-row {
-    display: grid !important;
-    grid-template-columns: 24px 1fr;
-    grid-template-areas:
-      "num label"
-      ". track"
-      ". pct";
-    gap: 6px 10px;
-    align-items: start;
-  }
+    .avatar-tooltip {
+        display: none !important;
+    }
 
-  .ranking-number {
-    grid-area: num;
-    width: 24px;
-    padding-top: 2px;
-  }
+    /* Ranking mobil: Text oben, Balken + Prozent darunter */
+    .ranking-row {
+        display: grid !important;
+        grid-template-columns: 24px 1fr;
+        grid-template-areas:
+            "num label"
+            ". track"
+            ". pct";
+        gap: 6px 10px;
+        align-items: start;
+    }
 
-  .ranking-label {
-    grid-area: label;
-    min-width: 0;
-    word-break: break-word;
-  }
+    .ranking-number {
+        grid-area: num;
+        width: 24px;
+        padding-top: 2px;
+    }
 
-  .ranking-track {
-    grid-area: track;
-    width: 100% !important;
-    min-width: 0;
-  }
+    .ranking-label {
+        grid-area: label;
+        min-width: 0;
+        word-break: break-word;
+    }
 
-  .ranking-pct {
-    grid-area: pct;
-    width: auto !important;
-    text-align: right;
-    justify-self: end;
-    flex-shrink: 0;
-  }
+    .ranking-track {
+        grid-area: track;
+        width: 100% !important;
+        min-width: 0;
+    }
 
-  .milestone-card {
-    overflow: hidden;
-  }
-  @media (max-width: 768px) {
-  #hero {
-    padding: 96px 20px 40px !important;
-    background-size: 110px auto !important;
-    background-position: right 18px bottom 24px !important;
-    min-height: 520px !important;
-  }
+    .ranking-pct {
+        grid-area: pct;
+        width: auto !important;
+        text-align: right;
+        justify-self: end;
+        flex-shrink: 0;
+    }
 
-  .hero-title-block {
-    max-width: 100% !important;
-  }
+    .milestone-card {
+        overflow: hidden;
+    }
 
-  .hero-title {
-    max-width: 92% !important;
-    font-size: clamp(1.9rem, 8.8vw, 3rem) !important;
-    line-height: 1.02 !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
-    hyphens: auto;
-  }
+    @media (max-width: 768px) {
+        #hero {
+            padding: 96px 20px 40px !important;
+            background-size: 110px auto !important;
+            background-position: right 18px bottom 24px !important;
+            min-height: 520px !important;
+        }
 
-  .hero-subtitle {
-    max-width: 72% !important;
-    font-size: 0.98rem !important;
-    line-height: 1.45 !important;
-    margin-bottom: 28px !important;
-  }
+        .hero-title-block {
+            max-width: 100% !important;
+        }
 
-  .hero-subtitle br {
-    display: none !important;
-  }
-}
+        .hero-title {
+            max-width: 92% !important;
+            font-size: clamp(1.9rem, 8.8vw, 3rem) !important;
+            line-height: 1.02 !important;
+            word-break: normal !important;
+            overflow-wrap: break-word !important;
+            hyphens: auto;
+        }
+
+        .hero-subtitle {
+            max-width: 72% !important;
+            font-size: 0.98rem !important;
+            line-height: 1.45 !important;
+            margin-bottom: 28px !important;
+        }
+
+        .hero-subtitle br {
+            display: none !important;
+        }
+    }
 }

@@ -36,10 +36,10 @@ function renderChart(filter) {
   const total = filtered.length;
   if (total === 0) return;
 
-  const ja        = Math.round(filtered.filter(d => d.ethik_im_studium === 'Ja').length / total * 100);
-  const amRande   = Math.round(filtered.filter(d => d.ethik_im_studium === 'Ja, aber nur am Rande').length / total * 100);
-  const nein      = Math.round(filtered.filter(d => d.ethik_im_studium === 'Nein').length / total * 100);
-  const weissNicht= Math.round(filtered.filter(d => d.ethik_im_studium === 'Weiß ich nicht').length / total * 100);
+  const ja = Math.round(filtered.filter(d => d.ethik_im_studium === 'Ja').length / total * 100);
+  const amRande = Math.round(filtered.filter(d => d.ethik_im_studium === 'Ja, aber nur am Rande').length / total * 100);
+  const nein = Math.round(filtered.filter(d => d.ethik_im_studium === 'Nein').length / total * 100);
+  const weissNicht = Math.round(filtered.filter(d => d.ethik_im_studium === 'Weiß ich nicht').length / total * 100);
 
   // n-Anzeige aktualisieren
   const nEl = document.getElementById('chart-ethik-n');

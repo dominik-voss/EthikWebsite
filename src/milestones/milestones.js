@@ -14,8 +14,8 @@ export function initMilestones(csv) {
     // Milestone 2: Zwei Welten
     setText('m2-mil-vorstellen', avg(mil, 'vorstellen_defense').toFixed(1));
     setText('m2-ziv-vorstellen', avg(ziv, 'vorstellen_defense').toFixed(1));
-    setText('m2-mil-gewissen',   avg(mil, 'gewissenskonflikte').toFixed(1));
-    setText('m2-ziv-gewissen',   avg(ziv, 'gewissenskonflikte').toFixed(1));
+    setText('m2-mil-gewissen', avg(mil, 'gewissenskonflikte').toFixed(1));
+    setText('m2-ziv-gewissen', avg(ziv, 'gewissenskonflikte').toFixed(1));
 
     // Milestone 3: Dual-Use
     setText('m3-mil-dualuse', avg(mil, 'dualuse_bedenken').toFixed(1));

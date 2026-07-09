@@ -2,7 +2,7 @@ import { createBarChart } from './charts.js';
 import { createGroupedBarChart } from './charts.js';
 
 export function initChartGehalt(data) {
-    const studiengaenge = ['Informatik', 'SDS', 'Maschinenbau', 'Elektrotechnik', 'IB', 'Wirtschaftsinformatik'];
+    const studiengaenge = ['Informatik', 'Social Data Science & Communication', 'Maschinenbau', 'Elektrotechnik', 'International Business / BWL', 'Wirtschaftsinformatik'];
 
     const avgDefense = studiengaenge.map(sg => {
         const group = data.filter(d => d.studiengang && d.studiengang.trim() === sg);

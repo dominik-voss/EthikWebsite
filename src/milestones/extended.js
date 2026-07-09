@@ -32,10 +32,10 @@ function initRanking(data) {
     withAvg.sort((a, b) => a.avg - b.avg);
 
     container.innerHTML = withAvg.map((cat, i) => {
-    const importance = 8 - cat.avg;
-    const pct = Math.round((importance / 7) * 100);
-    const isLow = i >= withAvg.length - 2;
-    return `
+        const importance = 8 - cat.avg;
+        const pct = Math.round((importance / 7) * 100);
+        const isLow = i >= withAvg.length - 2;
+        return `
         <div class="ranking-row">
             <span class="ranking-number">${i + 1}.</span>
             <span class="ranking-label">${cat.label}</span>
@@ -45,9 +45,9 @@ function initRanking(data) {
             <span class="ranking-pct">${pct}%</span>
         </div>
     `;
-}).join('');
+    }).join('');
 
-animateRankingBars();
+    animateRankingBars();
 }
 
 function animateRankingBars() {

@@ -152,33 +152,33 @@ function refreshIconPositions() {
 ------------------------- */
 
 function setupFilters() {
-    const sgSelect = document.getElementById('studiengang-filter');
-    const gsSelect = document.getElementById('geschlecht-filter');
+  const sgSelect = document.getElementById('studiengang-filter');
+  const gsSelect = document.getElementById('geschlecht-filter');
 
-    // Studiengänge dynamisch aus Daten befüllen
-    if (sgSelect) {
-        const studiengaenge = [
-            ...new Set(
-                allStudentsData
-                    .map(d => d.studiengang)
-                    .filter(s => s && s.trim() !== '')
-                    .map(s => s.trim())
-            )
-        ].sort();
+  // Studiengänge dynamisch aus Daten befüllen
+  if (sgSelect) {
+    const studiengaenge = [
+      ...new Set(
+        allStudentsData
+          .map(d => d.studiengang)
+          .filter(s => s && s.trim() !== '')
+          .map(s => s.trim())
+      )
+    ].sort();
 
-        studiengaenge.forEach(sg => {
-            const opt = document.createElement('option');
-            opt.value = sg;
-            opt.textContent = sg;
-            sgSelect.appendChild(opt);
-        });
-    }
-
-    if (sgSelect) sgSelect.addEventListener('change', applyFilter);
-    if (gsSelect) gsSelect.addEventListener('change', () => {
-        geschlechtFilter = gsSelect.value;
-        applyFilter();
+    studiengaenge.forEach(sg => {
+      const opt = document.createElement('option');
+      opt.value = sg;
+      opt.textContent = sg;
+      sgSelect.appendChild(opt);
     });
+  }
+
+  if (sgSelect) sgSelect.addEventListener('change', applyFilter);
+  if (gsSelect) gsSelect.addEventListener('change', () => {
+    geschlechtFilter = gsSelect.value;
+    applyFilter();
+  });
 
   document.querySelectorAll('.basis-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -323,7 +323,7 @@ function fillAvatarFacts(data) {
     divers: 'Divers', deutsch: 'Deutsch', international: 'International',
   };
   const fmt = v => labels[v] || v;
-document.getElementById('avatar-fact-alter').textContent =
+  document.getElementById('avatar-fact-alter').textContent =
     `Alter: ${calcModus(students.map(s => s.alter))}`;
   document.getElementById('avatar-fact-geschlecht').textContent =
     `Geschlecht: ${fmt(calcModus(students.map(s => s.geschlecht)))}`;
@@ -421,10 +421,10 @@ function calculateTargets() {
       icon.dataset.endY = (civilRect.top - overlayRect.top) + 80 + civOffset + row * (ICON_SIZE + GAP);
       civilCount++;
     } else {
-  // unentschieden: endPos = startPos → bleiben stehen
-  icon.dataset.endX = icon.dataset.startX;
-  icon.dataset.endY = icon.dataset.startY;
-}
+      // unentschieden: endPos = startPos → bleiben stehen
+      icon.dataset.endX = icon.dataset.startX;
+      icon.dataset.endY = icon.dataset.startY;
+    }
   });
 
   const militaryRows = Math.ceil(militaryCount / militaryCols);
@@ -435,18 +435,18 @@ function calculateTargets() {
   document.getElementById('civil-sector').style.minHeight =
     `${150 + civOffset + civilRows * (ICON_SIZE + GAP)}px`;
 
-if (avatarNode) {
-  const stageRect = document.getElementById('avatar-stage').getBoundingClientRect();
-  const isMobile = window.innerWidth <= 768;
+  if (avatarNode) {
+    const stageRect = document.getElementById('avatar-stage').getBoundingClientRect();
+    const isMobile = window.innerWidth <= 768;
 
-  if (isMobile) {
-    avatarNode.dataset.introX = (stageRect.left - overlayRect.left) + (stageRect.width / 2) - 8;
-    avatarNode.dataset.introY = (stageRect.top - overlayRect.top) + 24;
-  } else {
-    avatarNode.dataset.introX = (stageRect.left - overlayRect.left) + 40;
-    avatarNode.dataset.introY = (stageRect.top - overlayRect.top) + (stageRect.height / 2) - 12;
+    if (isMobile) {
+      avatarNode.dataset.introX = (stageRect.left - overlayRect.left) + (stageRect.width / 2) - 8;
+      avatarNode.dataset.introY = (stageRect.top - overlayRect.top) + 24;
+    } else {
+      avatarNode.dataset.introX = (stageRect.left - overlayRect.left) + 40;
+      avatarNode.dataset.introY = (stageRect.top - overlayRect.top) + (stageRect.height / 2) - 12;
+    }
   }
-}
 }
 
 /* -------------------------
@@ -550,14 +550,14 @@ function updateStudentPositions(progress) {
       }
       icon.style.transform = `translate(${x}px, ${y}px)`;
     } else {
-  const t = Math.min(Math.max((progress - P_ICONS_START) / (P_ICONS_END - P_ICONS_START), 0), 1);
-  icon.style.transform = `translate(${startX + (endX - startX) * t}px, ${startY + (endY - startY) * t}px)`;
+      const t = Math.min(Math.max((progress - P_ICONS_START) / (P_ICONS_END - P_ICONS_START), 0), 1);
+      icon.style.transform = `translate(${startX + (endX - startX) * t}px, ${startY + (endY - startY) * t}px)`;
 
-  // Grau erst wenn Animation startet
-  if (icon.dataset.target === 'unentschieden') {
-    icon.style.background = t > 0 ? '#888888' : '';
-  }
-}
+      // Grau erst wenn Animation startet
+      if (icon.dataset.target === 'unentschieden') {
+        icon.style.background = t > 0 ? '#888888' : '';
+      }
+    }
   });
 }
 
@@ -579,14 +579,14 @@ function setupScrollStory() {
     const earlyStart = window.innerHeight * 0.8; // Scene startet 80vh früher
 
     currentProgress = Math.min(
-        Math.max(
-            (-sceneRect.top + earlyStart) /
-            (scene.offsetHeight - window.innerHeight + earlyStart),
-            0
-        ),
-        1
+      Math.max(
+        (-sceneRect.top + earlyStart) /
+        (scene.offsetHeight - window.innerHeight + earlyStart),
+        0
+      ),
+      1
     );
-   
+
     const { P_ICONS_END, P_PERCENT, P_MAJORITY_OUT } = calcLatePhases();
 
     intro.classList.toggle('phase-visible', currentProgress > P_INTRO);
